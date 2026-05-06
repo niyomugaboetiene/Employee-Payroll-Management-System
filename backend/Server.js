@@ -4,7 +4,10 @@ import cors from "cors";
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:57013',
+    // credentials: true
+}));
 
 app.use('/employee', EmployeeRoute);
 
