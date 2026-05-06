@@ -8,6 +8,7 @@ const SalarySchema = mongoose.Schema({
     TotalDeduction: { type: Number, required: true },
     NetSalary: { type: Number, required: true },
     month: { type: Date, required: true },
+    employee: { type: mongoose.Schema.Types.ObjectId, ref: "employees" }
 }, { timestamps: true });
 
 mongoose.model("salaries", SalarySchema);
