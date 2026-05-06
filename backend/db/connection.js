@@ -1,13 +1,15 @@
 import mongoose from "mongoose";
 
-const connect = async () => {
+const connection = async () => {
     try {
-        const conn = await mongoose.connect('mongodb://localhost:27017/EPMS');
-        console.log("Connected successfully");
-        return conn
+        const connect = await mongoose.connect("mongodb://localhost:27017/EPMS");
+        console.log("connected succesfully");
+        return connect;
     } catch (err) {
-        console.error("ERROR", err);
+        console.error(err);
     }
 }
 
-connect();
+connection();
+
+export default connection;

@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
-import connect from "../db/connection.js";
+import connection from "../db/connection.js";
 
-connect();
+connection();
 
 const SalarySchema = mongoose.Schema({
     GlossSalary: { type: Number, required: true },
