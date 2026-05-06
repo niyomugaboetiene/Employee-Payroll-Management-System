@@ -14,4 +14,5 @@ const EmployeeSchema = mongoose.Schema({
     hiredDate: { type: Date, required: true },
 }, { timestamps: true });
 
-mongoose.model("employees", EmployeeSchema);
+const Employee = mongoose.model("employees", EmployeeSchema);
+export default Employee;
