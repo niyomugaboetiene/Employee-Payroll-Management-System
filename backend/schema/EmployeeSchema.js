@@ -12,4 +12,6 @@ const EmployeeSchema = mongoose.Schema({
     Telephone: { type: String , required: true },
     Gender: { type: String, required: true },
     hiredDate: { type: Date, required: true },
-}, { timestamps: true })
+}, { timestamps: true });
+
+mongoose.model("employees", EmployeeSchema);
