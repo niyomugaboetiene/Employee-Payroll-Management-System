@@ -21,6 +21,9 @@ const AddEmployee = () => {
         try {
             if (!employeeNumber || !FirstName || !LastName || !Position || !Address || !Telephone || !Gender || !hiredDate) {
                 setError("Fill out missing fields");
+                setInterval(() => {
+                    setError("");
+                }, 4000);
                 setSuccess("");
                 return;
             }
@@ -29,30 +32,42 @@ const AddEmployee = () => {
                 employeeNumber, FirstName, LastName, Position, Address, Telephone, Gender, hiredDate, department
             });
            setLoading(false);
-           setSuccess(res.data.message);
            setError("");
+           setSuccess(res.data.message);
+          setInterval(() => {
+                    setSuccess("");
+         }, 4000);
         } catch (err) {
             console.error(err);
             const errorMessage = err.response?.data?.message || "Error occurred";
             setError(errorMessage);
+             setError("");
+          setInterval(() => {
+                    setError("");
+         }, 4000);
             setSuccess("");
         }
     }
 
 
     return (
-        <div>
-            <div>
-                <h2>Add Employee Portal</h2>
+        <div className="bg-gray-200 min-h-screen flex justify-center items-center">
+            <div className="bg-white p-3 rounded-lg shadow-2xl w-90">
+                <h2 className="text-gray-700 font-bold text-center text-sm">Add Employee Portal</h2>
 
                 {success && (
-                    <p>{success}</p>
+                    <div className="bg-green-500 mt-2 mb-3 p-1 rounded-lg text-green-100">
+                        <p className="ms-1 font-bold text-sm">{success}</p>
+                    </div>
                 )}
                 {error && (
-                    <p>{error}</p>
+                 <div className="bg-red-500 mt-2 mb-3 p-1 rounded-lg text-red-100">
+                    <p className="ms-1 font-bold text-sm">{error}</p>
+                  </div>
                 )}
-                <div>
+                <div className="mt-2"> 
                     <input 
+                     className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
                     type="number" onChange={(e) => {
                         setEmployeeNumber(e.target.value)
                     }} 
@@ -60,8 +75,9 @@ const AddEmployee = () => {
                     />
                 </div>
                 
-                <div>
+                <div className="mt-2">
                     <input 
+                    className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
                     type="text" onChange={(e) => {
                         setFirstName(e.target.value)
                     }} 
@@ -69,26 +85,28 @@ const AddEmployee = () => {
                     />
                 </div>
                 
-                <div>
+                <div className="mt-2">
                     <input 
+                    className="bg-gray-300 text-xs py-2 w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
                     type="text" onChange={(e) => {
                         setLastName(e.target.value)
                     }} 
                     placeholder="Enter LastName"
                     />
                 </div>
-                {/*     // employeeNumber, FirstName, LastName, Position, Address, Telephone, Gender, hiredDate, department */}
 
-                <div>
+                <div className="mt-2">
                     <input 
+                     className="bg-gray-300 text-xs  py-2 w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
                     type="text" onChange={(e) => {
                         setPosition(e.target.value)
                     }} 
                     placeholder="Enter Postion"
                     />
                 </div>
-                <div>
+                <div className="mt-2">
                     <input 
+                    className="bg-gray-300 text-xs py-2 w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
                     type="text" onChange={(e) => {
                         setAddress(e.target.value)
                     }} 
@@ -96,16 +114,18 @@ const AddEmployee = () => {
                     />
                 </div>
                 
-                <div>
+                <div className="mt-2">
                     <input 
+                    className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
                     type="text" onChange={(e) => {
                         setTelephone(e.target.value)
                     }} 
                     placeholder="Enter Telephone"
                     />
                 </div>
-                <div>
+                <div className="mt-2">
                     <input 
+                   className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
                     type="text" onChange={(e) => {
                         setGender(e.target.value)
                     }} 
@@ -113,16 +133,18 @@ const AddEmployee = () => {
                     />
                 </div>
                 
-                <div>
+                <div className="mt-2">
                     <input 
+                    className="bg-gray-300 text-xs py-2 w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
                     type="date" onChange={(e) => {
                         setHiredDate(e.target.value)
                     }} 
                     />
                 </div>
                 
-                <div>
+                <div className="mt-2">
                     <input 
+                     className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
                     type="text" onChange={(e) => {
                         setDepartment(e.target.value)
                     }} 
@@ -130,7 +152,14 @@ const AddEmployee = () => {
                     />
                 </div>
 
-                <button onClick={handleAddNewEmployee}>+ Add new</button>
+                {/* <div className="mt-4 flex justify-between">
+                    <button onClick={handleAddNewEmployee} className="bg-gray-300 py-2 text-xs px-2 rounded-lg font-light hover:bg-gray-400 transition-colors active:bg-gray-500">+ Add new</button>
+                    <button className="bg-red-500 text-xs px-2 rounded-lg font-light text-white hover:bg-red-400 transition-colors active:bg-red-500">Back</button>
+                </div> */}
+              <div className="mt-4">
+                    <button onClick={handleAddNewEmployee} className="w-full bg-gray-300 py-2 text-xs px-2 rounded-lg font-light hover:bg-gray-400 transition-colors active:bg-gray-500">+ Add new</button>
+                    <button className="bg-red-500 text-xs px-2 w-full py-2 mt-2 rounded-lg font-light text-white hover:bg-red-400 transition-colors active:bg-red-500">Back</button>
+                </div>
             </div>
         </div>
     )
