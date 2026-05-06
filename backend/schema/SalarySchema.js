@@ -10,4 +10,4 @@ const SalarySchema = mongoose.Schema({
     month: { type: Date, required: true },
 }, { timestamps: true });
 
-mongoose.model("employees", EmployeeSchema);
+mongoose.model("salaries", SalarySchema);
