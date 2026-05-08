@@ -13,6 +13,8 @@ router.post('/addSalary', async (req, res) => {
 
         const NetSalary = Number(GlossSalary) - Number(TotalDeduction);
 
+        console.log("Received fields", "GrossSalary", GlossSalary, "Total deduction", TotalDeduction, "")
+
         const newSalary = await Salary.create({
             GlossSalary, TotalDeduction, NetSalary, month, employee
         });
