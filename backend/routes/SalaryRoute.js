@@ -65,19 +65,19 @@ router.put('/update/:_id', async (req, res) => {
     try{
         const _id = req.params._id;
     
-        const { employeeNumber, FirstName, LastName, Position, Address, Telephone, Gender, hiredDate, department } = req.body;  
+        const { GrossSalary, TotoalDeduction,  month, employee  } = req.body;  
      
         let fieldToBeUpdated = {};
 
-        if (employeeNumber) fieldToBeUpdated.employeeNumber = employeeNumber;
-        if (FirstName) fieldToBeUpdated.FirstName = FirstName;
-        if (LastName) fieldToBeUpdated.LastName = LastName;
-        if (Position) fieldToBeUpdated.Position = Position;
-        if (Address) fieldToBeUpdated.Address = Address;
-        if (Telephone) fieldToBeUpdated.Telephone = Telephone;
-        if (hiredDate) fieldToBeUpdated.hiredDate = hiredDate;
-        if (Gender) fieldToBeUpdated.Gender = Gender;
-        if (department) fieldToBeUpdated.department = department;
+        if (GrossSalary) fieldToBeUpdated.GrossSalary = GrossSalary;
+        if (TotoalDeduction) fieldToBeUpdated.TotoalDeduction = TotoalDeduction;
+
+        if (GrossSalary && TotoalDeduction) {
+            const NetSalary = GrossSalary - TotoalDeduction;
+            fieldToBeUpdated.NetSalary = NetSalary;
+        }
+        if (month) fieldToBeUpdated.month = Gender;
+        if (employee) fieldToBeUpdated.employee = employee;
 
         const updatedEmployee = await Employee.findByIdAndUpdate(_id, fieldToBeUpdated);
 
