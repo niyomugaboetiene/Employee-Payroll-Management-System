@@ -4,8 +4,13 @@ import Employee from "../schema/EmployeeSchema.js";
 const router = express.Router();
 
 router.post('/addSalary', async (req, res) => {
+    // GlossSalary
+    // TotalDeduction
+    // NetSalary
+    // month
+    // employee
     try {
-        const { employeeNumber, FirstName, LastName, Position, Address, Telephone, Gender, hiredDate, department } = req.body;  
+        const { GrossSalary, TotoalDeduction, N, Position, Address, Telephone, Gender, hiredDate, department } = req.body;  
 
         if (!employeeNumber || !FirstName || !LastName || !Position || !Address || !Telephone || !Gender || !hiredDate) {
             return res.status(403).json({ message: 'Fill some missing fields' });
