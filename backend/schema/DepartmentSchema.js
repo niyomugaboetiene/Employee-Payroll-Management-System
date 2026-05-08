@@ -9,4 +9,6 @@ const DepartmentSchema = mongoose.Schema({
     GrossSalary: { type: Number, required: true },
 }, { timestamps: true });
 
-mongoose.model("departments", DepartmentSchema);
+const Department = mongoose.model("departments", DepartmentSchema);
+
+export default Department;
