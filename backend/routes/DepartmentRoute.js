@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.post('/addDepartment', async (req, res) => {
     try {
-        const { employeeNumber, FirstName, LastName, Position, Address, Telephone, Gender, hiredDate, department } = req.body;  
+        const { DepartmentCode, DepartmentName, GrossSalary } = req.body;  
 
         if (!employeeNumber || !FirstName || !LastName || !Position || !Address || !Telephone || !Gender || !hiredDate) {
             return res.status(403).json({ message: 'Fill some missing fields' });
