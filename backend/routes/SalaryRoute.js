@@ -18,11 +18,11 @@ router.post('/addSalary', async (req, res) => {
 
         const NetSalary = Number(GrossSalary) - Number(TotoalDeduction);
 
-        const newEmployee = await Employee.create({
+        const newSalary = await Employee.create({
             GrossSalary, TotoalDeduction, NetSalary, month, employee
         });
 
-        return res.status(201).json({ message: 'Employee added succesfully', employee: newEmployee });
+        return res.status(201).json({ message: 'Salary added succesfully', salary: newSalary });
     } catch (err) {
         console.error(err);
         return res.status(500).json({ message: 'Internal server error' });
