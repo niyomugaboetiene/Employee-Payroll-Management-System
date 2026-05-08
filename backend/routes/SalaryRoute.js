@@ -7,13 +7,13 @@ router.post('/addSalary', async (req, res) => {
     try {
         const { GlossSalary, TotalDeduction, month, employee } = req.body;  
 
+        // console.log("Received fields", "GrossSalary", GlossSalary, "Total deduction", TotalDeduction, "Month", month, "employee", employee);
+
         if (!GlossSalary || !TotalDeduction || !month || !employee) {
             return res.status(403).json({ message: 'Fill some missing fields' });
         }
 
         const NetSalary = Number(GlossSalary) - Number(TotalDeduction);
-
-        console.log("Received fields", "GrossSalary", GlossSalary, "Total deduction", TotalDeduction, "")
 
         const newSalary = await Salary.create({
             GlossSalary, TotalDeduction, NetSalary, month, employee
