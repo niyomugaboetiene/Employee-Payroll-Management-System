@@ -10,9 +10,9 @@ router.post('/addSalary', async (req, res) => {
     // month
     // employee
     try {
-        const { GrossSalary, TotoalDeduction, N, Position, Address, Telephone, Gender, hiredDate, department } = req.body;  
+        const { GrossSalary, TotoalDeduction, month, employee} = req.body;  
 
-        if (!employeeNumber || !FirstName || !LastName || !Position || !Address || !Telephone || !Gender || !hiredDate) {
+        if (!GrossSalary || !TotoalDeduction || !month || !employee) {
             return res.status(403).json({ message: 'Fill some missing fields' });
         }
 
