@@ -12,10 +12,10 @@ router.post('/addDepartment', async (req, res) => {
         }
 
         const newDepartment = await Department.create({
-            employeeNumber, FirstName, LastName, Position, Address, Telephone, Gender, hiredDate, department
+            DepartmentCode, DepartmentName, GrossSalary
         });
 
-        return res.status(201).json({ message: 'Employee added succesfully', employee: newEmployee });
+        return res.status(201).json({ message: 'Department added succesfully', department: newDepartment });
     } catch (err) {
         console.error(err);
         return res.status(500).json({ message: 'Internal server error' });
