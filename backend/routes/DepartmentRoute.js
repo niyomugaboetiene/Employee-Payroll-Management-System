@@ -22,7 +22,7 @@ router.post('/addDepartment', async (req, res) => {
     }
 });
 
-router.get('/employeeList', async (req, res) => {
+router.get('/departmentList', async (req, res) => {
     try {
         const List = await Employee.find().populate("departments");
 
