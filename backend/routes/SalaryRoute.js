@@ -50,11 +50,11 @@ router.get('/get/:_id', async (req, res) => {
             return res.status(403).json({ message: 'Id is required' });
         }
 
-        const Employees = await Employee.findById(_id).populate("departments");
+        const List = await Salary.findById(_id).populate("employees");
         // Employee.find({ employeeNumber: employeeNumber });
         // Employee.findOne({ _id: _id });
 
-        return res.status(200).json({ message: 'Employee', employee: Employees });
+        return res.status(200).json({ message: 'Salary', salary: List });
     } catch (err) {
         console.error(err);
         return res.status(500).json({ message: 'Internal server error' });      
