@@ -4,7 +4,7 @@ import connection from "../db/connection.js";
 connection();
 
 const DepartmentSchema = mongoose.Schema({
-    DepartementCode: { type: Number, required: true, unique: true },
+    DepartementCode: { type: String, required: true, unique: true },
     DepartementName: { type: String, required: true },
     GrossSalary: { type: Number, required: true },
 }, { timestamps: true });
