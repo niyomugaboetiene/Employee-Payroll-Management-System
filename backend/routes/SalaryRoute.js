@@ -30,7 +30,7 @@ router.get('/salaryList', async (req, res) => {
         const List = await Salary.find().populate("employees");
 
         if (List.length === 0) {
-            return res.status(404).json({ message: 'No employee in the database'})
+            return res.status(404).json({ message: 'No salary in the database'})
         }
 
         return res.status(200).json({
@@ -82,7 +82,7 @@ router.put('/update/:_id', async (req, res) => {
 
         const updatedDepartment = await Department.findByIdAndUpdate(_id, fieldToBeUpdated);
 
-        return res.status(200).json({ message:'Updated Departement', updated: updatedEmployee });
+        return res.status(200).json({ message:'Updated salary', updated: updatedEmployee });
     } catch (err) {
         console.error(err);
         return res.status(500).json({ message: 'Internal server error' });      
@@ -95,7 +95,7 @@ router.delete('/delete/:_id', async(req, res) => {
         // const { _id } = req.params;
 
         await Department.findByIdAndDelete(_id);
-        return res.status(200).json({ message: 'Employee deleted succesfully'})
+        return res.status(200).json({ message: 'Departement deleted succesfully'})
 
     } catch (err) {
         console.error(err);
