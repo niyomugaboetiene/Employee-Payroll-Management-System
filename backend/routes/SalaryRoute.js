@@ -4,13 +4,8 @@ import Salary from "../schema/SalarySchema";
 const router = express.Router();
 
 router.post('/addSalary', async (req, res) => {
-    // GlossSalary
-    // TotalDeduction
-    // NetSalary
-    // month
-    // employee
     try {
-        const { GrossSalary, TotoalDeduction, month, employee} = req.body;  
+        const { GrossSalary, TotoalDeduction, month, employee } = req.body;  
 
         if (!GrossSalary || !TotoalDeduction || !month || !employee) {
             return res.status(403).json({ message: 'Fill some missing fields' });
@@ -31,15 +26,15 @@ router.post('/addSalary', async (req, res) => {
 
 router.get('/salaryList', async (req, res) => {
     try {
-        const List = await Salary.find().populate("departments");
+        const List = await Salary.find().populate("employees");
 
         if (List.length === 0) {
             return res.status(404).json({ message: 'No employee in the database'})
         }
 
         return res.status(200).json({
-            message: 'Employees list',
-            employee: List
+            message: 'Salary list',
+            salary: List
         });
     } catch (err) {
          console.error(err);
