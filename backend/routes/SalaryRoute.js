@@ -16,10 +16,10 @@ router.post('/addSalary', async (req, res) => {
             return res.status(403).json({ message: 'Fill some missing fields' });
         }
 
-        const NetSalary = GrossSalary - TotoalDeduction;
+        const NetSalary = Number(GrossSalary) - Number(TotoalDeduction);
 
         const newEmployee = await Employee.create({
-            GrossSalary, TotoalDeduction, LastName, Position, Address, Telephone, Gender, hiredDate, department
+            GrossSalary, TotoalDeduction, NetSalary, month, employee
         });
 
         return res.status(201).json({ message: 'Employee added succesfully', employee: newEmployee });
