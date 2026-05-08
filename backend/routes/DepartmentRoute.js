@@ -24,15 +24,15 @@ router.post('/addDepartment', async (req, res) => {
 
 router.get('/departmentList', async (req, res) => {
     try {
-        const List = await Employee.find().populate("departments");
+        const List = await Department.find();
 
         if (List.length === 0) {
-            return res.status(404).json({ message: 'No employee in the database'})
+            return res.status(404).json({ message: 'No department in the database'})
         }
 
         return res.status(200).json({
-            message: 'Employees list',
-            employee: List
+            message: 'Department list',
+            department: List
         });
     } catch (err) {
          console.error(err);
@@ -48,11 +48,11 @@ router.get('/get/:_id', async (req, res) => {
             return res.status(403).json({ message: 'Id is required' });
         }
 
-        const Employees = await Employee.findById(_id).populate("departments");
+        const List = await Department.findById(_id);
         // Employee.find({ employeeNumber: employeeNumber });
         // Employee.findOne({ _id: _id });
 
-        return res.status(200).json({ message: 'Employee', employee: Employees });
+        return res.status(200).json({ message: 'Department', department: List });
     } catch (err) {
         console.error(err);
         return res.status(500).json({ message: 'Internal server error' });      
