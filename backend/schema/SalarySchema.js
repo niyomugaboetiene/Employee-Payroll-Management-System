@@ -11,4 +11,6 @@ const SalarySchema = mongoose.Schema({
     employee: { type: mongoose.Schema.Types.ObjectId, ref: "employees" }
 }, { timestamps: true });
 
-mongoose.model("salaries", SalarySchema);
+const Salary = mongoose.model("salaries", SalarySchema);
+
+export default Salary;
