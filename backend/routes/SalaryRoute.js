@@ -5,16 +5,16 @@ const router = express.Router();
 
 router.post('/addSalary', async (req, res) => {
     try {
-        const { GlossSalary, TotoalDeduction, month, employee } = req.body;  
+        const { GlossSalary, TotalDeduction, month, employee } = req.body;  
 
-        if (!GlossSalary || !TotoalDeduction || !month || !employee) {
+        if (!GlossSalary || !TotalDeduction || !month || !employee) {
             return res.status(403).json({ message: 'Fill some missing fields' });
         }
 
-        const NetSalary = Number(GlossSalary) - Number(TotoalDeduction);
+        const NetSalary = Number(GlossSalary) - Number(TotalDeduction);
 
         const newSalary = await Salary.create({
-            GlossSalary, TotoalDeduction, NetSalary, month, employee
+            GlossSalary, TotalDeduction, NetSalary, month, employee
         });
 
         return res.status(201).json({ message: 'Salary added succesfully', salary: newSalary });
