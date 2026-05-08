@@ -1,5 +1,6 @@
 import express from "express";
 import Salary from "../schema/SalarySchema";
+import Department from "../schema/DepartmentSchema";
 
 const router = express.Router();
 
@@ -79,9 +80,9 @@ router.put('/update/:_id', async (req, res) => {
         if (month) fieldToBeUpdated.month = Gender;
         if (employee) fieldToBeUpdated.employee = employee;
 
-        const updatedEmployee = await Employee.findByIdAndUpdate(_id, fieldToBeUpdated);
+        const updatedDepartment = await Department.findByIdAndUpdate(_id, fieldToBeUpdated);
 
-        return res.status(200).json({ message:'Updated employee', updated: updatedEmployee });
+        return res.status(200).json({ message:'Updated Departement', updated: updatedEmployee });
     } catch (err) {
         console.error(err);
         return res.status(500).json({ message: 'Internal server error' });      
@@ -93,7 +94,7 @@ router.delete('/delete/:_id', async(req, res) => {
         const _id = req.params._id;
         // const { _id } = req.params;
 
-        await Employee.findByIdAndDelete(_id);
+        await Department.findByIdAndDelete(_id);
         return res.status(200).json({ message: 'Employee deleted succesfully'})
 
     } catch (err) {
