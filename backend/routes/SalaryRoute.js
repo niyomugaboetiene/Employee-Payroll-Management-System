@@ -1,5 +1,5 @@
 import express from "express";
-import Employee from "../schema/EmployeeSchema.js";
+import Salary from "../schema/SalarySchema";
 
 const router = express.Router();
 
@@ -18,7 +18,7 @@ router.post('/addSalary', async (req, res) => {
 
         const NetSalary = Number(GrossSalary) - Number(TotoalDeduction);
 
-        const newSalary = await Employee.create({
+        const newSalary = await Salary.create({
             GrossSalary, TotoalDeduction, NetSalary, month, employee
         });
 
@@ -29,9 +29,9 @@ router.post('/addSalary', async (req, res) => {
     }
 });
 
-router.get('/employeeList', async (req, res) => {
+router.get('/salaryList', async (req, res) => {
     try {
-        const List = await Employee.find().populate("departments");
+        const List = await Salary.find().populate("departments");
 
         if (List.length === 0) {
             return res.status(404).json({ message: 'No employee in the database'})
