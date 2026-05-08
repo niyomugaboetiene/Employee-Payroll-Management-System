@@ -1,9 +1,9 @@
 import express from "express";
-import Employee from "../schema/EmployeeSchema.js";
+import Department from "../schema/DepartmentSchema.js";
 
 const router = express.Router();
 
-router.post('/addEmployee', async (req, res) => {
+router.post('/addDepartment', async (req, res) => {
     try {
         const { employeeNumber, FirstName, LastName, Position, Address, Telephone, Gender, hiredDate, department } = req.body;  
 
