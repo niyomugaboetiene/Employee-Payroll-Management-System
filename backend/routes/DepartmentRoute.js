@@ -70,7 +70,7 @@ router.put('/update/:_id', async (req, res) => {
         let fieldToBeUpdated = {};
 
         if (DepartementCode) fieldToBeUpdated.DepartementCode = DepartementCode;
-        if (DepartementName) fieldToBeUpdated.DepartmentName = DepartementCode;
+        if (DepartementName) fieldToBeUpdated.DepartementName = DepartementName;
         if (GrossSalary) fieldToBeUpdated.GrossSalary = GrossSalary;
 
         const updatedDepartment = await Department.findByIdAndUpdate(_id, fieldToBeUpdated, { new: true });
