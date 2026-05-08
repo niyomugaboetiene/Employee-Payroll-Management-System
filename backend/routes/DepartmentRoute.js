@@ -5,14 +5,16 @@ const router = express.Router();
 
 router.post('/addDepartment', async (req, res) => {
     try {
-        const { DepartmentCode, DepartmentName, GrossSalary } = req.body;  
+        const { DepartementCode, DepartementName, GrossSalary } = req.body;  
 
-        if (!DepartmentCode || !DepartmentName || !GrossSalary) {
+        if (!DepartementCode || !DepartementName || !GrossSalary) {
             return res.status(403).json({ message: 'Fill some missing fields' });
         }
 
+        console.log("DepartementCode", DepartementCode);
+
         const newDepartment = await Department.create({
-            DepartmentCode, DepartmentName, GrossSalary
+            DepartementCode, DepartementName, GrossSalary
         });
 
         return res.status(201).json({ message: 'Department added succesfully', department: newDepartment });
