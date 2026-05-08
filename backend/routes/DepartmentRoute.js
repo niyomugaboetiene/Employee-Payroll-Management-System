@@ -7,11 +7,11 @@ router.post('/addDepartment', async (req, res) => {
     try {
         const { DepartmentCode, DepartmentName, GrossSalary } = req.body;  
 
-        if (!employeeNumber || !FirstName || !LastName || !Position || !Address || !Telephone || !Gender || !hiredDate) {
+        if (!DepartmentCode || !DepartmentName || !GrossSalary) {
             return res.status(403).json({ message: 'Fill some missing fields' });
         }
 
-        const newEmployee = await Employee.create({
+        const newDepartment = await Department.create({
             employeeNumber, FirstName, LastName, Position, Address, Telephone, Gender, hiredDate, department
         });
 
