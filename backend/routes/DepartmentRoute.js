@@ -73,7 +73,7 @@ router.put('/update/:_id', async (req, res) => {
         if (DepartementName) fieldToBeUpdated.DepartementName = DepartementName;
         if (GrossSalary) fieldToBeUpdated.GrossSalary = GrossSalary;
 
-        const updatedDepartment = await Department.findByIdAndUpdate(_id, fieldToBeUpdated, { new: true });
+        const updatedDepartment = await Department.findByIdAndUpdate(_id, fieldToBeUpdated, { returnDocument: 'after' });
 
         return res.status(200).json({ message:'Updated Department', updated: updatedDepartment });
     } catch (err) {
