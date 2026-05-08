@@ -65,12 +65,12 @@ router.put('/update/:_id', async (req, res) => {
     try{
         const _id = req.params._id;
     
-        const {DepartmentCode, DepartmentName, GrossSalary } = req.body;  
+        const {DepartementCode, DepartementName, GrossSalary } = req.body;  
      
         let fieldToBeUpdated = {};
 
-        if (DepartmentCode) fieldToBeUpdated.DepartmentCode = DepartmentCode;
-        if (DepartmentName) fieldToBeUpdated.DepartmentName = DepartmentName;
+        if (DepartementCode) fieldToBeUpdated.DepartmentName = DepartementCode;
+        if (DepartementName) fieldToBeUpdated.DepartmentName = DepartementCode;
         if (GrossSalary) fieldToBeUpdated.GrossSalary = GrossSalary;
 
         const updatedDepartment = await Department.findByIdAndUpdate(_id, fieldToBeUpdated);
