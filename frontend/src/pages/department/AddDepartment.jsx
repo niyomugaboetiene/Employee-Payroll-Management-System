@@ -4,14 +4,8 @@ import axios from "axios";
 const AddDepartment = () => {
     // DepartementCode, DepartementName, GrossSalary 
     const [DepartementCode, setDepartementCode] = useState("");
-    const [FirstName, setFirstName] = useState("");
-    const [LastName, setLastName] = useState("");
-    const [Position, setPosition] = useState("");
-    const [Address, setAddress] = useState("");
-    const [Gender, setGender] = useState("");
-    const [Telephone, setTelephone] = useState("");
-    const [hiredDate, setHiredDate] = useState("");
-    const [department, setDepartment] = useState("");
+    const [DepartementName, setDepartementName] = useState("");
+    const [GrossSalary, setGrossSalary] = useState("");
 
     const [success, setSuccess] = useState("");
     const [loading, setLoading] = useState(false);
@@ -19,7 +13,7 @@ const AddDepartment = () => {
 
     const handleAddNewEmployee = async () => {
         try {
-            if (!employeeNumber || !FirstName || !LastName || !Position || !Address || !Telephone || !Gender || !hiredDate) {
+            if (!DepartementCode || !DepartementName || !GrossSalary) {
                 setError("Fill out missing fields");
                 setInterval(() => {
                     setError("");
@@ -29,7 +23,7 @@ const AddDepartment = () => {
             }
             setLoading(true);
             const res = await axios.post('http://localhost:4000/employee/addEmployee', {
-                employeeNumber, FirstName, LastName, Position, Address, Telephone, Gender, hiredDate, department
+                DepartementCode, DepartementName, GrossSalary
             });
            setLoading(false);
            setError("");
