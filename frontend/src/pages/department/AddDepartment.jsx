@@ -47,7 +47,7 @@ const AddDepartment = () => {
     return (
         <div className="bg-gray-200 min-h-screen flex justify-center items-center">
             <div className="bg-white p-3 rounded-lg shadow-2xl w-90">
-                <h2 className="text-gray-700 font-bold text-center text-sm">Add Employee Portal</h2>
+                <h2 className="text-gray-700 font-bold text-center text-sm">Add Department Portal</h2>
 
                 {success && (
                     <div className="bg-green-500 mt-2 mb-3 p-1 rounded-lg text-green-100">
