@@ -111,7 +111,9 @@ const AddSalary = () => {
 
                 <div>
                     <select >
-                        
+                        {selectedEmployee?.map((emp, index) => (
+                            <option value={emp._id}>{emp.FirstName} . {emp.LastName}</option>
+                        ))}
                     </select>
                 </div>
 
