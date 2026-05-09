@@ -63,9 +63,9 @@ const AddDepartment = () => {
                     <input 
                      className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
                     type="number" onChange={(e) => {
-                        setEmployeeNumber(e.target.value)
+                        setDepartementCode(e.target.value)
                     }} 
-                    placeholder="Enter Employee Number"
+                    placeholder="Enter Department code"
                     />
                 </div>
                 
@@ -73,9 +73,9 @@ const AddDepartment = () => {
                     <input 
                     className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
                     type="text" onChange={(e) => {
-                        setFirstName(e.target.value)
+                        setDepartementName(e.target.value)
                     }} 
-                    placeholder="Enter First name"
+                    placeholder="Enter Departement Name"
                     />
                 </div>
                 
@@ -83,66 +83,9 @@ const AddDepartment = () => {
                     <input 
                     className="bg-gray-300 text-xs py-2 w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
                     type="text" onChange={(e) => {
-                        setLastName(e.target.value)
+                        setGrossSalary(e.target.value)
                     }} 
                     placeholder="Enter LastName"
-                    />
-                </div>
-
-                <div className="mt-2">
-                    <input 
-                     className="bg-gray-300 text-xs  py-2 w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
-                    type="text" onChange={(e) => {
-                        setPosition(e.target.value)
-                    }} 
-                    placeholder="Enter Postion"
-                    />
-                </div>
-                <div className="mt-2">
-                    <input 
-                    className="bg-gray-300 text-xs py-2 w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
-                    type="text" onChange={(e) => {
-                        setAddress(e.target.value)
-                    }} 
-                    placeholder="Enter Address"
-                    />
-                </div>
-                
-                <div className="mt-2">
-                    <input 
-                    className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
-                    type="text" onChange={(e) => {
-                        setTelephone(e.target.value)
-                    }} 
-                    placeholder="Enter Telephone"
-                    />
-                </div>
-                <div className="mt-2">
-                    <input 
-                   className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
-                    type="text" onChange={(e) => {
-                        setGender(e.target.value)
-                    }} 
-                    placeholder="Enter Gender"
-                    />
-                </div>
-                
-                <div className="mt-2">
-                    <input 
-                    className="bg-gray-300 text-xs py-2 w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
-                    type="date" onChange={(e) => {
-                        setHiredDate(e.target.value)
-                    }} 
-                    />
-                </div>
-                
-                <div className="mt-2">
-                    <input 
-                     className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
-                    type="text" onChange={(e) => {
-                        setDepartment(e.target.value)
-                    }} 
-                    placeholder="Enter department"
                     />
                 </div>
 
