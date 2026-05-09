@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 
 const AddDepartment = () => {
-    // employeeNumber, FirstName, LastName, Position, Address, Telephone, Gender, hiredDate, department
+    // DepartementCode, DepartementName, GrossSalary 
     const [employeeNumber, setEmployeeNumber] = useState(0);
     const [FirstName, setFirstName] = useState("");
     const [LastName, setLastName] = useState("");
