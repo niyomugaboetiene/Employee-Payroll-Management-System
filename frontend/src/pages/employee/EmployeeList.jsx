@@ -57,8 +57,8 @@ const EmployeeList = () => {
                                 <td className="py-3 px-5">{new Date(emp.createdAt).toLocaleDateString()}</td>
 
                                 <td className="flex gap-4">
-                                    <Link className="py-2 px-3 bg-green-400 mt-2 rounded-lg text-white font-bold">Update</Link>
-                                    <button className="py-2 px-3 bg-red-400 mt-2 rounded-lg text-white font-bold me-3">Delete</button>
+                                    <Link className="py-2 px-3 bg-green-400 mt-2 rounded-lg text-white font-bold hover:bg-green-500 transition-colors">Update</Link>
+                                    <button className="py-2 px-3 bg-red-400 mt-2 rounded-lg text-white font-bold me-3 hover:bg-red-500 transition-colors">Delete</button>
                                 </td>
                             </tr>
                         ))}
