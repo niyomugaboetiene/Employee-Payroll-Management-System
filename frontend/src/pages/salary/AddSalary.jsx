@@ -14,6 +14,12 @@ const AddSalary = () => {
 
     const [selectedEmployee, setSelectedEmployee] = useState(null);
 
+    const handleGetEmployee = async () => {
+        try {
+            const res = await axios.get()
+        }
+    } 
+
     const handleAddNewDepartment = async () => {
         try {
             if (!GlossSalary || !TotalDeduction || !month) {
