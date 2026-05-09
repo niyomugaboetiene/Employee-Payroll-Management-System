@@ -41,7 +41,14 @@ const handleGetEmployee = () => {
                     </thead>
 
                     <tbody>
-                        <tr></tr>
+                        {employee?.map((emp, index) => (
+                            <tr key={index}>
+                                <td>{emp.employeeNumber}</td>
+                                <td>{emp.employeeNumber}</td>
+                                <td>{emp.employeeNumber}</td>
+                                <td>{emp.employeeNumber}</td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>
