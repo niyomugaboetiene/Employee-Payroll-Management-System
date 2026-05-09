@@ -44,9 +44,14 @@ const handleGetEmployee = () => {
                         {employee?.map((emp, index) => (
                             <tr key={index}>
                                 <td>{emp.employeeNumber}</td>
-                                <td>{emp.employeeNumber}</td>
-                                <td>{emp.employeeNumber}</td>
-                                <td>{emp.employeeNumber}</td>
+                                <td>{emp.FirstName}</td>
+                                <td>{emp.LastName}</td>
+                                <td>{emp.Position}</td>
+                                <td>{emp.Address}</td>
+                                <td>{emp.Telephone}</td>
+                                <td>{emp.Gender}</td>
+                                <td>{emp.hiredDate}</td>
+                                <td>{emp.createdAt}</td>
                             </tr>
                         ))}
                     </tbody>
