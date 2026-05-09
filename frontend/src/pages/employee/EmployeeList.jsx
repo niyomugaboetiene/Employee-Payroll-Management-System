@@ -13,7 +13,20 @@ const handleGetEmployee = () => {
             setIsLoading(false);
         } catch (err) {
             console.error(err);
-            const errorMessage = err.data?.response?.message || "Error occured"
+            // const errorMessage = err.data?.response?.message || "Error occured";
+            setIsLoading(true);
         }
     }
+
+    useEffect(() => {
+        handleGetEmployee();
+    }, []);
+
+    return (
+        <div>
+            <div>
+                <table border={2}></table>
+            </div>
+        </div>
+    )
 }
