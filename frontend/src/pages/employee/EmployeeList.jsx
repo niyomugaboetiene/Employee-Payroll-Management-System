@@ -27,7 +27,7 @@ const EmployeeList = () => {
             <div className="mt-12">
                 <h1 className="text-center mb-2 text-2xl font-bold text-gray-700">Employee List</h1>
                 <table border={2}>
-                    <thead className="bg-gray-400 text-white">
+                    <thead className="bg-gray-400 text-white ">
                         <tr>
                             <th className="py-3 px-5">Employee Number</th>
                             <th className="py-3 px-5">First Name</th>
