@@ -38,6 +38,7 @@ const EmployeeList = () => {
                             <th className="py-3 px-5">Gender</th>
                             <th className="py-3 px-5">Hired Date</th>
                             <th className="py-3 px-5">Registered Date</th>
+                            <th className="py-3 px-5">Modification</th>
                         </tr>
                     </thead>
 
