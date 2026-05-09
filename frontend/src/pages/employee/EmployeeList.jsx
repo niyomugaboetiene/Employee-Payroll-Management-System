@@ -11,7 +11,9 @@ const handleGetEmployee = () => {
             const res = await axios.get('http://localhost:4000/employee/employeeList');
             setEmployee(res.data.employee);
             setIsLoading(false);
-
+        } catch (err) {
+            console.error(err);
+            const errorMessage = err.data?.response?.message || "Error occured"
         }
     }
 }
