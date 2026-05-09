@@ -24,7 +24,7 @@ router.post('/addEmployee', async (req, res) => {
 
 router.get('/employeeList', async (req, res) => {
     try {
-        const List = await Employee.find().populate("departments");
+        const List = await Employee.find().populate("department");
 
         if (List.length === 0) {
             return res.status(404).json({ message: 'No employee in the database'})
@@ -48,7 +48,7 @@ router.get('/get/:_id', async (req, res) => {
             return res.status(403).json({ message: 'Id is required' });
         }
 
-        const Employees = await Employee.findById(_id).populate("departments");
+        const Employees = await Employee.findById(_id).populate("department");
         // Employee.find({ employeeNumber: employeeNumber });
         // Employee.findOne({ _id: _id });
 
