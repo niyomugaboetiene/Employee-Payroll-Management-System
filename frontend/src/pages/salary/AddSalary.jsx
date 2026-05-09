@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { useEffect } from "react";
 
 const AddSalary = () => {
     // GlossSalary, TotalDeduction, month, employee 
@@ -26,7 +27,11 @@ const AddSalary = () => {
         }
     } 
 
-    const handleAddNewDepartment = async () => {
+    useEffect(() => {
+        handleGetEmployee();
+    }, []);
+
+    const handleAddNewSalary = async () => {
         try {
             if (!GlossSalary || !TotalDeduction || !month) {
                 setError("Fill out missing fields");
@@ -38,7 +43,7 @@ const AddSalary = () => {
             }
             setLoading(true);
             const res = await axios.post('http://localhost:4000/department/addDepartment', {
-                DepartementCode, DepartementName, GrossSalary
+                DepartementCode, TotalDeduction, month, employee
             });
            setLoading(false);
            setError("");
