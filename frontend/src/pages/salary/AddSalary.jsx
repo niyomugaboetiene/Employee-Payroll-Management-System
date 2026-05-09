@@ -67,7 +67,7 @@ const AddSalary = () => {
     return (
         <div className="bg-gray-200 min-h-screen flex justify-center items-center">
             <div className="bg-white p-3 rounded-lg shadow-2xl w-90">
-                <h2 className="text-gray-700 font-bold text-center text-sm">Add Department Portal</h2>
+                <h2 className="text-gray-700 font-bold text-center text-sm">Add Salary Portal</h2>
 
                 {success && (
                     <div className="bg-green-500 mt-2 mb-3 p-1 rounded-lg text-green-100">
@@ -82,10 +82,10 @@ const AddSalary = () => {
                 <div className="mt-2"> 
                     <input 
                      className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
-                    type="text" onChange={(e) => {
-                        setDepartementCode(e.target.value)
+                     type="number" onChange={(e) => {
+                        setGlossSalary(e.target.value)
                     }} 
-                    placeholder="Enter Department code"
+                    placeholder="Enter Gross Salary"
                     />
                 </div>
                 
