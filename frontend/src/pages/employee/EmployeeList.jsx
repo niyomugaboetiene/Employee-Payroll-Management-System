@@ -23,8 +23,8 @@ const EmployeeList = () => {
     }, []);
 
     return (
-        <div>
-            <div>
+        <div className="bg-gray-50 min-h-screen flex">
+            <div className="max-w-7xl">
                 <table border={2}>
                     <thead>
                         <tr>
