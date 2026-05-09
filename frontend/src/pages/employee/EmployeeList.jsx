@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const EmployeeList = () => {
     const [employee, setEmployee] = useState(null);
@@ -54,6 +55,11 @@ const EmployeeList = () => {
                                 <td className="py-3 px-5">{emp.Gender}</td>
                                 <td className="py-3 px-5">{new Date(emp.hiredDate).toLocaleDateString()}</td>
                                 <td className="py-3 px-5">{new Date(emp.createdAt).toLocaleDateString()}</td>
+
+                                <td className="flex gap-4">
+                                    <Link className="py-2 px-3 bg-green-400 mt-2 rounded-lg text-white">Update</Link>
+                                    <button>Delete</button>
+                                </td>
                             </tr>
                         ))}
                     </tbody>
