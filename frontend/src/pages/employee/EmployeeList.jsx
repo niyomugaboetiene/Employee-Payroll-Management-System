@@ -25,7 +25,17 @@ const handleGetEmployee = () => {
     return (
         <div>
             <div>
-                <table border={2}></table>
+                <table border={2}>
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>First Name</th>
+                            <th>First Name</th>
+                            <th>First Name</th>
+                        </tr>
+                    </thead>
+                </table>
             </div>
         </div>
     )
