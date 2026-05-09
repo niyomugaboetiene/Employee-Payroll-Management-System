@@ -92,10 +92,10 @@ const AddSalary = () => {
                 <div className="mt-2">
                     <input 
                     className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
-                    type="text" onChange={(e) => {
-                        setDepartementName(e.target.value)
+                    type="number" onChange={(e) => {
+                        setTotalDeduction(e.target.value)
                     }} 
-                    placeholder="Enter Departement Name"
+                    placeholder="Enter Total Deduction"
                     />
                 </div>
                 
