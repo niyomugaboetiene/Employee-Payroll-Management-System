@@ -43,16 +43,16 @@ const EmployeeList = () => {
 
                     <tbody>
                         {employee?.map((emp, index) => (
-                            <tr key={index}>
-                                <td>{emp.employeeNumber}</td>
-                                <td>{emp.FirstName}</td>
-                                <td>{emp.LastName}</td>
-                                <td>{emp.Position}</td>
-                                <td>{emp.Address}</td>
-                                <td>{emp.Telephone}</td>
-                                <td>{emp.Gender}</td>
-                                <td>{new Date(emp.hiredDate).toLocaleDateString()}</td>
-                                <td>{new Date(emp.createdAt).toLocaleDateString()}</td>
+                            <tr key={index} className={`${index % 2 === 0 ? 'bg-gray-100 hover:bg-gray-200' : 'bg-gray-300 hover:bg-gray-400'}`}>
+                                <td className="py-3 px-5">{emp.employeeNumber}</td>
+                                <td className="py-3 px-5">{emp.FirstName}</td>
+                                <td className="py-3 px-5">{emp.LastName}</td>
+                                <td className="py-3 px-5">{emp.Position}</td>
+                                <td className="py-3 px-5">{emp.Address}</td>
+                                <td className="py-3 px-5">{emp.Telephone}</td>
+                                <td className="py-3 px-5">{emp.Gender}</td>
+                                <td className="py-3 px-5">{new Date(emp.hiredDate).toLocaleDateString()}</td>
+                                <td className="py-3 px-5">{new Date(emp.createdAt).toLocaleDateString()}</td>
                             </tr>
                         ))}
                     </tbody>
