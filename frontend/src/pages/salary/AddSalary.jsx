@@ -3,9 +3,9 @@ import axios from "axios";
 
 const AddSalary = () => {
     // GlossSalary, TotalDeduction, month, employee 
-    const [DepartementCode, setDepartementCode] = useState("");
-    const [DepartementName, setDepartementName] = useState("");
-    const [GrossSalary, setGrossSalary] = useState("");
+    const [GlossSalary, setGlossSalary] = useState("");
+    const [TotalDeduction, setTotalDeduction] = useState("");
+    const [month, setMonth] = useState("");
 
     const [success, setSuccess] = useState("");
     const [loading, setLoading] = useState(false);
