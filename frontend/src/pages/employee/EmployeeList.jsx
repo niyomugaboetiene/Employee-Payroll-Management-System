@@ -27,17 +27,17 @@ const EmployeeList = () => {
             <div className="mt-12">
                 <h1 className="text-center mb-2 text-2xl font-bold text-gray-700">Employee List</h1>
                 <table border={2}>
-                    <thead className="bg-gray-400">
+                    <thead className="bg-gray-400 text-white">
                         <tr>
                             <th className="py-3 px-5">Employee Number</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Position</th>
-                            <th>Address</th>
-                            <th>Telephone</th>
-                            <th>Gender</th>
-                            <th>Hired Date</th>
-                            <th>Registered Date</th>
+                            <th className="py-3 px-5">First Name</th>
+                            <th className="py-3 px-5">Last Name</th>
+                            <th className="py-3 px-5">Position</th>
+                            <th className="py-3 px-5">Address</th>
+                            <th className="py-3 px-5">Telephone</th>
+                            <th className="py-3 px-5">Gender</th>
+                            <th className="py-3 px-5">Hired Date</th>
+                            <th className="py-3 px-5">Registered Date</th>
                         </tr>
                     </thead>
 
