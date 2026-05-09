@@ -11,7 +11,7 @@ const AddDepartment = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
-    const handleAddNewEmployee = async () => {
+    const handleAddNewDepartment = async () => {
         try {
             if (!DepartementCode || !DepartementName || !GrossSalary) {
                 setError("Fill out missing fields");
@@ -37,7 +37,7 @@ const AddDepartment = () => {
             setError(errorMessage);
              setError("");
           setInterval(() => {
-                    setError("");
+               setError("");
          }, 4000);
             setSuccess("");
         }
@@ -94,7 +94,7 @@ const AddDepartment = () => {
                     <button className="bg-red-500 text-xs px-2 rounded-lg font-light text-white hover:bg-red-400 transition-colors active:bg-red-500">Back</button>
                 </div> */}
               <div className="mt-4">
-                    <button onClick={handleAddNewEmployee} className="w-full bg-gray-300 py-2 text-xs px-2 rounded-lg font-light hover:bg-gray-400 transition-colors active:bg-gray-500">+ Add new</button>
+                    <button onClick={handleAddNewDepartment} className="w-full bg-gray-300 py-2 text-xs px-2 rounded-lg font-light hover:bg-gray-400 transition-colors active:bg-gray-500">+ Add new</button>
                     <button className="bg-red-500 text-xs px-2 w-full py-2 mt-2 rounded-lg font-light text-white hover:bg-red-400 transition-colors active:bg-red-500">Back</button>
                 </div>
             </div>
