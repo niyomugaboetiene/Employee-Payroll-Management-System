@@ -9,6 +9,7 @@ const handleGetEmployee = () => {
         try {
             setIsLoading(true);
             const res = await axios.get('http://localhost:4000/employee/employeeList');
+            setEmployee(res.data.employee);
             setIsLoading(false);
 
         }
