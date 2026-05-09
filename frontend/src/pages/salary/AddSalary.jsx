@@ -42,7 +42,7 @@ const AddSalary = () => {
                 return;
             }
             setLoading(true);
-            const res = await axios.post('http://localhost:4000/department/addDepartment', {
+            const res = await axios.post('http://localhost:4000/salary/addSalary', {
                 GlossSalary, TotalDeduction, month, employee
             });
            setLoading(false);
