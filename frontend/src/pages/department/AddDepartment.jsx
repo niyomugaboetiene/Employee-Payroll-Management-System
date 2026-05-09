@@ -22,7 +22,7 @@ const AddDepartment = () => {
                 return;
             }
             setLoading(true);
-            const res = await axios.post('http://localhost:4000/employee/addEmployee', {
+            const res = await axios.post('http://localhost:4000/department/addDepartment', {
                 DepartementCode, DepartementName, GrossSalary
             });
            setLoading(false);
@@ -62,7 +62,7 @@ const AddDepartment = () => {
                 <div className="mt-2"> 
                     <input 
                      className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
-                    type="number" onChange={(e) => {
+                    type="text" onChange={(e) => {
                         setDepartementCode(e.target.value)
                     }} 
                     placeholder="Enter Department code"
@@ -82,10 +82,10 @@ const AddDepartment = () => {
                 <div className="mt-2">
                     <input 
                     className="bg-gray-300 text-xs py-2 w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
-                    type="text" onChange={(e) => {
+                    type="number" onChange={(e) => {
                         setGrossSalary(e.target.value)
                     }} 
-                    placeholder="Enter LastName"
+                    placeholder="Enter Gross Salary"
                     />
                 </div>
 
