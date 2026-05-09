@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-const handleGetEmployee = () => {
+const EmployeeList = () => {
     const [employee, setEmployee] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -60,3 +60,5 @@ const handleGetEmployee = () => {
         </div>
     )
 }
+
+export default EmployeeList;
