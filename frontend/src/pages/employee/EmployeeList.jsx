@@ -50,8 +50,8 @@ const EmployeeList = () => {
                                 <td>{emp.Address}</td>
                                 <td>{emp.Telephone}</td>
                                 <td>{emp.Gender}</td>
-                                <td>{emp.hiredDate}</td>
-                                <td>{emp.createdAt}</td>
+                                <td>{new Date(emp.hiredDate).toLocaleDateString()}</td>
+                                <td>{new Date(emp.createdAt).toLocaleDateString()}</td>
                             </tr>
                         ))}
                     </tbody>
