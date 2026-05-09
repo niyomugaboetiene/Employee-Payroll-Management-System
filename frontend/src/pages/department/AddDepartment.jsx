@@ -3,7 +3,7 @@ import axios from "axios";
 
 const AddDepartment = () => {
     // DepartementCode, DepartementName, GrossSalary 
-    const [employeeNumber, setEmployeeNumber] = useState(0);
+    const [DepartementCode, setDepartementCode] = useState("");
     const [FirstName, setFirstName] = useState("");
     const [LastName, setLastName] = useState("");
     const [Position, setPosition] = useState("");
