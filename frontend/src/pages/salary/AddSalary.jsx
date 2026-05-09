@@ -6,14 +6,17 @@ const AddSalary = () => {
     const [GlossSalary, setGlossSalary] = useState("");
     const [TotalDeduction, setTotalDeduction] = useState("");
     const [month, setMonth] = useState("");
+    const [employee, setEmployee] = useState("");
 
     const [success, setSuccess] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
+    const [selectedEmployee, setSelectedEmployee] = useState(null);
+
     const handleAddNewDepartment = async () => {
         try {
-            if (!DepartementCode || !DepartementName || !GrossSalary) {
+            if (!GlossSalary || !TotalDeduction || !month) {
                 setError("Fill out missing fields");
                 setInterval(() => {
                     setError("");
