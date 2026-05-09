@@ -16,8 +16,13 @@ const AddSalary = () => {
 
     const handleGetEmployee = async () => {
         try {
+            setLoading(true);
             const res = await axios.get('http://localhost:4000/employee/employeeList');
             setSelectedEmployee(res.data.employee);
+            setLoading(false);
+        } catch (err) {
+            console.error(err);
+            setLoading(false);
         }
     } 
 
