@@ -33,9 +33,16 @@ const handleGetEmployee = () => {
                             <th>Last Name</th>
                             <th>Position</th>
                             <th>Address</th>
-                            <th>First Name</th>
+                            <th>Telephone</th>
+                            <th>Gender</th>
+                            <th>Hired Date</th>
+                            <th>Registered Date</th>
                         </tr>
                     </thead>
+
+                    <tbody>
+                        <tr></tr>
+                    </tbody>
                 </table>
             </div>
         </div>
