@@ -23,6 +23,10 @@ const EmployeeList = () => {
         handleGetEmployee();
     }, []);
 
+    const handleDeleteEmployee = async (req, res) => {
+        
+    }
+
     return (
         <div className="bg-gray-50 min-h-screen flex justify-center">
             <div className="mt-12">
