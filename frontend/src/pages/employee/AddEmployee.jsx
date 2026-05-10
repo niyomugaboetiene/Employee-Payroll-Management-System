@@ -167,7 +167,7 @@ const AddEmployee = () => {
                     >
                       {selectedDepartment?.map((dep, index) => (
                         <>
-                          <option value="">-----Select department-----</option>
+                          <option disabled>-----Select department-----</option>
                           <option value={dep._id}>{dep.DepartementName}</option>
                         </>
                       ))}    

@@ -43,7 +43,22 @@ const UpdateEmployee = () => {
         }
     }
 
+    const GetDepartment = async () => {
+        try {
+            setLoading(true);
+            const res = await axios.get('http://localhost:4000/department/departmentList');
+            setSelectedDepartment(res.data.department);
+            setLoading(false);
+        } catch (err) {
+            console.error(err);
+        }
+    }
 
+    useEffect(() => {
+        GetDepartment();
+    }, []);
+
+    
     return (
         <div className="bg-gray-200 min-h-screen flex justify-center items-center">
             <div className="bg-white p-3 rounded-lg shadow-2xl w-90">
@@ -137,13 +152,19 @@ const UpdateEmployee = () => {
                 </div>
                 
                 <div className="mt-2">
-                    <input 
+                    <select 
                      className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
                     type="text" onChange={(e) => {
                         setDepartment(e.target.value)
                     }} 
-                    placeholder="Enter department"
-                    />
+                    >
+                      {selectedDepartment?.map((dep, index) => (
+                        <>
+                          <option disabled>-----Select department-----</option>
+                          <option value={dep._id}>{dep.DepartementName}</option>
+                        </>
+                      ))}    
+                    </select>
                 </div>
 
                 {/* <div className="mt-4 flex justify-between">
