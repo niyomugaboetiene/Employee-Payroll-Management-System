@@ -31,6 +31,7 @@ const EmployeeList = () => {
             }
             setIsLoading(true);
             await axios.delete(`http://localhost:4000/employee/delete/${_id}`);
+            await handleGetEmployee();
             setIsLoading(false);
         } catch (err) {
             console.error(err);
@@ -72,7 +73,7 @@ const EmployeeList = () => {
 
                                 <td className="flex gap-4">
                                     <Link className="py-2 px-3 bg-green-400 mt-2 rounded-lg text-white font-bold hover:bg-green-500 transition-colors" to={`/employee/update/${emp._id}`}>Update</Link>
-                                    <button className="py-2 px-3 bg-red-400 mt-2 rounded-lg text-white font-bold me-3 hover:bg-red-500 transition-colors">Delete</button>
+                                    <button className="py-2 px-3 bg-red-400 mt-2 rounded-lg text-white font-bold me-3 hover:bg-red-500 transition-colors" onClick={() => handleDeleteEmployee(emp._id)}>Delete</button>
                                 </td>
                             </tr>
                         ))}
