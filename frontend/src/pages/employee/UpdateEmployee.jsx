@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const UpdateEmployee = () => {
     // employeeNumber, FirstName, LastName, Position, Address, Telephone, Gender, hiredDate, department
@@ -17,6 +17,7 @@ const UpdateEmployee = () => {
     const [success, setSuccess] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
+    const navigate = useNavigate();
 
     const { _id } = useParams();
 
@@ -32,7 +33,8 @@ const UpdateEmployee = () => {
            setError("");
            setSuccess(res.data.message);
           setInterval(() => {
-                    setSuccess("");
+              setSuccess("");
+              navigate('/employeeList');
          }, 4000);
         } catch (err) {
             console.error(err);
@@ -196,8 +198,8 @@ const UpdateEmployee = () => {
                     >
                       {selectedDepartment?.map((dep, index) => (
                         <>
-                          <option disabled>-----Select department-----</option>
-                          <option value={dep._id} key={dep._id}>{dep.DepartementName}</option>
+                          <option disabled key={dep._id}>-----Select department-----</option>
+                          <option value={dep._id} >{dep.DepartementName}</option>
                         </>
                       ))}    
                     </select>
