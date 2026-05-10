@@ -65,7 +65,7 @@ const UpdateEmployee = () => {
         try {
             setLoading(true);
             const res = await axios.get(`http://localhost:4000/employee/get/${_id}`);
-            const employees = res.data?.employees;
+            const employees = res.data?.employee;
             setEmployeeNumber(employees.employeeNumber);
             setFirstName(employees.FirstName);
             setLastName(employees.LastName);
@@ -73,7 +73,7 @@ const UpdateEmployee = () => {
             setAddress(employees.Address);
             setGender(employees.Gender);
             setTelephone(employees.Telephone);
-            setHiredDate(employees.hiredDate);
+            setHiredDate(new Date(employees.hiredDate).toLocaleDateString());
             setDepartment(employees.department?._id);
             setLoading(false);
         } catch (err) {
