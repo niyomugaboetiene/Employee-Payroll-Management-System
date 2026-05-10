@@ -17,6 +17,8 @@ const AddEmployee = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
+    const [selectedDepartment, setSelectedDepartment] = useState(null);
+
     const handleAddNewEmployee = async () => {
         try {
             if (!employeeNumber || !FirstName || !LastName || !Position || !Address || !Telephone || !Gender || !hiredDate) {
@@ -51,7 +53,10 @@ const AddEmployee = () => {
 
     const GetDepartment = async () => {
         try {
-            const res = await axios.get('http://localhost:4000/department/departmentList')
+            setLoading(true);
+            const res = await axios.get('http://localhost:4000/department/departmentList');
+            setSelectedDepartment(res.data.department);
+            setLoading(false);
         }
     }
 
