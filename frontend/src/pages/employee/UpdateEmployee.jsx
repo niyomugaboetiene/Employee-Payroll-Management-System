@@ -103,8 +103,9 @@ const UpdateEmployee = () => {
                 )}
                 <div className="mt-2"> 
                     <input 
-                     className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
-                    type="number" onChange={(e) => {
+                      value={employeeNumber}
+                      className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
+                      type="number" onChange={(e) => {
                         setEmployeeNumber(e.target.value)
                     }} 
                     placeholder="Enter Employee Number"
@@ -113,8 +114,9 @@ const UpdateEmployee = () => {
                 
                 <div className="mt-2">
                     <input 
-                    className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
-                    type="text" onChange={(e) => {
+                        value={FirstName}
+                        className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
+                        type="text" onChange={(e) => {
                         setFirstName(e.target.value)
                     }} 
                     placeholder="Enter First name"
@@ -123,8 +125,9 @@ const UpdateEmployee = () => {
                 
                 <div className="mt-2">
                     <input 
-                    className="bg-gray-300 text-xs py-2 w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
-                    type="text" onChange={(e) => {
+                         value={LastName}
+                         className="bg-gray-300 text-xs py-2 w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
+                         type="text" onChange={(e) => {
                         setLastName(e.target.value)
                     }} 
                     placeholder="Enter LastName"
@@ -133,8 +136,9 @@ const UpdateEmployee = () => {
 
                 <div className="mt-2">
                     <input 
-                     className="bg-gray-300 text-xs  py-2 w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
-                    type="text" onChange={(e) => {
+                       value={Position}
+                       className="bg-gray-300 text-xs  py-2 w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
+                        type="text" onChange={(e) => {
                         setPosition(e.target.value)
                     }} 
                     placeholder="Enter Postion"
@@ -142,8 +146,9 @@ const UpdateEmployee = () => {
                 </div>
                 <div className="mt-2">
                     <input 
-                    className="bg-gray-300 text-xs py-2 w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
-                    type="text" onChange={(e) => {
+                        value={Address}
+                        className="bg-gray-300 text-xs py-2 w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
+                        type="text" onChange={(e) => {
                         setAddress(e.target.value)
                     }} 
                     placeholder="Enter Address"
@@ -152,8 +157,9 @@ const UpdateEmployee = () => {
                 
                 <div className="mt-2">
                     <input 
-                    className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
-                    type="text" onChange={(e) => {
+                        value={Telephone}
+                        className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
+                        type="text" onChange={(e) => {
                         setTelephone(e.target.value)
                     }} 
                     placeholder="Enter Telephone"
