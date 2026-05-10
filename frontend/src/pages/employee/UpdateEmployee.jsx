@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
@@ -64,7 +64,7 @@ const UpdateEmployee = () => {
     const GetCurrentEmployee = async () => {
         try {
             setLoading(true);
-            const res = await axios.get(`http://localhost:4000/employee/departmentList`);
+            const res = await axios.get(`http://localhost:4000/department/departmentList`);
             const employees = res.data?.department;
             setEmployeeNumber(employees.employeeNumber);
             setFirstName(employees.FirstName);
@@ -197,7 +197,7 @@ const UpdateEmployee = () => {
                       {selectedDepartment?.map((dep, index) => (
                         <>
                           <option disabled>-----Select department-----</option>
-                          <option value={dep._id}>{dep.DepartementName}</option>
+                          <option value={dep._id} key={dep._id}>{dep.DepartementName}</option>
                         </>
                       ))}    
                     </select>
