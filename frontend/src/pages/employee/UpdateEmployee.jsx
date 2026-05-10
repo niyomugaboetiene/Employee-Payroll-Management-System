@@ -167,8 +167,9 @@ const UpdateEmployee = () => {
                 </div>
                 <div className="mt-2">
                     <input 
-                   className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
-                    type="text" onChange={(e) => {
+                        value={Gender}
+                        className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
+                        type="text" onChange={(e) => {
                         setGender(e.target.value)
                     }} 
                     placeholder="Enter Gender"
@@ -177,8 +178,9 @@ const UpdateEmployee = () => {
                 
                 <div className="mt-2">
                     <input 
-                    className="bg-gray-300 text-xs py-2 w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
-                    type="date" onChange={(e) => {
+                        value={hiredDate} 
+                        className="bg-gray-300 text-xs py-2 w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
+                        type="date" onChange={(e) => {
                         setHiredDate(e.target.value)
                     }} 
                     />
@@ -186,8 +188,9 @@ const UpdateEmployee = () => {
                 
                 <div className="mt-2">
                     <select 
-                     className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
-                    type="text" onChange={(e) => {
+                        value={department}
+                        className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
+                        type="text" onChange={(e) => {
                         setDepartment(e.target.value)
                     }} 
                     >
