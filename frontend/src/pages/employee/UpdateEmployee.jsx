@@ -69,6 +69,12 @@ const UpdateEmployee = () => {
             setEmployeeNumber(employees.employeeNumber);
             setFirstName(employees.FirstName);
             setLastName(employees.LastName);
+            setPosition(employees.Position);
+            setAddress(employees.Address);
+            setGender(employees.Gender);
+            setTelephone(employees.Telephone);
+            setHiredDate(employees.hiredDate);
+            setDepartment(employees.department?._id);
             setLoading(false);
         } catch (err) {
             console.error(err);
