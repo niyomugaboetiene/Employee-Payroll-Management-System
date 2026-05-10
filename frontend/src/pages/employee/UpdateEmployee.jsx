@@ -26,7 +26,7 @@ const UpdateEmployee = () => {
     const handleUpdateEmployee = async () => {
         try {
             setLoading(true);
-            const res = await axios.post(`http://localhost:4000/employee/update/${_id}`, {
+            const res = await axios.put(`http://localhost:4000/employee/update/${_id}`, {
                 employeeNumber, FirstName, LastName, Position, Address, Telephone, Gender, hiredDate, department
             });
            setLoading(false);
