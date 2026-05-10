@@ -64,8 +64,8 @@ const UpdateEmployee = () => {
     const GetCurrentEmployee = async () => {
         try {
             setLoading(true);
-            const res = await axios.get(`http://localhost:4000/department/departmentList`);
-            const employees = res.data?.department;
+            const res = await axios.get(`http://localhost:4000/employee/get/${_id}`);
+            const employees = res.data?.employees;
             setEmployeeNumber(employees.employeeNumber);
             setFirstName(employees.FirstName);
             setLastName(employees.LastName);
