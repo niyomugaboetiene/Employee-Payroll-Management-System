@@ -73,7 +73,7 @@ const UpdateEmployee = () => {
             setAddress(employees.Address);
             setGender(employees.Gender);
             setTelephone(employees.Telephone);
-            setHiredDate(new Date(employees.hiredDate).toLocaleDateString());
+            setHiredDate(new Date(employees.hiredDate).toISOString().split('T')[0]);
             setDepartment(employees.department?._id);
             setLoading(false);
         } catch (err) {
