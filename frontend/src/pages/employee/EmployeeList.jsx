@@ -23,8 +23,18 @@ const EmployeeList = () => {
         handleGetEmployee();
     }, []);
 
-    const handleDeleteEmployee = async (req, res) => {
-        
+    const handleDeleteEmployee = async (_id) => {
+        try {
+            const confrim = window.confirm("Are you sure ?");
+            if (!confrim) {
+                return;
+            }
+            setIsLoading(true);
+            await axios.delete(`http://localhost:4000/employee/delete/${_id}`);
+            setIsLoading(false);
+        } catch (err) {
+            console.error(err);
+        }
     }
 
     return (
