@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 const AddEmployee = () => {
@@ -57,8 +57,14 @@ const AddEmployee = () => {
             const res = await axios.get('http://localhost:4000/department/departmentList');
             setSelectedDepartment(res.data.department);
             setLoading(false);
+        } catch (err) {
+            console.error(err);
         }
     }
+
+    useEffect(() => {
+        GetDepartment();
+    }, []);
 
     return (
         <div className="bg-gray-200 min-h-screen flex justify-center items-center">
@@ -153,13 +159,16 @@ const AddEmployee = () => {
                 </div>
                 
                 <div className="mt-2">
-                    <input 
+                    <select 
                      className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
                     type="text" onChange={(e) => {
                         setDepartment(e.target.value)
                     }} 
-                    placeholder="Enter department"
-                    />
+                    >
+                      {selectedDepartment?.map((dep, index) => (
+
+                      ))}    
+                    </select>
                 </div>
 
                 {/* <div className="mt-4 flex justify-between">
