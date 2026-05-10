@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const UpdateEmployee = () => {
     // employeeNumber, FirstName, LastName, Position, Address, Telephone, Gender, hiredDate, department
@@ -17,12 +18,14 @@ const UpdateEmployee = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
+    const { _id } = useParams();
+
     const [selectedDepartment, setSelectedDepartment] = useState(null);
 
     const handleUpdateEmployee = async () => {
         try {
             setLoading(true);
-            const res = await axios.post('http://localhost:4000/employee/addEmployee', {
+            const res = await axios.post(`http://localhost:4000/employee/update/${_id}`, {
                 employeeNumber, FirstName, LastName, Position, Address, Telephone, Gender, hiredDate, department
             });
            setLoading(false);
@@ -57,6 +60,24 @@ const UpdateEmployee = () => {
     useEffect(() => {
         GetDepartment();
     }, []);
+    
+    const GetCurrentEmployee = async () => {
+        try {
+            setLoading(true);
+            const res = await axios.get(`http://localhost:4000/employee/departmentList`);
+            const employees = res.data?.department;
+            setEmployeeNumber(employees.employeeNumber);
+            setFirstName(employees.FirstName);
+            setLastName(employees.LastName);
+            setLoading(false);
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    useEffect(() => {
+        GetCurrentEmployee();
+    }, [_id]);
 
 
     return (
