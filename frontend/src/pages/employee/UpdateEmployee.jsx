@@ -17,7 +17,7 @@ const UpdateEmployee = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
-    const 
+    const [selectedDepartment, setSelectedDepartment] = useState(null);
 
     const handleUpdateEmployee = async () => {
         try {
@@ -58,7 +58,7 @@ const UpdateEmployee = () => {
         GetDepartment();
     }, []);
 
-    
+
     return (
         <div className="bg-gray-200 min-h-screen flex justify-center items-center">
             <div className="bg-white p-3 rounded-lg shadow-2xl w-90">
