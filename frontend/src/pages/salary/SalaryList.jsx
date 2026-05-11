@@ -9,8 +9,8 @@ const EmployeeList = () => {
     const handleGetSalary = async () => {
         try {
             setIsLoading(true);
-            const res = await axios.get('http://localhost:4000/employee/employeeList');
-            setEmployee(res.data.employee);
+            const res = await axios.get('http://localhost:4000/salary/salaryList');
+            setSalary(res.data.salary);
             setIsLoading(false);
         } catch (err) {
             console.error(err);
