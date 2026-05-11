@@ -57,7 +57,7 @@ const DepartmentList = () => {
                     <tbody>
                         {employee?.map((emp, index) => (
                             <tr key={index} className={`${index % 2 === 0 ? 'bg-gray-100 hover:bg-gray-200' : 'bg-gray-300 hover:bg-gray-400'}`}>
-                                <td className="py-3 px-5">{emp.employeeNumber}</td>
+                                <td className="py-3 px-5">{emp.DepartementCode}</td>
                                 <td className="py-3 px-5">{emp.FirstName}</td>
                                 <td className="py-3 px-5">{emp.LastName}</td>
                                 <td className="py-3 px-5">{emp.Position}</td>
