@@ -20,18 +20,18 @@ const EmployeeList = () => {
     }
 
     useEffect(() => {
-        handleGetEmployee();
+        handleGetSalary();
     }, []);
 
-    const handleDeleteEmployee = async (_id) => {
+    const handleDeleteSalary = async (_id) => {
         try {
             const confrim = window.confirm("Are you sure ?");
             if (!confrim) {
                 return;
             }
             setIsLoading(true);
-            await axios.delete(`http://localhost:4000/employee/delete/${_id}`);
-            await handleGetEmployee();
+            await axios.delete(`http://localhost:4000/salary/delete/${_id}`);
+            await handleGetSalary();
             setIsLoading(false);
         } catch (err) {
             console.error(err);
@@ -41,12 +41,12 @@ const EmployeeList = () => {
     return (
         <div className="bg-gray-50 min-h-screen flex justify-center">
             <div className="mt-12">
-                <h1 className="text-center mb-2 text-2xl font-bold text-gray-700">Employee List</h1>
+                <h1 className="text-center mb-2 text-2xl font-bold text-gray-700">Salaries List</h1>
                 <table border={2}>
                     <thead className="bg-gray-400 text-white ">
                         <tr>
-                            <th className="py-3 px-5">Employee Number</th>
-                            <th className="py-3 px-5">First Name</th>
+                            <th className="py-3 px-5">Gloss Salary</th>
+                            <th className="py-3 px-5">Total Deduction</th>
                             <th className="py-3 px-5">Last Name</th>
                             <th className="py-3 px-5">Position</th>
                             <th className="py-3 px-5">Address</th>
