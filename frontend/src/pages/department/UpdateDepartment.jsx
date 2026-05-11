@@ -19,10 +19,10 @@ const UpdateDepartment = () => {
         try {
             setLoading(true);
             const res = await axios.get(`http://localhost:4000/department/get/${_id}`);
-            const employees = res.data?.employee;
-            setEmployeeNumber(employees.employeeNumber);
-            setFirstName(employees.FirstName);
-            setLastName(employees.LastName);
+            const departments = res.data?.department;
+            setDepartementCode(departments.DepartementCode);
+            setDepartementName(departments.DepartementName);
+            setGrossSalary(departments.GrossSalary);
             setPosition(employees.Position);
             setAddress(employees.Address);
             setGender(employees.Gender);
