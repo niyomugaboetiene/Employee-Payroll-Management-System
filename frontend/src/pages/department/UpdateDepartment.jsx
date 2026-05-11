@@ -1,40 +1,38 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const UpdateDepartment = () => {
-    // employeeNumber, FirstName, LastName, Position, Address, Telephone, Gender, hiredDate, department
-    const [employeeNumber, setEmployeeNumber] = useState(0);
-    const [FirstName, setFirstName] = useState("");
-    const [LastName, setLastName] = useState("");
-    const [Position, setPosition] = useState("");
-    const [Address, setAddress] = useState("");
-    const [Gender, setGender] = useState("");
-    const [Telephone, setTelephone] = useState("");
-    const [hiredDate, setHiredDate] = useState("");
-    const [department, setDepartment] = useState("");
+    // DepartementCode, DepartementName, GrossSalary 
+    const [DepartementCode, setDepartementCode] = useState("");
+    const [DepartementName, setDepartementName] = useState("");
+    const [GrossSalary, setGrossSalary] = useState("");
 
     const [success, setSuccess] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
-    const navigate = useNavigate();
 
     const { _id } = useParams();
 
-    const [selectedDepartment, setSelectedDepartment] = useState(null);
-
-    const handleUpdateEmployee = async () => {
+    const handleAddNewDepartment = async () => {
         try {
+            if (!DepartementCode || !DepartementName || !GrossSalary) {
+                setError("Fill out missing fields");
+                setInterval(() => {
+                    setError("");
+                }, 4000);
+                setSuccess("");
+                return;
+            }
             setLoading(true);
-            const res = await axios.put(`http://localhost:4000/employee/update/${_id}`, {
-                employeeNumber, FirstName, LastName, Position, Address, Telephone, Gender, hiredDate, department
+            const res = await axios.put('http://localhost:4000/department/addDepartment', {
+                DepartementCode, DepartementName, GrossSalary
             });
            setLoading(false);
            setError("");
            setSuccess(res.data.message);
           setInterval(() => {
-              setSuccess("");
-              navigate('/employeeList');
+                    setSuccess("");
          }, 4000);
         } catch (err) {
             console.error(err);
@@ -42,56 +40,17 @@ const UpdateDepartment = () => {
             setError(errorMessage);
              setError("");
           setInterval(() => {
-                    setError("");
+               setError("");
          }, 4000);
             setSuccess("");
         }
     }
 
-    const GetDepartment = async () => {
-        try {
-            setLoading(true);
-            const res = await axios.get('http://localhost:4000/department/departmentList');
-            setSelectedDepartment(res.data.department);
-            setLoading(false);
-        } catch (err) {
-            console.error(err);
-        }
-    }
-
-    useEffect(() => {
-        GetDepartment();
-    }, []);
-    
-    const GetCurrentEmployee = async () => {
-        try {
-            setLoading(true);
-            const res = await axios.get(`http://localhost:4000/employee/get/${_id}`);
-            const employees = res.data?.employee;
-            setEmployeeNumber(employees.employeeNumber);
-            setFirstName(employees.FirstName);
-            setLastName(employees.LastName);
-            setPosition(employees.Position);
-            setAddress(employees.Address);
-            setGender(employees.Gender);
-            setTelephone(employees.Telephone);
-            setHiredDate(new Date(employees.hiredDate).toISOString().split('T')[0]);
-            setDepartment(employees.department?._id);
-            setLoading(false);
-        } catch (err) {
-            console.error(err);
-        }
-    }
-
-    useEffect(() => {
-        GetCurrentEmployee();
-    }, [_id]);
-
 
     return (
         <div className="bg-gray-200 min-h-screen flex justify-center items-center">
             <div className="bg-white p-3 rounded-lg shadow-2xl w-90">
-                <h2 className="text-gray-700 font-bold text-center text-sm">Add Employee Portal</h2>
+                <h2 className="text-gray-700 font-bold text-center text-sm">Add Department Portal</h2>
 
                 {success && (
                     <div className="bg-green-500 mt-2 mb-3 p-1 rounded-lg text-green-100">
@@ -105,104 +64,32 @@ const UpdateDepartment = () => {
                 )}
                 <div className="mt-2"> 
                     <input 
-                      value={employeeNumber}
-                      className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
-                      type="number" onChange={(e) => {
-                        setEmployeeNumber(e.target.value)
+                     className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
+                    type="text" onChange={(e) => {
+                        setDepartementCode(e.target.value)
                     }} 
-                    placeholder="Enter Employee Number"
+                    placeholder="Enter Department code"
                     />
                 </div>
                 
                 <div className="mt-2">
                     <input 
-                        value={FirstName}
-                        className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
-                        type="text" onChange={(e) => {
-                        setFirstName(e.target.value)
+                    className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
+                    type="text" onChange={(e) => {
+                        setDepartementName(e.target.value)
                     }} 
-                    placeholder="Enter First name"
+                    placeholder="Enter Departement Name"
                     />
                 </div>
                 
                 <div className="mt-2">
                     <input 
-                         value={LastName}
-                         className="bg-gray-300 text-xs py-2 w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
-                         type="text" onChange={(e) => {
-                        setLastName(e.target.value)
+                    className="bg-gray-300 text-xs py-2 w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
+                    type="number" onChange={(e) => {
+                        setGrossSalary(e.target.value)
                     }} 
-                    placeholder="Enter LastName"
+                    placeholder="Enter Gross Salary"
                     />
-                </div>
-
-                <div className="mt-2">
-                    <input 
-                       value={Position}
-                       className="bg-gray-300 text-xs  py-2 w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
-                        type="text" onChange={(e) => {
-                        setPosition(e.target.value)
-                    }} 
-                    placeholder="Enter Postion"
-                    />
-                </div>
-                <div className="mt-2">
-                    <input 
-                        value={Address}
-                        className="bg-gray-300 text-xs py-2 w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
-                        type="text" onChange={(e) => {
-                        setAddress(e.target.value)
-                    }} 
-                    placeholder="Enter Address"
-                    />
-                </div>
-                
-                <div className="mt-2">
-                    <input 
-                        value={Telephone}
-                        className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
-                        type="text" onChange={(e) => {
-                        setTelephone(e.target.value)
-                    }} 
-                    placeholder="Enter Telephone"
-                    />
-                </div>
-                <div className="mt-2">
-                    <input 
-                        value={Gender}
-                        className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
-                        type="text" onChange={(e) => {
-                        setGender(e.target.value)
-                    }} 
-                    placeholder="Enter Gender"
-                    />
-                </div>
-                
-                <div className="mt-2">
-                    <input 
-                        value={hiredDate} 
-                        className="bg-gray-300 text-xs py-2 w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
-                        type="date" onChange={(e) => {
-                        setHiredDate(e.target.value)
-                    }} 
-                    />
-                </div>
-                
-                <div className="mt-2">
-                    <select 
-                        value={department}
-                        className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
-                        type="text" onChange={(e) => {
-                        setDepartment(e.target.value)
-                    }} 
-                    >
-                      {selectedDepartment?.map((dep, index) => (
-                        <>
-                          <option disabled key={dep._id}>-----Select department-----</option>
-                          <option value={dep._id} >{dep.DepartementName}</option>
-                        </>
-                      ))}    
-                    </select>
                 </div>
 
                 {/* <div className="mt-4 flex justify-between">
@@ -210,7 +97,7 @@ const UpdateDepartment = () => {
                     <button className="bg-red-500 text-xs px-2 rounded-lg font-light text-white hover:bg-red-400 transition-colors active:bg-red-500">Back</button>
                 </div> */}
               <div className="mt-4">
-                    <button onClick={handleUpdateEmployee} className="w-full bg-gray-300 py-2 text-xs px-2 rounded-lg font-light hover:bg-gray-400 transition-colors active:bg-gray-500">Update</button>
+                    <button onClick={handleAddNewDepartment} className="w-full bg-gray-300 py-2 text-xs px-2 rounded-lg font-light hover:bg-gray-400 transition-colors active:bg-gray-500">+ Add new</button>
                     <button className="bg-red-500 text-xs px-2 w-full py-2 mt-2 rounded-lg font-light text-white hover:bg-red-400 transition-colors active:bg-red-500">Back</button>
                 </div>
             </div>
