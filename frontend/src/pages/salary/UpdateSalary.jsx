@@ -27,7 +27,7 @@ const UpdateSalary = () => {
             const salary = res.data?.salary;
             console.log("Result", salary);
             setGlossSalary(salary.GlossSalary);
-            setEmployee(salary.employee._id);
+            setEmployee(salary.employee?._id);
             setTotalDeduction(salary.TotalDeduction);
             setLoading(false);
         } catch (err) {
@@ -66,8 +66,8 @@ const UpdateSalary = () => {
            setSuccess(res.data.message);
           setInterval(() => {
                     setSuccess("");
-                    navigate('/salary/salaryList');
          }, 4000);
+         navigate('/salary/salaryList');
         } catch (err) {
             console.error(err);
             const errorMessage = err.response?.data?.message || "Error occurred";
