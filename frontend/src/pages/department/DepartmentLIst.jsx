@@ -55,7 +55,7 @@ const DepartmentList = () => {
                     </thead>
 
                     <tbody>
-                        {employee?.map((dep, index) => (
+                        {department?.map((dep, index) => (
                             <tr key={index} className={`${index % 2 === 0 ? 'bg-gray-100 hover:bg-gray-200' : 'bg-gray-300 hover:bg-gray-400'}`}>
                                 <td className="py-3 px-5">{dep.DepartementCode}</td>
                                 <td className="py-3 px-5">{dep.DepartementName}</td>
@@ -65,7 +65,7 @@ const DepartmentList = () => {
 
                                 <td className="flex gap-4">
                                     <Link className="py-2 px-3 bg-green-400 mt-2 rounded-lg text-white font-bold hover:bg-green-500 transition-colors" to={`/employee/update/${dep._id}`}>Update</Link>
-                                    <button className="py-2 px-3 bg-red-400 mt-2 rounded-lg text-white font-bold me-3 hover:bg-red-500 transition-colors" onClick={() => handleDeleteEmployee(dep._id)}>Delete</button>
+                                    <button className="py-2 px-3 bg-red-400 mt-2 rounded-lg text-white font-bold me-3 hover:bg-red-500 transition-colors" onClick={() => handleDeleteDepartment(dep._id)}>Delete</button>
                                 </td>
                             </tr>
                         ))}
