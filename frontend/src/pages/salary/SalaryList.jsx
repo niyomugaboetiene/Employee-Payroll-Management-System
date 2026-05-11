@@ -63,9 +63,9 @@ const EmployeeList = () => {
                                 <td className="py-3 px-5">{salary.TotalDeduction}</td>
                                 <td className="py-3 px-5">{salary.NetSalary}</td>
                                 <td className="py-3 px-5">{salary.month}</td>
-                                <td className="py-3 px-5">{salary.department?.DepartementName || "No department"}</td>
-                                <td className="py-3 px-5">{new Date(emp.hiredDate).toLocaleDateString()}</td>
-                                <td className="py-3 px-5">{new Date(emp.createdAt).toLocaleDateString()}</td>
+                                <td className="py-3 px-5">{salary.employee?.FirstName || "No Employee"}</td>
+                                <td className="py-3 px-5">{new Date(salary.createdAt).toLocaleDateString()}</td>
+                                <td className="py-3 px-5">{new Date(salary.createdAt).toLocaleDateString()}</td>
 
                                 <td className="flex gap-4">
                                     <Link className="py-2 px-3 bg-green-400 mt-2 rounded-lg text-white font-bold hover:bg-green-500 transition-colors" to={`/employee/update/${emp._id}`}>Update</Link>
