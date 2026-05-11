@@ -24,9 +24,9 @@ const UpdateSalary = () => {
             const res = await axios.get(`http://localhost:4000/salary/get/${_id}`);
             const salary = res.data?.salary;
             setGlossSalary(salary.GlossSalary);
-            setEmployee(departments.employee._id);
+            setEmployee(salary.employee._id);
             setTotalDeduction(salary.TotalDeduction);
-            setMonth(new Date(setMonth.month).toISOString().split('T'))[0];
+            setMonth(new Date(setMonth.month).toISOString());
             setLoading(false);
         } catch (err) {
             console.error(err);
