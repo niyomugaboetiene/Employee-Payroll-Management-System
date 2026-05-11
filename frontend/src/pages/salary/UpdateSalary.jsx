@@ -25,8 +25,8 @@ const AddSalary = () => {
             const salary = res.data?.salary;
             setGlossSalary(salary.GlossSalary);
             setEmployee(departments.employee._id);
-            setTotalDeduction(departments.GrossSalary);
-            setMonth(departments.GrossSalary);
+            setTotalDeduction(salary.TotalDeduction);
+            setMonth(setMonth.month);
             setLoading(false);
         } catch (err) {
             console.error(err);
