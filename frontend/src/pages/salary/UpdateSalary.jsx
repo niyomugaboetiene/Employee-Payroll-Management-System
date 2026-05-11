@@ -18,6 +18,24 @@ const AddSalary = () => {
 
     const { _id } = useParams();
 
+    const GetCurrentSalary = async () => {
+        try {
+            setLoading(true);
+            const res = await axios.get(`http://localhost:4000/salary/get/${_id}`);
+            const departments = res.data?.department;
+            setDepartementCode(departments.DepartementCode);
+            setDepartementName(departments.DepartementName);
+            setGrossSalary(departments.GrossSalary);
+            setLoading(false);
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    useEffect(() => {
+        GetCurrentSalary();
+    }, [_id]);
+
     const handleGetEmployee = async () => {
         try {
             setLoading(true);
