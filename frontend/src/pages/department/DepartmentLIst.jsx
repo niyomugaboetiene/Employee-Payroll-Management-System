@@ -45,8 +45,8 @@ const DepartmentList = () => {
                 <table border={2}>
                     <thead className="bg-gray-400 text-white ">
                         <tr>
-                            <th className="py-3 px-5">Employee Number</th>
-                            <th className="py-3 px-5">First Name</th>
+                            <th className="py-3 px-5">Departement Code</th>
+                            <th className="py-3 px-5">Departement Name</th>
                             <th className="py-3 px-5">Last Name</th>
                             <th className="py-3 px-5">Position</th>
                             <th className="py-3 px-5">Address</th>
