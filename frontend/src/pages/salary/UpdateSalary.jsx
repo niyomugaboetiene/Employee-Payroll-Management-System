@@ -23,9 +23,10 @@ const AddSalary = () => {
             setLoading(true);
             const res = await axios.get(`http://localhost:4000/salary/get/${_id}`);
             const salary = res.data?.salary;
-            setGrossSalary(salary.GlossSalary);
-            setEmployee(departments.DepartementName);
+            setGlossSalary(salary.GlossSalary);
+            setEmployee(departments.employee._id);
             setTotalDeduction(departments.GrossSalary);
+            setMonth(departments.GrossSalary);
             setLoading(false);
         } catch (err) {
             console.error(err);
