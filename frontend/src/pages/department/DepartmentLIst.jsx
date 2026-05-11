@@ -10,7 +10,7 @@ const DepartmentList = () => {
         try {
             setIsLoading(true);
             const res = await axios.get('http://localhost:4000/department/departmentList');
-            setDepartement(res.data.employee);
+            setDepartement(res.data.department);
             setIsLoading(false);
         } catch (err) {
             console.error(err);
@@ -30,8 +30,8 @@ const DepartmentList = () => {
                 return;
             }
             setIsLoading(true);
-            await axios.delete(`http://localhost:4000/employee/delete/${_id}`);
-            await handleGetEmployee();
+            await axios.delete(`http://localhost:4000/department/delete/${_id}`);
+            await handleGetDepartment();
             setIsLoading(false);
         } catch (err) {
             console.error(err);
@@ -41,7 +41,7 @@ const DepartmentList = () => {
     return (
         <div className="bg-gray-50 min-h-screen flex justify-center">
             <div className="mt-12">
-                <h1 className="text-center mb-2 text-2xl font-bold text-gray-700">Employee List</h1>
+                <h1 className="text-center mb-2 text-2xl font-bold text-gray-700">Department List</h1>
                 <table border={2}>
                     <thead className="bg-gray-400 text-white ">
                         <tr>
