@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const UpdateSalary = () => {
     // GlossSalary, TotalDeduction, month, employee 
@@ -13,6 +13,8 @@ const UpdateSalary = () => {
     const [success, setSuccess] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
+
+    const navigate = useNavigate();
 
     const [selectedEmployee, setSelectedEmployee] = useState(null);
 
@@ -26,7 +28,6 @@ const UpdateSalary = () => {
             setGlossSalary(salary.GlossSalary);
             setEmployee(salary.employee._id);
             setTotalDeduction(salary.TotalDeduction);
-            setMonth(new Date(setMonth.month).toISOString());
             setLoading(false);
         } catch (err) {
             console.error(err);
@@ -64,6 +65,7 @@ const UpdateSalary = () => {
            setSuccess(res.data.message);
           setInterval(() => {
                     setSuccess("");
+                    navigate('/salary/salaryList');
          }, 4000);
         } catch (err) {
             console.error(err);
@@ -117,7 +119,6 @@ const UpdateSalary = () => {
                 
                 <div className="mt-2">
                     <input 
-                    value={month}
                     className="bg-gray-300 text-xs py-2 w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
                     type="date" onChange={(e) => {
                         setMonth(e.target.value)
