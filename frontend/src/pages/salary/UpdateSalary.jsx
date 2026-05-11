@@ -95,6 +95,7 @@ const AddSalary = () => {
                 )}
                 <div className="mt-2"> 
                     <input 
+                    value={GlossSalary}
                      className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
                      type="number" onChange={(e) => {
                         setGlossSalary(e.target.value)
@@ -105,6 +106,7 @@ const AddSalary = () => {
                 
                 <div className="mt-2">
                     <input 
+                    value={TotalDeduction}
                     className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
                     type="number" onChange={(e) => {
                         setTotalDeduction(e.target.value)
@@ -115,6 +117,7 @@ const AddSalary = () => {
                 
                 <div className="mt-2">
                     <input 
+                    value={month}
                     className="bg-gray-300 text-xs py-2 w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
                     type="date" onChange={(e) => {
                         setMonth(e.target.value)
@@ -124,7 +127,7 @@ const AddSalary = () => {
                 </div>
 
                 <div className="mt-2">
-                    <select onChange={(e) => setEmployee(e.target.value)} className="bg-gray-300 text-xs py-2 w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500">
+                    <select value={employee} onChange={(e) => setEmployee(e.target.value)} className="bg-gray-300 text-xs py-2 w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500">
                         {selectedEmployee?.map((emp, index) => (
                             <option value={emp._id} key={index}>{emp.FirstName} . {emp.LastName}</option>
                         ))}
