@@ -14,6 +14,30 @@ const UpdateDepartment = () => {
 
     const { _id } = useParams();
 
+
+    const GetCurrentEmployee = async () => {
+        try {
+            setLoading(true);
+            const res = await axios.get(`http://localhost:4000/department/get/${_id}`);
+            const employees = res.data?.employee;
+            setEmployeeNumber(employees.employeeNumber);
+            setFirstName(employees.FirstName);
+            setLastName(employees.LastName);
+            setPosition(employees.Position);
+            setAddress(employees.Address);
+            setGender(employees.Gender);
+            setTelephone(employees.Telephone);
+            setHiredDate(new Date(employees.hiredDate).toISOString().split('T')[0]);
+            setDepartment(employees.department?._id);
+            setLoading(false);
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    useEffect(() => {
+        GetCurrentEmployee();
+    }, [_id]);
     const handleUpdateDepartment = async () => {
         try {
             setLoading(true);
