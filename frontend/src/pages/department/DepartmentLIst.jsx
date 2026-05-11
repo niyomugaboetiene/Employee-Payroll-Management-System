@@ -3,10 +3,10 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const DepartmentList = () => {
-    const [employee, setEmployee] = useState(null);
+    const [department, setDepartement] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
 
-    const handleGetEmployee = async () => {
+    const handleGetDepartment = async () => {
         try {
             setIsLoading(true);
             const res = await axios.get('http://localhost:4000/employee/employeeList');
@@ -20,10 +20,10 @@ const DepartmentList = () => {
     }
 
     useEffect(() => {
-        handleGetEmployee();
+        handleGetDepartment();
     }, []);
 
-    const handleDeleteEmployee = async (_id) => {
+    const handleDeleteDepartment = async (_id) => {
         try {
             const confrim = window.confirm("Are you sure ?");
             if (!confrim) {
