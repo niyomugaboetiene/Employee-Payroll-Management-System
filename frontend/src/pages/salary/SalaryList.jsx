@@ -52,24 +52,17 @@ const EmployeeList = () => {
                             <th className="py-3 px-5">Employee</th>
                             <th className="py-3 px-5">Created At</th>
                             <th className="py-3 px-5">Last update</th>
-                            <th className="py-3 px-5">Department</th>
-                            <th className="py-3 px-5">Hired Date</th>
-                            <th className="py-3 px-5">Registered Date</th>
                             <th className="py-3 px-5">Modification</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        {employee?.map((emp, index) => (
+                        {salary?.map((salary, index) => (
                             <tr key={index} className={`${index % 2 === 0 ? 'bg-gray-100 hover:bg-gray-200' : 'bg-gray-300 hover:bg-gray-400'}`}>
-                                <td className="py-3 px-5">{emp.employeeNumber}</td>
-                                <td className="py-3 px-5">{emp.FirstName}</td>
-                                <td className="py-3 px-5">{emp.LastName}</td>
-                                <td className="py-3 px-5">{emp.Position}</td>
-                                <td className="py-3 px-5">{emp.Address}</td>
-                                <td className="py-3 px-5">{emp.Telephone}</td>
-                                <td className="py-3 px-5">{emp.Gender}</td>
-                                <td className="py-3 px-5">{emp.department?.DepartementName || "No department"}</td>
+                                <td className="py-3 px-5">{salary.GlossSalary}</td>
+                                <td className="py-3 px-5">{salary.TotalDeduction}</td>
+                                <td className="py-3 px-5">{salary.LastName}</td>
+                                <td className="py-3 px-5">{salary.department?.DepartementName || "No department"}</td>
                                 <td className="py-3 px-5">{new Date(emp.hiredDate).toLocaleDateString()}</td>
                                 <td className="py-3 px-5">{new Date(emp.createdAt).toLocaleDateString()}</td>
 
