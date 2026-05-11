@@ -14,18 +14,10 @@ const UpdateDepartment = () => {
 
     const { _id } = useParams();
 
-    const handleAddNewDepartment = async () => {
+    const handleUpdateDepartment = async () => {
         try {
-            if (!DepartementCode || !DepartementName || !GrossSalary) {
-                setError("Fill out missing fields");
-                setInterval(() => {
-                    setError("");
-                }, 4000);
-                setSuccess("");
-                return;
-            }
             setLoading(true);
-            const res = await axios.put('http://localhost:4000/department/addDepartment', {
+            const res = await axios.put(`http://localhost:4000/department/update/${_id}`, {
                 DepartementCode, DepartementName, GrossSalary
             });
            setLoading(false);
@@ -50,7 +42,7 @@ const UpdateDepartment = () => {
     return (
         <div className="bg-gray-200 min-h-screen flex justify-center items-center">
             <div className="bg-white p-3 rounded-lg shadow-2xl w-90">
-                <h2 className="text-gray-700 font-bold text-center text-sm">Add Department Portal</h2>
+                <h2 className="text-gray-700 font-bold text-center text-sm">Update Department Portal</h2>
 
                 {success && (
                     <div className="bg-green-500 mt-2 mb-3 p-1 rounded-lg text-green-100">
@@ -97,7 +89,7 @@ const UpdateDepartment = () => {
                     <button className="bg-red-500 text-xs px-2 rounded-lg font-light text-white hover:bg-red-400 transition-colors active:bg-red-500">Back</button>
                 </div> */}
               <div className="mt-4">
-                    <button onClick={handleAddNewDepartment} className="w-full bg-gray-300 py-2 text-xs px-2 rounded-lg font-light hover:bg-gray-400 transition-colors active:bg-gray-500">+ Add new</button>
+                    <button onClick={handleUpdateDepartment} className="w-full bg-gray-300 py-2 text-xs px-2 rounded-lg font-light hover:bg-gray-400 transition-colors active:bg-gray-500">Update</button>
                     <button className="bg-red-500 text-xs px-2 w-full py-2 mt-2 rounded-lg font-light text-white hover:bg-red-400 transition-colors active:bg-red-500">Back</button>
                 </div>
             </div>
