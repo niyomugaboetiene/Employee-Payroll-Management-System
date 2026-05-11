@@ -23,10 +23,6 @@ const UpdateDepartment = () => {
             setDepartementCode(departments.DepartementCode);
             setDepartementName(departments.DepartementName);
             setGrossSalary(departments.GrossSalary);
-            setPosition(employees.Position);
-            setAddress(employees.Address);
-            setGender(employees.Gender);
-            setTelephone(employees.Telephone);
             setHiredDate(new Date(employees.hiredDate).toISOString().split('T')[0]);
             setDepartment(employees.department?._id);
             setLoading(false);
