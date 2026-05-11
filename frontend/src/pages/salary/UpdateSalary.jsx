@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-const AddSalary = () => {
+const UpdateSalary = () => {
     // GlossSalary, TotalDeduction, month, employee 
     const [GlossSalary, setGlossSalary] = useState("");
     const [TotalDeduction, setTotalDeduction] = useState("");
@@ -148,4 +148,4 @@ const AddSalary = () => {
 }
 
 
-export default AddSalary;
+export default UpdateSalary;
