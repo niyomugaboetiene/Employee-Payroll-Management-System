@@ -28,7 +28,7 @@ router.post('/addSalary', async (req, res) => {
 
 router.get('/salaryList', async (req, res) => {
     try {
-        const List = await Salary.find().populate("employees");
+        const List = await Salary.find().populate("employee");
 
         if (List.length === 0) {
             return res.status(404).json({ message: 'No salary in the database'})
@@ -52,7 +52,7 @@ router.get('/get/:_id', async (req, res) => {
             return res.status(403).json({ message: 'Id is required' });
         }
 
-        const List = await Salary.findById(_id).populate("employees");
+        const List = await Salary.findById(_id).populate("employee");
         // Employee.find({ employeeNumber: employeeNumber });
         // Employee.findOne({ _id: _id });
 
@@ -67,18 +67,18 @@ router.put('/update/:_id', async (req, res) => {
     try{
         const _id = req.params._id;
     
-        const { GrossSalary, TotoalDeduction,  month, employee  } = req.body;  
+        const { GlossSalary, TotalDeduction,  month, employee  } = req.body;  
      
         let fieldToBeUpdated = {};
 
-        if (GrossSalary) fieldToBeUpdated.GrossSalary = GrossSalary;
-        if (TotoalDeduction) fieldToBeUpdated.TotoalDeduction = TotoalDeduction;
+        if (GlossSalary) fieldToBeUpdated.GlossSalary = GlossSalary;
+        if (TotalDeduction) fieldToBeUpdated.TotalDeduction = TotalDeduction;
 
-        if (GrossSalary && TotoalDeduction) {
-            const NetSalary = GrossSalary - TotoalDeduction;
+        if (TotalDeduction || GlossSalary) {
+            const NetSalary = GlossSalary - TotalDeduction;
             fieldToBeUpdated.NetSalary = NetSalary;
         }
-        if (month) fieldToBeUpdated.month = Gender;
+        if (month) fieldToBeUpdated.month = month;
         if (employee) fieldToBeUpdated.employee = employee;
 
         const updatedSalary = await Salary.findByIdAndUpdate(_id, fieldToBeUpdated);
