@@ -5,7 +5,8 @@ import AddSalary from "./pages/salary/AddSalary"
 import EmployeeList from "./pages/employee/EmployeeList"
 import UpdateEmployee from "./pages/employee/UpdateEmployee"
 import DepartmentList from "./pages/department/DepartmentLIst"
-
+import UpdateDepartment from "./pages/department/UpdateDepartment"
+import SalaryList from "./pages/salary/SalaryList"
 
 function App() {
 
@@ -18,6 +19,9 @@ function App() {
               <Route path="/employeeList" element={<EmployeeList />} />
               <Route path="/employee/update/:_id" element={<UpdateEmployee />} />
               <Route path="/department/departmentList" element={<DepartmentList />}/>
+              <Route path="/department/update/:_id" element={<UpdateDepartment />}/>
+              <Route path="/salary/SalaryList" element={<UpdateDepartment />}/>
+
           </Routes>
       </BrowserRouter>
   )
