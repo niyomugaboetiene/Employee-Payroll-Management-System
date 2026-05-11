@@ -47,13 +47,9 @@ const DepartmentList = () => {
                         <tr>
                             <th className="py-3 px-5">Departement Code</th>
                             <th className="py-3 px-5">Departement Name</th>
-                            <th className="py-3 px-5">Last Name</th>
-                            <th className="py-3 px-5">Position</th>
-                            <th className="py-3 px-5">Address</th>
-                            <th className="py-3 px-5">Telephone</th>
-                            <th className="py-3 px-5">Gender</th>
-                            <th className="py-3 px-5">Hired Date</th>
-                            <th className="py-3 px-5">Registered Date</th>
+                            <th className="py-3 px-5">Gross Salary</th>
+                            <th className="py-3 px-5">Created At</th>
+                            <th className="py-3 px-5">Last Update</th>
                             <th className="py-3 px-5">Modification</th>
                         </tr>
                     </thead>
