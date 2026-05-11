@@ -52,6 +52,7 @@ const EmployeeList = () => {
                             <th className="py-3 px-5">Address</th>
                             <th className="py-3 px-5">Telephone</th>
                             <th className="py-3 px-5">Gender</th>
+                            <th className="py-3 px-5">Department</th>
                             <th className="py-3 px-5">Hired Date</th>
                             <th className="py-3 px-5">Registered Date</th>
                             <th className="py-3 px-5">Modification</th>
@@ -68,6 +69,7 @@ const EmployeeList = () => {
                                 <td className="py-3 px-5">{emp.Address}</td>
                                 <td className="py-3 px-5">{emp.Telephone}</td>
                                 <td className="py-3 px-5">{emp.Gender}</td>
+                                <td className="py-3 px-5">{emp.department?.DepartementName || "No department"}</td>
                                 <td className="py-3 px-5">{new Date(emp.hiredDate).toLocaleDateString()}</td>
                                 <td className="py-3 px-5">{new Date(emp.createdAt).toLocaleDateString()}</td>
 
