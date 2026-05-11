@@ -26,7 +26,7 @@ const AddSalary = () => {
             setGlossSalary(salary.GlossSalary);
             setEmployee(departments.employee._id);
             setTotalDeduction(salary.TotalDeduction);
-            setMonth(setMonth.month);
+            setMonth(new Date(setMonth.month).toISOString().split('T'))[0];
             setLoading(false);
         } catch (err) {
             console.error(err);
