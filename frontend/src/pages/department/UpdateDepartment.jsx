@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const UpdateDepartment = () => {
     // DepartementCode, DepartementName, GrossSalary 
@@ -11,6 +11,8 @@ const UpdateDepartment = () => {
     const [success, setSuccess] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
+
+    const navigate = useNavigate();
 
     const { _id } = useParams();
 
@@ -44,6 +46,7 @@ const UpdateDepartment = () => {
            setSuccess(res.data.message);
           setInterval(() => {
                     setSuccess("");
+           navigate('/department/departmentList')
          }, 4000);
         } catch (err) {
             console.error(err);

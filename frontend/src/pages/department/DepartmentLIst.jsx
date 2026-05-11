@@ -64,7 +64,7 @@ const DepartmentList = () => {
                                 <td className="py-3 px-5">{new Date(dep.updatedAt).toLocaleDateString()}</td>
 
                                 <td className="flex gap-4">
-                                    <Link className="py-2 px-3 bg-green-400 mt-2 rounded-lg text-white font-bold hover:bg-green-500 transition-colors" to={`/employee/update/${dep._id}`}>Update</Link>
+                                    <Link className="py-2 px-3 bg-green-400 mt-2 rounded-lg text-white font-bold hover:bg-green-500 transition-colors" to={`/department/update/${dep._id}`}>Update</Link>
                                     <button className="py-2 px-3 bg-red-400 mt-2 rounded-lg text-white font-bold me-3 hover:bg-red-500 transition-colors" onClick={() => handleDeleteDepartment(dep._id)}>Delete</button>
                                 </td>
                             </tr>
