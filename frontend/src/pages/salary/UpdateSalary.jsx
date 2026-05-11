@@ -56,7 +56,7 @@ const UpdateSalary = () => {
     const handleUpdateSalary = async () => {
         try {
             setLoading(true);
-            const res = await axios.post(`http://localhost:4000/salary/update/${_id}`, {
+            const res = await axios.put(`http://localhost:4000/salary/update/${_id}`, {
                 GlossSalary, TotalDeduction, month, employee
             });
            setLoading(false);
