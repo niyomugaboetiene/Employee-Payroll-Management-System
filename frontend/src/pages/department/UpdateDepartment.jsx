@@ -30,8 +30,9 @@ const UpdateDepartment = () => {
     }
 
     useEffect(() => {
-        GetCurrentEmployee();
+        GetCurrentDepartment();
     }, [_id]);
+    
     const handleUpdateDepartment = async () => {
         try {
             setLoading(true);
@@ -74,6 +75,7 @@ const UpdateDepartment = () => {
                 )}
                 <div className="mt-2"> 
                     <input 
+                    value={DepartementCode}
                      className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
                     type="text" onChange={(e) => {
                         setDepartementCode(e.target.value)
@@ -84,6 +86,7 @@ const UpdateDepartment = () => {
                 
                 <div className="mt-2">
                     <input 
+                    value={DepartementName}
                     className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
                     type="text" onChange={(e) => {
                         setDepartementName(e.target.value)
@@ -94,6 +97,7 @@ const UpdateDepartment = () => {
                 
                 <div className="mt-2">
                     <input 
+                    value={GrossSalary}
                     className="bg-gray-300 text-xs py-2 w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
                     type="number" onChange={(e) => {
                         setGrossSalary(e.target.value)
