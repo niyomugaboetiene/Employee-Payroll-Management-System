@@ -55,17 +55,13 @@ const DepartmentList = () => {
                     </thead>
 
                     <tbody>
-                        {employee?.map((emp, index) => (
+                        {employee?.map((dep, index) => (
                             <tr key={index} className={`${index % 2 === 0 ? 'bg-gray-100 hover:bg-gray-200' : 'bg-gray-300 hover:bg-gray-400'}`}>
-                                <td className="py-3 px-5">{emp.DepartementCode}</td>
-                                <td className="py-3 px-5">{emp.FirstName}</td>
-                                <td className="py-3 px-5">{emp.LastName}</td>
-                                <td className="py-3 px-5">{emp.Position}</td>
-                                <td className="py-3 px-5">{emp.Address}</td>
-                                <td className="py-3 px-5">{emp.Telephone}</td>
-                                <td className="py-3 px-5">{emp.Gender}</td>
-                                <td className="py-3 px-5">{new Date(emp.hiredDate).toLocaleDateString()}</td>
+                                <td className="py-3 px-5">{dep.DepartementCode}</td>
+                                <td className="py-3 px-5">{dep.DepartementName}</td>
+                                <td className="py-3 px-5">{dep.GrossSalary}</td>
                                 <td className="py-3 px-5">{new Date(emp.createdAt).toLocaleDateString()}</td>
+                                <td className="py-3 px-5">{new Date(emp.updatedAt).toLocaleDateString()}</td>
 
                                 <td className="flex gap-4">
                                     <Link className="py-2 px-3 bg-green-400 mt-2 rounded-lg text-white font-bold hover:bg-green-500 transition-colors" to={`/employee/update/${emp._id}`}>Update</Link>
