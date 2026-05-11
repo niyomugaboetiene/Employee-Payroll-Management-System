@@ -47,11 +47,11 @@ const EmployeeList = () => {
                         <tr>
                             <th className="py-3 px-5">Gloss Salary</th>
                             <th className="py-3 px-5">Total Deduction</th>
-                            <th className="py-3 px-5">Last Name</th>
-                            <th className="py-3 px-5">Position</th>
-                            <th className="py-3 px-5">Address</th>
-                            <th className="py-3 px-5">Telephone</th>
-                            <th className="py-3 px-5">Gender</th>
+                            <th className="py-3 px-5">Net Salary</th>
+                            <th className="py-3 px-5">Month</th>
+                            <th className="py-3 px-5">Employee</th>
+                            <th className="py-3 px-5">Created At</th>
+                            <th className="py-3 px-5">Last update</th>
                             <th className="py-3 px-5">Department</th>
                             <th className="py-3 px-5">Hired Date</th>
                             <th className="py-3 px-5">Registered Date</th>
