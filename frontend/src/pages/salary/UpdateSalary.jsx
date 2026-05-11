@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const AddSalary = () => {
     // GlossSalary, TotalDeduction, month, employee 
@@ -14,6 +15,8 @@ const AddSalary = () => {
     const [error, setError] = useState("");
 
     const [selectedEmployee, setSelectedEmployee] = useState(null);
+
+    const { _id } = useParams();
 
     const handleGetEmployee = async () => {
         try {
@@ -31,18 +34,10 @@ const AddSalary = () => {
         handleGetEmployee();
     }, []);
 
-    const handleAddNewSalary = async () => {
+    const handleUpdateSalary = async () => {
         try {
-            if (!GlossSalary || !TotalDeduction || !month) {
-                setError("Fill out missing fields");
-                setInterval(() => {
-                    setError("");
-                }, 4000);
-                setSuccess("");
-                return;
-            }
             setLoading(true);
-            const res = await axios.post('http://localhost:4000/salary/addSalary', {
+            const res = await axios.post(`http://localhost:4000/salary/`, {
                 GlossSalary, TotalDeduction, month, employee
             });
            setLoading(false);
