@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { FaEdit, FaTrash, FaPlus } from "react-icons/fa";
+
 
 const EmployeeList = () => {
     const [employee, setEmployee] = useState(null);
@@ -44,7 +46,7 @@ const EmployeeList = () => {
             <div className="mt-12">
                 <div className="flex justify-between mb-3">
                    <h1 className="mb-2 text-2xl font-bold text-gray-700">Employee List</h1>
-                   <button onClick={() => navigate('/AddEmployee')} className="bg-gray-400 text-white px-3 rounded-lg hover:bg-gray-500 transition-colors">Add Employee</button>
+                   <button onClick={() => navigate('/AddEmployee')} className="bg-gray-400 text-white px-3 rounded-lg hover:bg-gray-500 transition-colors"><FaPlus /> Add Employee</button>
                 </div>
                 <table border={2}>
                     <thead className="bg-gray-400 text-white ">
@@ -78,8 +80,8 @@ const EmployeeList = () => {
                                 <td className="py-3 px-5">{new Date(emp.createdAt).toLocaleDateString()}</td>
 
                                 <td className="flex gap-4">
-                                    <Link className="py-2 px-3 bg-green-400 mt-2 rounded-lg text-white font-bold hover:bg-green-500 transition-colors" to={`/employee/update/${emp._id}`}>Update</Link>
-                                    <button className="py-2 px-3 bg-red-400 mt-2 rounded-lg text-white font-bold me-3 hover:bg-red-500 transition-colors" onClick={() => handleDeleteEmployee(emp._id)}>Delete</button>
+                                    <Link className="py-2 px-3 bg-green-400 mt-2 rounded-lg text-white font-bold hover:bg-green-500 transition-colors" to={`/employee/update/${emp._id}`}><FaEdit />Update</Link>
+                                    <button className="py-2 px-3 bg-red-400 mt-2 rounded-lg text-white font-bold me-3 hover:bg-red-500 transition-colors" onClick={() => handleDeleteEmployee(emp._id)}><FaTrash /> Delete</button>
                                 </td>
                             </tr>
                         ))}
