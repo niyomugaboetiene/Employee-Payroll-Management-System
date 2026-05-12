@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const DepartmentList = () => {
     const [department, setDepartement] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
+
+    const navigate = useNavigate();
 
     const handleGetDepartment = async () => {
         try {
@@ -43,7 +45,7 @@ const DepartmentList = () => {
             <div className="mt-12">
                 <div className="flex justify-between mb-3">
                    <h1 className="mb-2 text-2xl font-bold text-gray-700">Department List</h1>
-                   <button onClick={() => navigate()} className="bg-gray-400 text-white px-3 rounded-lg hover:bg-gray-500 transition-colors">Add Department</button>
+                   <button onClick={() => navigate('/AddDepartment')} className="bg-gray-400 text-white px-3 rounded-lg hover:bg-gray-500 transition-colors">Add Department</button>
                 </div>
                 <table border={2}>
                     <thead className="bg-gray-400 text-white ">
