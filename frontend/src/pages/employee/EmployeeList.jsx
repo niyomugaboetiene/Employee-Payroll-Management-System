@@ -43,7 +43,7 @@ const EmployeeList = () => {
             <div className="mt-12">
                 <div className="flex justify-between mb-3">
                    <h1 className="mb-2 text-2xl font-bold text-gray-700">Employee List</h1>
-                   <button onClick={() => navigate('/AddDepartment')} className="bg-gray-400 text-white px-3 rounded-lg hover:bg-gray-500 transition-colors">Add Employee</button>
+                   <button onClick={() => navigate('/AddEmployee')} className="bg-gray-400 text-white px-3 rounded-lg hover:bg-gray-500 transition-colors">Add Employee</button>
                 </div>
                 <table border={2}>
                     <thead className="bg-gray-400 text-white ">
