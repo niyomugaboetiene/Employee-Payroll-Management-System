@@ -36,7 +36,7 @@ const UpdateEmployee = () => {
             setGender(empData.Gender);
             setPosition(empData.Position);
             setTelephone(empData.Telephone);
-            setHiredDate(empData.hiredDate);
+            setHiredDate(new Date(empData.hiredDate).toISOString().split('T')[0]);
             setDepartment(empData.department?._id);
         } catch (err) {
             console.error(err);
@@ -47,7 +47,7 @@ const UpdateEmployee = () => {
         handleGetCurrentValue();
     }, [_id]);
 
-    
+
     const handleUpdateEmployee = async () => {
         try {
             if (!employeeNumber || !FirstName || !LastName || !Position || !Address || !Telephone || !Gender || !hiredDate) {
@@ -59,7 +59,7 @@ const UpdateEmployee = () => {
                 return;
             }
             setLoading(true);
-            const res = await axios.post('http://localhost:4000/employee/addEmployee', {
+            const res = await axios.put(`http://localhost:4000/employee/update/${_id}`, {
                 employeeNumber, FirstName, LastName, Position, Address, Telephone, Gender, hiredDate, department
             });
            setLoading(false);
@@ -113,6 +113,7 @@ const UpdateEmployee = () => {
                 )}
                 <div className="mt-2"> 
                     <input 
+                    value={employeeNumber}
                      className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
                     type="number" onChange={(e) => {
                         setEmployeeNumber(e.target.value)
@@ -123,6 +124,7 @@ const UpdateEmployee = () => {
                 
                 <div className="mt-2">
                     <input 
+                    value={FirstName}
                     className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
                     type="text" onChange={(e) => {
                         setFirstName(e.target.value)
@@ -133,6 +135,7 @@ const UpdateEmployee = () => {
                 
                 <div className="mt-2">
                     <input 
+                    value={LastName}
                     className="bg-gray-300 text-xs py-2 w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
                     type="text" onChange={(e) => {
                         setLastName(e.target.value)
@@ -143,6 +146,7 @@ const UpdateEmployee = () => {
 
                 <div className="mt-2">
                     <input 
+                    value={Position}
                      className="bg-gray-300 text-xs  py-2 w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
                     type="text" onChange={(e) => {
                         setPosition(e.target.value)
@@ -152,6 +156,7 @@ const UpdateEmployee = () => {
                 </div>
                 <div className="mt-2">
                     <input 
+                    value={Address}
                     className="bg-gray-300 text-xs py-2 w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
                     type="text" onChange={(e) => {
                         setAddress(e.target.value)
@@ -162,6 +167,7 @@ const UpdateEmployee = () => {
                 
                 <div className="mt-2">
                     <input 
+                    value={Telephone}
                     className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
                     type="text" onChange={(e) => {
                         setTelephone(e.target.value)
@@ -171,6 +177,7 @@ const UpdateEmployee = () => {
                 </div>
                 <div className="mt-2">
                     <input 
+                    value={Gender}
                    className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
                     type="text" onChange={(e) => {
                         setGender(e.target.value)
@@ -181,6 +188,7 @@ const UpdateEmployee = () => {
                 
                 <div className="mt-2">
                     <input 
+                    value={hiredDate}
                     className="bg-gray-300 text-xs py-2 w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
                     type="date" onChange={(e) => {
                         setHiredDate(e.target.value)
@@ -189,7 +197,7 @@ const UpdateEmployee = () => {
                 </div>
                 
                 <div className="mt-2">
-                    <select 
+                    <select  value={department}
                      className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
                     type="text" onChange={(e) => {
                         setDepartment(e.target.value)
