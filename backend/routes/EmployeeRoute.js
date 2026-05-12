@@ -100,4 +100,8 @@ router.delete('/delete/:_id', async(req, res) => {
     }
 });
 
+// montly paylor
+router.get('/montly', async (req, res) => {
+    
+})
 export default router;
