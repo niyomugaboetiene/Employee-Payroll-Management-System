@@ -106,9 +106,11 @@ router.delete('/delete/:_id', async(req, res) => {
 });
 
 // montly paylor
-// router.get('/montly', async (req, res) => {
-//     try {
-//          const 
-//     }
-// })
+router.get('/montly', async (req, res) => {
+    try {
+         const { month } = req.body;
+
+         const montlyResult = await Salary.find({ month: month }).populate("employee").populate("departments");
+    }
+})
 export default router;
