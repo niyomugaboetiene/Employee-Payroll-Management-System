@@ -31,6 +31,22 @@ const AddSalary = () => {
     useEffect(() => {
         handleGetEmployee();
     }, []);
+    
+    const handleGetDepartment = async () => {
+        try {
+            setLoading(true);
+            const res = await axios.get('http://localhost:4000/employee/employeeList');
+            setSelectedEmployee(res.data.employee);
+            setLoading(false);
+        } catch (err) {
+            console.error(err);
+            setLoading(false);
+        }
+    } 
+
+    useEffect(() => {
+        handleGetDepartment();
+    }, []);
 
     const handleAddNewSalary = async () => {
         try {
@@ -44,7 +60,7 @@ const AddSalary = () => {
             }
             setLoading(true);
             const res = await axios.post('http://localhost:4000/salary/addSalary', {
-                GlossSalary, TotalDeduction, month, employee
+                GlossSalary, TotalDeduction, month, employee, department
             });
            setLoading(false);
            setError("");
