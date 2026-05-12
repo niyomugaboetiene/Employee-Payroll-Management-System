@@ -106,9 +106,9 @@ router.delete('/delete/:_id', async(req, res) => {
 });
 
 // montly paylor
-router.get('/montly', async (req, res) => {
-    try {
-         const 
-    }
-})
+// router.get('/montly', async (req, res) => {
+//     try {
+//          const 
+//     }
+// })
 export default router;
