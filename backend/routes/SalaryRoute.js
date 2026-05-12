@@ -111,6 +111,15 @@ router.get('/montly', async (req, res) => {
          const { month } = req.body;
 
          const montlyResult = await Salary.find({ month: month }).populate("employee").populate("departments");
+
+         if (montlyResult.length === 0) {
+             res.status(404).json({ message: 'No paylor found on this month' });
+             return;
+         }
+
+         return res.status(200).json({ message: 'Monthly paylor result', result: montlyResult });
+    } catch (err) {
+        console.error(err);
     }
-})
+});
 export default router;
