@@ -18,7 +18,7 @@ const EmployeeList = () => {
         } catch (err) {
             console.error(err);
             // const errorMessage = err.data?.response?.message || "Error occured";
-            setIsLoading(true);
+            setIsLoading(false);
         }
     }
 
@@ -48,6 +48,12 @@ const EmployeeList = () => {
                    <h1 className="mb-2 text-2xl font-bold text-gray-700">Employee List</h1>
                    <button onClick={() => navigate('/AddEmployee')} className="bg-gray-400 text-white px-3 rounded-lg hover:bg-gray-500 transition-colors"><FaPlus /> Add Employee</button>
                 </div>
+
+                {isLoading && (
+                    <div className="flex justify-center items-center">
+                        <div className="border-transparent text-gray-700 border animate-spin"></div>
+                    </div>
+                )}
                 <table border={2}>
                     <thead className="bg-gray-400 text-white ">
                         <tr>

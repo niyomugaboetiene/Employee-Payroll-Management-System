@@ -12,6 +12,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import ListComponent from "./pages/employee/List"
 import AddEmployee from "./pages/employee/AddEmployee"
+import UpdateEmployee from "./pages/employee/Update"
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
         <Routes>
             <Route path="/AddEmployee" element={<AddEmployee />} />
             <Route path="/empList" element={<ListComponent />}/>
+            <Route path="/update/:_id" element={<UpdateEmployee />}/>
         </Routes>
     </BrowserRouter>
   )
