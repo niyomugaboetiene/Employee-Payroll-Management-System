@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SalaryList = () => {
     const [salary, setSalary] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
 
+    const navigate = useNavigate();
     const handleGetSalary = async () => {
         try {
             setIsLoading(true);
