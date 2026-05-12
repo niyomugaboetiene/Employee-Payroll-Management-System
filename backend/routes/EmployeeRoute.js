@@ -59,45 +59,45 @@ router.get('/get/:_id', async (req, res) => {
     }
 });
 
-router.put('/update/:_id', async (req, res) => {
-    try{
-        const _id = req.params._id;
+// router.put('/update/:_id', async (req, res) => {
+//     try{
+//         const _id = req.params._id;
     
-        const { employeeNumber, FirstName, LastName, Position, Address, Telephone, Gender, hiredDate, department } = req.body;  
+//         const { employeeNumber, FirstName, LastName, Position, Address, Telephone, Gender, hiredDate, department } = req.body;  
      
-        let fieldToBeUpdated = {};
+//         let fieldToBeUpdated = {};
 
-        if (employeeNumber) fieldToBeUpdated.employeeNumber = employeeNumber;
-        if (FirstName) fieldToBeUpdated.FirstName = FirstName;
-        if (LastName) fieldToBeUpdated.LastName = LastName;
-        if (Position) fieldToBeUpdated.Position = Position;
-        if (Address) fieldToBeUpdated.Address = Address;
-        if (Telephone) fieldToBeUpdated.Telephone = Telephone;
-        if (hiredDate) fieldToBeUpdated.hiredDate = hiredDate;
-        if (Gender) fieldToBeUpdated.Gender = Gender;
-        if (department) fieldToBeUpdated.department = department;
+//         if (employeeNumber) fieldToBeUpdated.employeeNumber = employeeNumber;
+//         if (FirstName) fieldToBeUpdated.FirstName = FirstName;
+//         if (LastName) fieldToBeUpdated.LastName = LastName;
+//         if (Position) fieldToBeUpdated.Position = Position;
+//         if (Address) fieldToBeUpdated.Address = Address;
+//         if (Telephone) fieldToBeUpdated.Telephone = Telephone;
+//         if (hiredDate) fieldToBeUpdated.hiredDate = hiredDate;
+//         if (Gender) fieldToBeUpdated.Gender = Gender;
+//         if (department) fieldToBeUpdated.department = department;
 
-        const updatedEmployee = await Employee.findByIdAndUpdate(_id, fieldToBeUpdated);
+//         const updatedEmployee = await Employee.findByIdAndUpdate(_id, fieldToBeUpdated);
 
-        return res.status(200).json({ message:'Updated employee', updated: updatedEmployee });
-    } catch (err) {
-        console.error(err);
-        return res.status(500).json({ message: 'Internal server error' });      
-    }
-});
+//         return res.status(200).json({ message:'Updated employee', updated: updatedEmployee });
+//     } catch (err) {
+//         console.error(err);
+//         return res.status(500).json({ message: 'Internal server error' });      
+//     }
+// });
 
-router.delete('/delete/:_id', async(req, res) => {
-    try {
-        const _id = req.params._id;
-        // const { _id } = req.params;
+// router.delete('/delete/:_id', async(req, res) => {
+//     try {
+//         const _id = req.params._id;
+//         // const { _id } = req.params;
 
-        await Employee.findByIdAndDelete(_id);
-        return res.status(200).json({ message: 'Employee deleted succesfully'})
+//         await Employee.findByIdAndDelete(_id);
+//         return res.status(200).json({ message: 'Employee deleted succesfully'})
 
-    } catch (err) {
-        console.error(err);
-        return res.status(500).json({ message: 'Internal server error'})
-    }
-});
+//     } catch (err) {
+//         console.error(err);
+//         return res.status(500).json({ message: 'Internal server error'})
+//     }
+// });
 
 export default router;
