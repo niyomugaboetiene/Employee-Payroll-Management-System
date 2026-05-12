@@ -24,21 +24,21 @@ const ListComponent = () => {
             <div className="mt-12">
                 <div className="flex justify-between mb-4">
                     <h1 className="text-3xl font-bold text-gray-900">Employee list</h1>
-                    <button className="bg-gray-500 px-5 text-white font-bold text-2xl rounded-lg py-2 hover:bg-gray-600 transition ">Add new</button>
+                    <button className="bg-gray-500 px-5 text-white font-bold text-2xl rounded-lg py-2 hover:bg-gray-900 transition duration-1000">Add new</button>
                 </div>
                 <table border={2}>
-                    <thead>
+                    <thead className="bg-gray-500 text-white text-2xl">
                         <tr>
-                            <th>Employee number</th>
-                            <th>First name</th>
-                            <th>Last name</th>
-                            <th>Postion</th>
-                            <th>Address</th>
-                            <th>Telephone</th>
-                            <th>Gender</th>
-                            <th>Hired date</th>
-                            <th>Department</th>
-                            <th colSpan={2}>Action</th>
+                            <th className="py-2 px-3">Employee number</th>
+                            <th className="py-2 px-3">First name</th>
+                            <th className="py-2 px-3">Last name</th>
+                            <th className="py-2 px-3">Postion</th>
+                            <th className="py-2 px-3">Address</th>
+                            <th className="py-2 px-3">Telephone</th>
+                            <th className="py-2 px-3">Gender</th>
+                            <th className="py-2 px-3">Hired date</th>
+                            <th className="py-2 px-3">Department</th>
+                            <th colSpan={2} className="py-2 px-3">Action</th>
                         </tr>
                     </thead>
 
