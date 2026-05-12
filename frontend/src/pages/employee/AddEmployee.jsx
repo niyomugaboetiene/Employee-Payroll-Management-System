@@ -23,7 +23,7 @@ const AddEmployee = () => {
         try {
             if (!employeeNumber || !FirstName || !LastName || !Position || !Address || !Telephone || !Gender || !hiredDate) {
                 setError("Fill out missing fields");
-                setInterval(() => {
+                setTimeout(() => {
                     setError("");
                 }, 4000);
                 setSuccess("");
@@ -36,7 +36,7 @@ const AddEmployee = () => {
            setLoading(false);
            setError("");
            setSuccess(res.data.message);
-          setInterval(() => {
+          setTimeout(() => {
                     setSuccess("");
          }, 4000);
         } catch (err) {
@@ -44,7 +44,7 @@ const AddEmployee = () => {
             const errorMessage = err.response?.data?.message || "Error occurred";
             setError(errorMessage);
              setError("");
-          setInterval(() => {
+          setTimeout(() => {
                     setError("");
          }, 4000);
             setSuccess("");

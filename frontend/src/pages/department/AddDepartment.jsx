@@ -15,7 +15,7 @@ const AddDepartment = () => {
         try {
             if (!DepartementCode || !DepartementName || !GrossSalary) {
                 setError("Fill out missing fields");
-                setInterval(() => {
+                setTimeout(() => {
                     setError("");
                 }, 4000);
                 setSuccess("");
@@ -28,7 +28,7 @@ const AddDepartment = () => {
            setLoading(false);
            setError("");
            setSuccess(res.data.message);
-          setInterval(() => {
+          setTimeout(() => {
                     setSuccess("");
          }, 4000);
         } catch (err) {
@@ -36,7 +36,7 @@ const AddDepartment = () => {
             const errorMessage = err.response?.data?.message || "Error occurred";
             setError(errorMessage);
              setError("");
-          setInterval(() => {
+          setTimeout(() => {
                setError("");
          }, 4000);
             setSuccess("");
