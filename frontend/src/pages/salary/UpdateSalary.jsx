@@ -121,10 +121,10 @@ const UpdateSalary = () => {
                 <div className="mt-2">
                     <input 
                     className="bg-gray-300 text-xs py-2 w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
-                    type="date" onChange={(e) => {
+                    type="text" onChange={(e) => {
                         setMonth(e.target.value)
                     }} 
-                    placeholder="Enter Gross Salary"
+                    placeholder="Enter Month"
                     />
                 </div>
 

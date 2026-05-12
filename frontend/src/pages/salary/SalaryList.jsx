@@ -66,7 +66,7 @@ const SalaryList = () => {
                                 <td className="py-3 px-5">{salary.GlossSalary}</td>
                                 <td className="py-3 px-5">{salary.TotalDeduction}</td>
                                 <td className="py-3 px-5">{salary.NetSalary}</td>
-                                <td className="py-3 px-5">{new Date(salary.month).getMonth()}</td>
+                                <td className="py-3 px-5">{salary.month}</td>
                                 <td className="py-3 px-5">{salary.employee?.FirstName || "No Employee"}</td>
                                 <td className="py-3 px-5">{new Date(salary.createdAt).toLocaleDateString()}</td>
                                 <td className="py-3 px-5">{new Date(salary.updatedAt).toLocaleDateString()}</td>

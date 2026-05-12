@@ -15,6 +15,7 @@ const AddSalary = () => {
     const [error, setError] = useState("");
 
     const [selectedEmployee, setSelectedEmployee] = useState(null);
+    const [selectedDepartment, setSelectedDepartment] = useState(null);
 
     const handleGetEmployee = async () => {
         try {
@@ -35,8 +36,8 @@ const AddSalary = () => {
     const handleGetDepartment = async () => {
         try {
             setLoading(true);
-            const res = await axios.get('http://localhost:4000/employee/employeeList');
-            setSelectedEmployee(res.data.employee);
+            const res = await axios.get('http://localhost:4000/department/departmentList');
+            setSelectedDepartment(res.data.department);
             setLoading(false);
         } catch (err) {
             console.error(err);
@@ -128,8 +129,18 @@ const AddSalary = () => {
 
                 <div className="mt-2">
                     <select onChange={(e) => setEmployee(e.target.value)} className="bg-gray-300 text-xs py-2 w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500">
+                        <option value="" disabled>Select employee</option>
                         {selectedEmployee?.map((emp, index) => (
-                            <option value={emp._id} key={index}>{emp.FirstName} . {emp.LastName}</option>
+                            <option value={emp._id} key={index}>{emp.FirstName} {emp.LastName}</option>
+                        ))}
+                    </select>
+                </div>
+                
+                <div className="mt-2">
+                    <select onChange={(e) => setDepartment(e.target.value)} className="bg-gray-300 text-xs py-2 w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500">
+                        <option value="" >Select department</option>
+                        {selectedDepartment?.map((dep, index) => (
+                            <option value={dep._id} key={index}>{dep.DepartementName}</option>
                         ))}
                     </select>
                 </div>
