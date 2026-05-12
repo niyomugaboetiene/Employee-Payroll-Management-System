@@ -21,6 +21,19 @@ const ListComponent = () => {
         handleGet();
     }, []);
 
+    const handleDeleteEmployee = async (_id) => {
+        try {
+            const confrim  = window.confirm("Are you sure ?");
+
+            if (confrim) {
+                await axios.delete(`http://localhost:4000/employee/delete/${_id}`);
+                await handleGet();
+            }
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
     return (
         <div className="bg-gray-100 min-h-screen flex justify-center">
             <div className="mt-12">
@@ -60,7 +73,7 @@ const ListComponent = () => {
 
                                 <td className="py-2 px-3 flex justify-between gap-8">
                                   <Link to={`/update/${emp._id}`} className="bg-green-300 text-gray-700 px-4 py-1 rounded-lg ">Update</Link>
-                                  <button className="bg-red-300 text-gray-700 px-4 rounded-lg">Delete</button>
+                                  <button className="bg-red-300 text-gray-700 px-4 rounded-lg" onClick={() => handleDeleteEmployee(emp._id)}>Delete</button>
                                 </td>
                             </tr>
                         ))}
