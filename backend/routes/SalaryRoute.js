@@ -110,7 +110,7 @@ router.get('/montly', async (req, res) => {
     try {
          const { month } = req.body;
 
-         const montlyResult = await Salary.find({ month: month }).populate("employee").populate("departments");
+         const montlyResult = await Salary.find({ month: month }).populate("employee").populate("department");
 
          if (montlyResult.length === 0) {
              res.status(404).json({ message: 'No paylor found on this month' });
