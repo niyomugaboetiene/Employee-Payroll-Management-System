@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const AddEmployee = () => {
     // employeeNumber, FirstName, LastName, Position, Address, Telephone, Gender, hiredDate, department
@@ -12,6 +13,8 @@ const AddEmployee = () => {
     const [Telephone, setTelephone] = useState("");
     const [hiredDate, setHiredDate] = useState("");
     const [department, setDepartment] = useState("");
+
+    const navigate = useNavigate();
 
     const [success, setSuccess] = useState("");
     const [loading, setLoading] = useState(false);
@@ -37,7 +40,8 @@ const AddEmployee = () => {
            setError("");
            setSuccess(res.data.message);
           setTimeout(() => {
-                    setSuccess("");
+                setSuccess("");
+                navigate('/empList');
          }, 4000);
         } catch (err) {
             console.error(err);
@@ -167,7 +171,7 @@ const AddEmployee = () => {
                     >
                       {selectedDepartment?.map((dep, index) => (
                         <>
-                          <option disabled>-----Select department-----</option>
+                          <option>-----Select department-----</option>
                           <option value={dep._id}>{dep.DepartementName}</option>
                         </>
                       ))}    
