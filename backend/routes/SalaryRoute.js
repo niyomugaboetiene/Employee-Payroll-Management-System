@@ -5,18 +5,18 @@ const router = express.Router();
 
 router.post('/addSalary', async (req, res) => {
     try {
-        const { GlossSalary, TotalDeduction, month, employee } = req.body;  
+        const { GlossSalary, TotalDeduction, month, employee, department } = req.body;  
 
         // console.log("Received fields", "GrossSalary", GlossSalary, "Total deduction", TotalDeduction, "Month", month, "employee", employee);
 
-        if (!GlossSalary || !TotalDeduction || !month || !employee) {
+        if (!GlossSalary || !TotalDeduction || !month || !employee || !department) {
             return res.status(403).json({ message: 'Fill some missing fields' });
         }
 
         const NetSalary = Number(GlossSalary) - Number(TotalDeduction);
 
         const newSalary = await Salary.create({
-            GlossSalary, TotalDeduction, NetSalary, month, employee
+            GlossSalary, TotalDeduction, NetSalary, month, employee, department
         });
 
         return res.status(201).json({ message: 'Salary added succesfully', salary: newSalary });
@@ -67,12 +67,13 @@ router.put('/update/:_id', async (req, res) => {
     try{
         const _id = req.params._id;
     
-        const { GlossSalary, TotalDeduction,  month, employee  } = req.body;  
+        const { GlossSalary, TotalDeduction,  month, employee, department  } = req.body;  
      
         let fieldToBeUpdated = {};
 
         if (GlossSalary) fieldToBeUpdated.GlossSalary = GlossSalary;
         if (TotalDeduction) fieldToBeUpdated.TotalDeduction = TotalDeduction;
+        if (department) fieldToBeUpdated.department = department;
 
         if (TotalDeduction || GlossSalary) {
             const NetSalary = GlossSalary - TotalDeduction;
