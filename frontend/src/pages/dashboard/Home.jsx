@@ -29,7 +29,7 @@ const HomePage = () => {
             const employee = await axios.get('http://localhost:4000/salary/recentEmployee');
             const department = await axios.get('http://localhost:4000/salary/recentDepartment');
 
-            console.log(department.data.recent, employee.data.recent, salary.data.recent);
+            // console.log(department.data.recent, employee.data.recent, salary.data.recent);
             setRecentDepartment(department.data.recent);
             setRecentEmployee(employee.data.recent);
             setRecentSalary(salary.data.recent);
@@ -81,7 +81,14 @@ const HomePage = () => {
                 </div>
 
                 <div>
+                    <h1>Recents</h1>
 
+                    <div>
+                        <h1>Recent Employee</h1>
+                        <table border={2}>
+                             
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
