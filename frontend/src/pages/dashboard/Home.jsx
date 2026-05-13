@@ -7,7 +7,7 @@ const HomePage = () => {
                 <h1>Welcome to Employee paylor management system</h1>
 
                 <div>
-                    <button>Login</button>
+                    
                 </div>
             </div>
         </div>
