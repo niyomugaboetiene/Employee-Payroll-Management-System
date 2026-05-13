@@ -26,30 +26,30 @@ const HomePage = () => {
             <div className="mt-30 ms-4 text-2xl font-light text-gray-800">
                 <h1>Welcome to Employee paylor management system</h1>
 
-                <div>
-                    <div className="flex">
-                        <h1>Total Employee</h1>
+                <div className="mt-4 space-y-5">
+                    <div className="flex bg-gray-200 w-fit py-3 p-2 font-light px-4 rounded-lg">
+                        <h1>Total Employee:</h1>
                         {totalEmployee && (
                             <div>
-                                <p>{totalEmployee}</p>
+                                <p className="ms-4 font-bold">{totalEmployee}</p>
                             </div>
                         )}
                     </div>
                     
-                    <div className="flex">
+                    <div className="flex bg-gray-200 w-fit py-3 p-2 font-light px-4 rounded-lg">
                         <h1>Total Departments</h1>
                         {totalDepartment && (
                             <div>
-                                <p>{totalDepartment}</p>
+                                <p className="ms-4 font-bold">{totalDepartment}</p>
                             </div>
                         )}
                     </div>
                     
-                    <div className="flex">
+                    <div className="flex bg-gray-200 w-fit py-3 p-2 font-light px-4 rounded-lg">
                         <h1>Total Payroll</h1>
                         {totalPayroll && (
                             <div>
-                                <p>RWF: {totalPayroll}</p>
+                                <p className="font-bold ms-4">RWF: {totalPayroll}</p>
                             </div>
                         )}
                     </div>
