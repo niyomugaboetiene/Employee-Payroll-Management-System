@@ -136,7 +136,6 @@ const HomePage = () => {
                             <th className="py-3 px-5">Gross Salary</th>
                             <th className="py-3 px-5">Created At</th>
                             <th className="py-3 px-5">Last Update</th>
-                            <th className="py-3 px-5">Modification</th>
                         </tr>
                     </thead>
 
@@ -148,11 +147,6 @@ const HomePage = () => {
                                 <td className="py-3 px-5">{dep.GrossSalary}</td>
                                 <td className="py-3 px-5">{new Date(dep.createdAt).toLocaleDateString()}</td>
                                 <td className="py-3 px-5">{new Date(dep.updatedAt).toLocaleDateString()}</td>
-
-                                <td className="flex gap-4">
-                                    <Link className="py-2 px-3 bg-green-400 mt-2 rounded-lg text-white font-bold hover:bg-green-500 transition-colors" to={`/department/update/${dep._id}`}>Update</Link>
-                                    <button className="py-2 px-3 bg-red-400 mt-2 rounded-lg text-white font-bold me-3 hover:bg-red-500 transition-colors" onClick={() => handleDeleteDepartment(dep._id)}>Delete</button>
-                                </td>
                             </tr>
                         ))}
                     </tbody>
