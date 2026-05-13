@@ -28,6 +28,12 @@ const HomePage = () => {
             const salary = await axios.get('http://localhost:4000/salary/recentSalary');
             const employee = await axios.get('http://localhost:4000/salary/recentEmployee');
             const department = await axios.get('http://localhost:4000/salary/recentDepartment');
+
+            setRecentDepartment(department.data.recent);
+            setRecentEmployee(employee.data.recent);
+            setRecentSalary(salary.data.recent);
+        } catch (err) {
+            console.error(err);
         }
     }
     useEffect(() => {
