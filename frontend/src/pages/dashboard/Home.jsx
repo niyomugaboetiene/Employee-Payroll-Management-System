@@ -11,8 +11,8 @@ const HomePage = () => {
             const res = await axios.get('http://localhost:4000/department/total');
             console.log("Error", res.data.payroll);
             setTotalPayroll(res.data.payroll);
-            setTotalPayroll(res.data.payroll);
-            setTotalPayroll(res.data.payroll);
+            setTotalDepartment(res.data.department);
+            setTotalEmployee(res.data.employee);
           } catch (err) {
             console.error(err);
           }
@@ -29,7 +29,7 @@ const HomePage = () => {
                 <div>
                     <div>
                         <h1>Total Employee</h1>
-                        {total?.map((tot) => (
+                        {totalEmployee?.map((tot) => (
                             <div>
                                 <p>{tot.employee}</p>
                             </div>
@@ -38,7 +38,7 @@ const HomePage = () => {
                     
                     <div>
                         <h1>Total Departments</h1>
-                        {total?.map((tot) => (
+                        {totalDepartment?.map((tot) => (
                             <div>
                                 <p>{tot.department}</p>
                             </div>
