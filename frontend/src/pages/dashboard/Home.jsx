@@ -6,6 +6,11 @@ const HomePage = () => {
     const [totalDepartment, setTotalDepartment] = useState(null);
     const [totalEmployee, setTotalEmployee] = useState(null);
 
+    // recents
+    const [recentEmployee, setRecentEmployee] = useState(null);
+    const [recentDepartment, setRecentDepartment] = useState(null);
+    const [recentSalary, setRecentSalary] = useState(null);
+
     const handleGetTotal = async () => {
           try {
             const res = await axios.get('http://localhost:4000/department/total');
@@ -56,7 +61,7 @@ const HomePage = () => {
                 </div>
 
                 <div>
-                    
+
                 </div>
             </div>
         </div>
