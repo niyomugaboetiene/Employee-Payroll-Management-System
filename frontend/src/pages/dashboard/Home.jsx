@@ -23,6 +23,13 @@ const HomePage = () => {
           }
     }
 
+    const handleGetRecents = async () => {
+        try {
+            const salary = await axios.get('http://localhost:4000/salary/recentSalary');
+            const employee = await axios.get('http://localhost:4000/salary/recentEmployee');
+            const department = await axios.get('http://localhost:4000/salary/recentDepartment');
+        }
+    }
     useEffect(() => {
         handleGetTotal();
     }, []);
