@@ -103,7 +103,15 @@ router.get('/total', async (req, res) => {
     try {
         const totalDepartment = await Department.countDocuments();
         const totalEmployee = await Employee.countDocuments();
-        const totalPayroll = await
+        const total = await Salary.find();
+
+        const totalPayroll = total.reduce((total, salary) => {
+            return total + salary.NetSalary;
+        }, 0);
+
+        return res.status(200).json({ message: totalPayroll });
+    }  catch (err) {
+        console.error("ERROR", err);
     }
 })
 export default router;
