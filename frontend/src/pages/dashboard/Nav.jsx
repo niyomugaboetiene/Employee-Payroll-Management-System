@@ -16,7 +16,7 @@ const NavBar = () => {
                     <Link>Payroll Report</Link>
                 </nav>
                 <div className="flex md:space-x-4 sm:space-x-1 me-4">
-                    <button className="bg-gray-200">Sign in</button>
+                    <button className="bg-gray-200 h-8 mt-5">Sign in</button>
                    <button>Sign up</button>
                 </div>
             </div>
