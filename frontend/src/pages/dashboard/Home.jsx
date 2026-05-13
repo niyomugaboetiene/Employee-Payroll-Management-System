@@ -126,21 +126,21 @@ const HomePage = () => {
                      </div>
 
 
-                    <div className="w-fit  mt-8 text-lg bg-gray-200 rounded-lg  p-4">
+                    <div className="w-410 mt-8 text-lg bg-gray-200 rounded-lg  p-4">
                     <h1 className="font-bold text-gray-700 text-2xl mb-3">Recent Department</h1>
-                     <table border={2}>
+                     <table border={2} className="w-404">
                     <thead className="bg-gray-400 text-white ">
                         <tr>
-                            <th className="py-3 px-5">Departement Code</th>
-                            <th className="py-3 px-5">Departement Name</th>
-                            <th className="py-3 px-5">Gross Salary</th>
-                            <th className="py-3 px-5">Created At</th>
-                            <th className="py-3 px-5">Last Update</th>
+                            <th className="py-3 px-0">Departement Code</th>
+                            <th className="py-3 px-0">Departement Name</th>
+                            <th className="py-3 px-0">Gross Salary</th>
+                            <th className="py-3 px-0">Created At</th>
+                            <th className="py-3 px-0">Last Update</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        {department?.map((dep, index) => (
+                        {recentDepartment?.map((dep, index) => (
                             <tr key={index} className={`${index % 2 === 0 ? 'bg-gray-100 hover:bg-gray-200' : 'bg-gray-300 hover:bg-gray-400'}`}>
                                 <td className="py-3 px-5">{dep.DepartementCode}</td>
                                 <td className="py-3 px-5">{dep.DepartementName}</td>
@@ -153,7 +153,7 @@ const HomePage = () => {
                 </table>
                
                      <div className="mt-3">
-                         <Link className="flex justify-center text-blue-400 font-black underline" to={'/employeeList'}>View more</Link>
+                         <Link className="flex justify-center text-blue-400 font-black underline" to={'/department/departmentList'}>View more</Link>
                      </div>
                      </div>
                 </div>
