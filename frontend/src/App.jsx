@@ -9,6 +9,7 @@ import UpdateDepartment from "./pages/department/UpdateDepartment"
 import SalaryList from "./pages/salary/SalaryList"
 import UpdateSalary from "./pages/salary/UpdateSalary"
 import NavBar from "./pages/dashboard/Nav"
+import HomePage from "./pages/dashboard/Home"
 
 // import { BrowserRouter, Routes, Route } from "react-router-dom"
 // import ListComponent from "./pages/employee/List"
@@ -21,7 +22,7 @@ function App() {
       <BrowserRouter>
       <NavBar />
           <Routes>
-              {/* <Route path="/" element={} /> */}
+              <Route path="/" element={<HomePage />} />
               <Route path="/AddEmployee" element={<AddEmployee />} />
               <Route path="/AddDepartment" element={<AddDepartment />} />
               <Route path="/AddSalary" element={<AddSalary />} />
