@@ -1,5 +1,7 @@
 import express from "express";
 import Department from "../schema/DepartmentSchema.js";
+import Employee from "../schema/EmployeeSchema.js";
+import Salary from "../schema/SalarySchema.js";
 
 const router = express.Router();
 
@@ -96,4 +98,11 @@ router.delete('/delete/:_id', async(req, res) => {
     }
 });
 
+
+router.get('/total', async (req, res) => {
+    try {
+        const totalDepartment = await Department.countDocuments();
+        const totalEmployee = await EmployeeList
+    }
+})
 export default router;
