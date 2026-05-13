@@ -9,7 +9,7 @@ const HomePage = () => {
     const handleGetTotal = async () => {
           try {
             const res = await axios.get('http://localhost:4000/department/total');
-            console.log("Error", res.data.payroll);
+            console.log("Total", res.data.payroll, res.data.department, res.data.employee);
             setTotalPayroll(res.data.payroll);
             setTotalDepartment(res.data.department);
             setTotalEmployee(res.data.employee);
@@ -27,31 +27,31 @@ const HomePage = () => {
                 <h1>Welcome to Employee paylor management system</h1>
 
                 <div>
-                    <div>
+                    <div className="flex">
                         <h1>Total Employee</h1>
-                        {totalEmployee?.map((tot) => (
+                        {totalEmployee && (
                             <div>
-                                <p>{tot.employee}</p>
+                                <p>{totalEmployee}</p>
                             </div>
-                        ))}
+                        )}
                     </div>
                     
-                    <div>
+                    <div className="flex">
                         <h1>Total Departments</h1>
-                        {totalDepartment?.map((tot) => (
+                        {totalDepartment && (
                             <div>
-                                <p>{tot.department}</p>
+                                <p>{totalDepartment}</p>
                             </div>
-                        ))}
+                        )}
                     </div>
                     
-                    <div>
+                    <div className="flex">
                         <h1>Total Payroll</h1>
-                        {totalPayroll?.map((tot) => (
+                        {totalPayroll && (
                             <div>
-                                <p>RWF: {tot.payroll}</p>
+                                <p>RWF: {totalPayroll}</p>
                             </div>
-                        ))}
+                        )}
                     </div>
                 </div>
             </div>
