@@ -102,7 +102,8 @@ router.delete('/delete/:_id', async(req, res) => {
 router.get('/total', async (req, res) => {
     try {
         const totalDepartment = await Department.countDocuments();
-        const totalEmployee = await EmployeeList
+        const totalEmployee = await Employee.countDocuments();
+        const totalPayroll = await
     }
 })
 export default router;
