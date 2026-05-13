@@ -137,16 +137,16 @@ router.get('/recentEmployee', async (req, res) => {
 router.get('/recentDepartment', async (req, res) => {
     try {
          const recentDepartment = await Department.find().sort({ createdAt: -1 }).limit(5);
-         return res.status(200).json({ message: 'Recent employee', recent: recentEmployee });
+         return res.status(200).json({ message: 'Recent department', recent: recentDepartment });
     } catch (err) {
           console.error(err);
     }
 });
 
-router.get('/recentEmployee', async (req, res) => {
+router.get('/recentSalary', async (req, res) => {
     try {
-         const recentEmployee = await Employee.find().sort({ createdAt: -1 }).limit(5);
-         return res.status(200).json({ message: 'Recent employee', recent: recentEmployee });
+         const recentSalary = await Salary.find().sort({ createdAt: -1 }).limit(5);
+         return res.status(200).json({ message: 'Recent salary', recent: recentSalary });
     } catch (err) {
           console.error(err);
     }
