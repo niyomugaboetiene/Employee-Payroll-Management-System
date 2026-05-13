@@ -151,4 +151,5 @@ router.get('/recentSalary', async (req, res) => {
           console.error(err);
     }
 });
+
 export default router;
