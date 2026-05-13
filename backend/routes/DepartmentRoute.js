@@ -113,5 +113,6 @@ router.get('/total', async (req, res) => {
     }  catch (err) {
         console.error("ERROR", err);
     }
-})
+});
+
 export default router;
