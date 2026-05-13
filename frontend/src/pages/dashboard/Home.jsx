@@ -80,14 +80,44 @@ const HomePage = () => {
                     </div>
                 </div>
 
-                <div>
-                    <h1>Recents</h1>
+                <div className="mt-4">
+                    <h1 className="mb-4 font-bold text-gray-700">Recents</h1>
 
-                    <div>
+                    <div className="w-80 text-lg">
                         <h1>Recent Employee</h1>
-                        <table border={2}>
-                             
-                        </table>
+                   <table border={2}>
+                    <thead className="bg-gray-400 text-white ">
+                        <tr>
+                            <th className="py-3 px-5">Employee Number</th>
+                            <th className="py-3 px-5">First Name</th>
+                            <th className="py-3 px-5">Last Name</th>
+                            <th className="py-3 px-5">Position</th>
+                            <th className="py-3 px-5">Address</th>
+                            <th className="py-3 px-5">Telephone</th>
+                            <th className="py-3 px-5">Gender</th>
+                            <th className="py-3 px-5">Department</th>
+                            <th className="py-3 px-5">Hired Date</th>
+                            <th className="py-3 px-5">Registered Date</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {recentEmployee?.map((emp, index) => (
+                            <tr key={index} className={`${index % 2 === 0 ? 'bg-gray-100 hover:bg-gray-200' : 'bg-gray-300 hover:bg-gray-400'}`}>
+                                <td className="py-3 px-5">{emp.employeeNumber}</td>
+                                <td className="py-3 px-5">{emp.FirstName}</td>
+                                <td className="py-3 px-5">{emp.LastName}</td>
+                                <td className="py-3 px-5">{emp.Position}</td>
+                                <td className="py-3 px-5">{emp.Address}</td>
+                                <td className="py-3 px-5">{emp.Telephone}</td>
+                                <td className="py-3 px-5">{emp.Gender}</td>
+                                <td className="py-3 px-5">{emp.department?.DepartementName || "No department"}</td>
+                                <td className="py-3 px-5">{new Date(emp.hiredDate).toLocaleDateString()}</td>
+                                <td className="py-3 px-5">{new Date(emp.createdAt).toLocaleDateString()}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
                     </div>
                 </div>
             </div>
