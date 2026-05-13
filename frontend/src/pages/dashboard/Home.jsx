@@ -83,8 +83,8 @@ const HomePage = () => {
                 <div className="mt-4">
                     <h1 className="mb-4 font-bold text-gray-700">Recents</h1>
 
-                    <div className="w-80 text-lg">
-                        <h1>Recent Employee</h1>
+                    <div className="w-fit  text-lg bg-gray-200 rounded-lg  p-4">
+                    <h1 className="font-bold text-gray-700 text-2xl mb-3">Recent Employee</h1>
                    <table border={2}>
                     <thead className="bg-gray-400 text-white ">
                         <tr>
