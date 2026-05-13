@@ -146,7 +146,7 @@ router.get('/recentDepartment', async (req, res) => {
 router.get('/recentSalary', async (req, res) => {
     try {
          const recentSalary = await Salary.find().sort({ createdAt: -1 }).limit(5);
-         return res.status(200).json({ message: 'Recent salary', recent: recentSalary });
+         return res.status(200).json({ message: 'Recent salary', recent: recentSalary }).populate("employee");
     } catch (err) {
           console.error(err);
     }
