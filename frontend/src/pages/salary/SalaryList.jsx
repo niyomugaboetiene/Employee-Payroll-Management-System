@@ -41,7 +41,7 @@ const SalaryList = () => {
 
     return (
         <div className="bg-gray-50 min-h-screen flex justify-center">
-            <div className="mt-12">
+            <div className="mt-30">
                 <div className="flex justify-between mb-3">
                    <h1 className="mb-2 text-2xl font-bold text-gray-700">Salaries List</h1>
                    <button onClick={() => navigate('/AddSalary')} className="bg-gray-400 text-white px-3 rounded-lg hover:bg-gray-500 transition-colors">Add Salary</button>
