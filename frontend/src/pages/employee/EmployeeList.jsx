@@ -46,7 +46,7 @@ const EmployeeList = () => {
             <div className="mt-12">
                 <div className="flex justify-between mb-3">
                    <h1 className="mb-2 text-2xl font-bold text-gray-700">Employee List</h1>
-                   <button onClick={() => navigate('/AddEmployee')} className="bg-gray-400 text-white px-3 rounded-lg hover:bg-gray-500 transition-colors"><FaPlus /> Add Employee</button>
+                   <button onClick={() => navigate('/AddEmployee')} className="bg-gray-400 text-white px-3 rounded-lg hover:bg-gray-500 transition-colors font-bold"><span className="mt-2 inline-flex  gap-2"><FaPlus /> Add Employee</span></button>
                 </div>
 
                 {isLoading && (
@@ -86,8 +86,8 @@ const EmployeeList = () => {
                                 <td className="py-3 px-5">{new Date(emp.createdAt).toLocaleDateString()}</td>
 
                                 <td className="flex gap-4">
-                                    <Link className="py-2 px-3 bg-green-400 mt-2 rounded-lg text-white font-bold hover:bg-green-500 transition-colors" to={`/employee/update/${emp._id}`}><FaEdit />Update</Link>
-                                    <button className="py-2 px-3 bg-red-400 mt-2 rounded-lg text-white font-bold me-3 hover:bg-red-500 transition-colors" onClick={() => handleDeleteEmployee(emp._id)}><FaTrash /> Delete</button>
+                                    <Link className="py-1 px-3 bg-green-400 mt-2 rounded-lg text-white font-bold hover:bg-green-500 transition-colors" to={`/employee/update/${emp._id}`}><span className="inline-flex mt-3"><FaEdit />Update</span></Link>
+                                    <button className="py-1 px-3 bg-red-400 mt-2 rounded-lg text-white font-bold me-3 hover:bg-red-500 transition-colors" onClick={() => handleDeleteEmployee(emp._id)}><span className="inline-flex mt-3"><FaTrash /> Delete</span></button>
                                 </td>
                             </tr>
                         ))}
