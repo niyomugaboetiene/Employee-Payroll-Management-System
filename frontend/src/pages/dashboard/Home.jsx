@@ -124,7 +124,46 @@ const HomePage = () => {
                          <Link className="flex justify-center text-blue-400 font-black underline" to={'/employeeList'}>View more</Link>
                      </div>
                      </div>
+
+
+                    <div className="w-fit  mt-8 text-lg bg-gray-200 rounded-lg  p-4">
+                    <h1 className="font-bold text-gray-700 text-2xl mb-3">Recent Department</h1>
+                     <table border={2}>
+                    <thead className="bg-gray-400 text-white ">
+                        <tr>
+                            <th className="py-3 px-5">Departement Code</th>
+                            <th className="py-3 px-5">Departement Name</th>
+                            <th className="py-3 px-5">Gross Salary</th>
+                            <th className="py-3 px-5">Created At</th>
+                            <th className="py-3 px-5">Last Update</th>
+                            <th className="py-3 px-5">Modification</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {department?.map((dep, index) => (
+                            <tr key={index} className={`${index % 2 === 0 ? 'bg-gray-100 hover:bg-gray-200' : 'bg-gray-300 hover:bg-gray-400'}`}>
+                                <td className="py-3 px-5">{dep.DepartementCode}</td>
+                                <td className="py-3 px-5">{dep.DepartementName}</td>
+                                <td className="py-3 px-5">{dep.GrossSalary}</td>
+                                <td className="py-3 px-5">{new Date(dep.createdAt).toLocaleDateString()}</td>
+                                <td className="py-3 px-5">{new Date(dep.updatedAt).toLocaleDateString()}</td>
+
+                                <td className="flex gap-4">
+                                    <Link className="py-2 px-3 bg-green-400 mt-2 rounded-lg text-white font-bold hover:bg-green-500 transition-colors" to={`/department/update/${dep._id}`}>Update</Link>
+                                    <button className="py-2 px-3 bg-red-400 mt-2 rounded-lg text-white font-bold me-3 hover:bg-red-500 transition-colors" onClick={() => handleDeleteDepartment(dep._id)}>Delete</button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+               
+                     <div className="mt-3">
+                         <Link className="flex justify-center text-blue-400 font-black underline" to={'/employeeList'}>View more</Link>
+                     </div>
+                     </div>
                 </div>
+                
             </div>
         </div>
     )
