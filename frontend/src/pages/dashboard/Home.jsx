@@ -29,9 +29,11 @@ const HomePage = () => {
             const employee = await axios.get('http://localhost:4000/salary/recentEmployee');
             const department = await axios.get('http://localhost:4000/salary/recentDepartment');
 
+            console.log(department.data.recent, employee.data.recent, salary.data.recent);
             setRecentDepartment(department.data.recent);
             setRecentEmployee(employee.data.recent);
             setRecentSalary(salary.data.recent);
+            
         } catch (err) {
             console.error(err);
         }
@@ -39,6 +41,11 @@ const HomePage = () => {
     useEffect(() => {
         handleGetTotal();
     }, []);
+
+    useEffect(() => {
+        handleGetRecents();
+    }, []);
+
     return (
         <div>
             <div className="mt-30 ms-4 text-2xl font-light text-gray-800">
