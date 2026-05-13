@@ -126,9 +126,11 @@ router.get('/montly', async (req, res) => {
 
 router.get('/recentEmployee', async (req, res) => {
     try {
-         const recentEmployee = await Employee.find().sort({ })
+         const recentEmployee = await Employee.find().sort({ createdAt: -1 }).limit(5);
+         return res.status(200).json({ message: 'Recent employee', recent: recentEmployee });
     } catch (err) {
-
+          console.error(err);
     }
-})
+});
+
 export default router;
