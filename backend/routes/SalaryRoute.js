@@ -1,5 +1,6 @@
 import express from "express";
 import Salary from "../schema/SalarySchema.js";
+import Employee from "../schema/EmployeeSchema.js";
 
 const router = express.Router();
 
@@ -122,4 +123,12 @@ router.get('/montly', async (req, res) => {
         console.error(err);
     }
 });
+
+router.get('/recentEmployee', async (req, res) => {
+    try {
+         const recentEmployee = await Employee.find().sort({ })
+    } catch (err) {
+
+    }
+})
 export default router;
