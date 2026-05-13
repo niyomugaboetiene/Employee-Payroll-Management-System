@@ -109,7 +109,7 @@ router.get('/total', async (req, res) => {
             return total + salary.NetSalary;
         }, 0);
 
-        return res.status(200).json({ message: totalPayroll });
+        return res.status(200).json({ payroll: totalPayroll, department: totalDepartment, employee: totalEmployee });
     }  catch (err) {
         console.error("ERROR", err);
     }
