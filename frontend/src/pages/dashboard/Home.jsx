@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
     const [totalPayroll, setTotalPayroll] = useState(null);
@@ -118,7 +119,11 @@ const HomePage = () => {
                         ))}
                     </tbody>
                 </table>
-                    </div>
+               
+                     <div className="mt-3">
+                         <Link className="flex justify-center text-blue-400 font-black underline" to={'/employeeList'}>View more</Link>
+                     </div>
+                     </div>
                 </div>
             </div>
         </div>
