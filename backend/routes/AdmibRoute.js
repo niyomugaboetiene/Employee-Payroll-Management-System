@@ -4,17 +4,6 @@ import bcrypt from "bcrypt";
 
 const router = express.Router();
 
-function IsAuthorized(req, res, next) {
-       try {
-        if (req.session.admin) {
-            next();
-        } 
-
-        return res.status(401).json({ message: 'You are not authorized' });
-       } catch (err) {
-        console.error(err);
-       }
-}
 router.post('/register', async (req, res) => {
     try {
         const { username, password } = req.body;

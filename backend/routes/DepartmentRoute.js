@@ -5,7 +5,19 @@ import Salary from "../schema/SalarySchema.js";
 
 const router = express.Router();
 
-router.post('/addDepartment', async (req, res) => {
+function IsAuthorized (req, res, next) {
+       try {
+        if (req.session.admin) {
+            next();
+        } 
+
+        return res.status(401).json({ message: 'You are not authorized' });
+       } catch (err) {
+        console.error(err);
+       }
+}
+
+router.post('/addDepartment', IsAuthorized, async (req, res) => {
     try {
         const { DepartementCode, DepartementName, GrossSalary } = req.body;  
 
