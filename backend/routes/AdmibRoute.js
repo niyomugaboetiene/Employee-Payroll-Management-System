@@ -57,7 +57,7 @@ router.post('/login', async (req, res) => {
            username: isUsernameExist.username
         }
     
-         return  res.status(200).json({ message: 'Loggen in succesfully', session: req.session.admin });
+         return  res.status(200).json({ message: 'Logged in succesfully', session: req.session.admin });
     } catch (err) {
         console.error(err);
     }
