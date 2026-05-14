@@ -3,7 +3,18 @@ import Employee from "../schema/EmployeeSchema.js";
 
 const router = express.Router();
 
-router.post('/addEmployee', async (req, res) => {
+function IsAuthorized (req, res, next) {
+       try {
+        if (req.session.admin) {
+            next();
+        } 
+
+        return res.status(401).json({ message: 'You are not authorized' });
+       } catch (err) {
+        console.error(err);
+       }
+}
+router.post('/addEmployee', IsAuthorized, async (req, res) => {
     try {
         const { employeeNumber, FirstName, LastName, Position, Address, Telephone, Gender, hiredDate, department } = req.body;  
 

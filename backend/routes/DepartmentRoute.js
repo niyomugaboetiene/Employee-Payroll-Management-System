@@ -56,7 +56,7 @@ router.get('/departmentList', IsAuthorized, async (req, res) => {
     }
 });
 
-router.get('/get/:_id', async (req, res) => {
+router.get('/get/:_id', IsAuthorized, async (req, res) => {
     try {
         const _id = req.params._id;
 
@@ -75,7 +75,7 @@ router.get('/get/:_id', async (req, res) => {
     }
 });
 
-router.put('/update/:_id', async (req, res) => {
+router.put('/update/:_id', IsAuthorized, async (req, res) => {
     try{
         const _id = req.params._id;
     
@@ -96,7 +96,7 @@ router.put('/update/:_id', async (req, res) => {
     }
 });
 
-router.delete('/delete/:_id', async(req, res) => {
+router.delete('/delete/:_id', IsAuthorized, async(req, res) => {
     try {
         const _id = req.params._id;
         // const { _id } = req.params;
@@ -111,7 +111,7 @@ router.delete('/delete/:_id', async(req, res) => {
 });
 
 
-router.get('/total', async (req, res) => {
+router.get('/total', IsAuthorized, async (req, res) => {
     try {
         const totalDepartment = await Department.countDocuments();
         const totalEmployee = await Employee.countDocuments();
