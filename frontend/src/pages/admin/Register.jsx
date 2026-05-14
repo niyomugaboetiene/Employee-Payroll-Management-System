@@ -12,7 +12,7 @@ const Register = () => {
     const navigate = useNavigate();
     const [error, setError] = useState("");
 
-    const handleLogin = async () => {
+    const handleRegister = async () => {
         try {
             if (!username || !password) {
                 setError("Fill out missing fields");
@@ -23,7 +23,7 @@ const Register = () => {
                 return;
             }
             setLoading(true);
-            const res = await axios.post("http://localhost:4000/admin/login", {
+            const res = await axios.post("http://localhost:4000/admin/register", {
                 username, password
             }, { withCredentials: true });
            setLoading(false);
@@ -90,8 +90,8 @@ const Register = () => {
                     <button className="bg-red-500 text-xs px-2 rounded-lg font-light text-white hover:bg-red-400 transition-colors active:bg-red-500">Back</button>
                 </div> */}
               <div className="mt-4">
-                    <button onClick={handleLogin} className="w-full bg-gray-300 py-2 text-xs px-2 rounded-lg font-light hover:bg-gray-400 transition-colors active:bg-gray-500">Login</button>
-                    <button className="bg-gray-400 text-xs px-2 w-full py-2 mt-2 rounded-lg font-light text-white hover:bg-gray-500 transition-colors active:bg-gray-400" onClick={() => navigate('/admin/register')}>register</button>
+                    <button onClick={handleRegister} className="w-full bg-gray-300 py-2 text-xs px-2 rounded-lg font-light hover:bg-gray-400 transition-colors active:bg-gray-500">Register</button>
+                    <button className="bg-gray-400 text-xs px-2 w-full py-2 mt-2 rounded-lg font-light text-white hover:bg-gray-500 transition-colors active:bg-gray-400" onClick={() => navigate('/admin/login')}>login</button>
                 </div>
             </div>
         </div>
