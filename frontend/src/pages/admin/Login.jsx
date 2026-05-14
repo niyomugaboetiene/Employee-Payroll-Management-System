@@ -34,7 +34,11 @@ const Login = () => {
             console.error(err);
             const errorMessage = err.response?.data?.message || "Error occurred";
             if (errorMessage === "Enter valid username") {
-                setError(errorMessage);
+                setError("Enter valid username");
+            }
+
+            if (errorMessage === "Incorrect password") {
+                setError("Incorrect password");
             }
 
           setError("");
