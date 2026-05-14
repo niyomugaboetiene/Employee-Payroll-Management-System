@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import connection from "../db/connection";
+import connection from "../db/connection.js";
 
 connection();
 
