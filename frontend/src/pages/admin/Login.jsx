@@ -33,8 +33,11 @@ const Login = () => {
         } catch (err) {
             console.error(err);
             const errorMessage = err.response?.data?.message || "Error occurred";
-            setError(errorMessage);
-             setError("");
+            if (errorMessage === "Enter valid username") {
+                setError(errorMessage);
+            }
+
+          setError("");
           setTimeout(() => {
                setError("");
          }, 4000);
