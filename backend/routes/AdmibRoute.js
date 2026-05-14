@@ -12,10 +12,10 @@ router.post('/register', async (req, res) => {
             return res.status(403).json({ message: 'Fill out missing fields' });
         }
 
-        const isUsernameExist = await Admin.find({ username: username });
+        const isUsernameExist = await Admin.findOne({ username: username });
 
         if (isUsernameExist.length >= 0) {
-             res.status(403).json({ message: 'Username is already exist. try to choose another'})
+             res.status(403).json({ message: 'Username is already exist. try to choose another' });
         }
 
         const salt = bcrypt.genSalt(10);
