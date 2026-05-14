@@ -11,6 +11,8 @@ const AddDepartment = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
+
     const handleAddNewDepartment = async () => {
         try {
             if (!DepartementCode || !DepartementName || !GrossSalary) {
@@ -40,9 +42,25 @@ const AddDepartment = () => {
                setError("");
          }, 4000);
             setSuccess("");
+        
+        if (err.response?.status === 401) {
+            setIsLoggedIn(false);
+            setError("Unauthorized");
         }
+        }
+
     }
 
+
+    if (!isLoggedIn) {
+        return (
+            <div className="min-h-screen bg-gray-100">
+                <div className="bg-red-500">
+                    <h2>Please login to vie this page.</h2>
+                </div>
+            </div>
+        )
+    }
 
     return (
         <div className="bg-gray-200 min-h-screen flex justify-center items-center">
