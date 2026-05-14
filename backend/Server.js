@@ -2,6 +2,7 @@ import express from "express";
 import EmployeeRoute from "./routes/EmployeeRoute.js";
 import SalaryRuute from './routes/SalaryRoute.js';
 import DepartmentRoute from "./routes/DepartmentRoute.js";
+import AdminRouter from "./routes/AdmibRoute.js";
 
 import cors from "cors";
 
@@ -15,6 +16,7 @@ app.use(cors({
 app.use('/employee', EmployeeRoute);
 app.use('/salary', SalaryRuute);
 app.use('/department', DepartmentRoute);;
+app.use('/admin', AdminRouter);;
 
 app.listen(4000, () => {
     console.log('http://localhost:4000');
