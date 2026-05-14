@@ -15,7 +15,10 @@ app.use(cors({
 }));
 
 app.use(session({
-    secret: 'my-secret-key'
+    secret: 'my-secret-key',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { httpOnly: true, maxAge: 60 * 100 * 1000 }
 }))
 
 app.use('/employee', EmployeeRoute);
