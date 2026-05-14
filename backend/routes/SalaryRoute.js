@@ -5,7 +5,19 @@ import Department from "../schema/DepartmentSchema.js";
 
 const router = express.Router();
 
-router.post('/addSalary', async (req, res) => {
+function IsAuthorized (req, res, next) {
+       try {
+        if (req.session.admin) {
+            next();
+        } 
+
+        return res.status(401).json({ message: 'You are not authorized' });
+       } catch (err) {
+        console.error(err);
+       }
+}
+
+router.post('/addSalary', IsAuthorized, async (req, res) => {
     try {
         const { GlossSalary, TotalDeduction, month, employee, department } = req.body;  
 
@@ -28,7 +40,7 @@ router.post('/addSalary', async (req, res) => {
     }
 });
 
-router.get('/salaryList', async (req, res) => {
+router.get('/salaryList', IsAuthorized, async (req, res) => {
     try {
         const List = await Salary.find().populate("employee");
 
@@ -46,7 +58,7 @@ router.get('/salaryList', async (req, res) => {
     }
 });
 
-router.get('/get/:_id', async (req, res) => {
+router.get('/get/:_id', IsAuthorized, async (req, res) => {
     try {
         const _id = req.params._id;
 
@@ -65,7 +77,7 @@ router.get('/get/:_id', async (req, res) => {
     }
 });
 
-router.put('/update/:_id', async (req, res) => {
+router.put('/update/:_id', IsAuthorized, async (req, res) => {
     try{
         const _id = req.params._id;
     
@@ -93,7 +105,7 @@ router.put('/update/:_id', async (req, res) => {
     }
 });
 
-router.delete('/delete/:_id', async(req, res) => {
+router.delete('/delete/:_id', IsAuthorized, async(req, res) => {
     try {
         const _id = req.params._id;
         // const { _id } = req.params;
@@ -108,7 +120,7 @@ router.delete('/delete/:_id', async(req, res) => {
 });
 
 // montly paylor
-router.get('/montly', async (req, res) => {
+router.get('/montly', IsAuthorized, async (req, res) => {
     try {
          const { month } = req.query;
 
@@ -125,7 +137,7 @@ router.get('/montly', async (req, res) => {
     }
 });
 
-router.get('/recentEmployee', async (req, res) => {
+router.get('/recentEmployee', IsAuthorized, async (req, res) => {
     try {
          const recentEmployee = await Employee.find().sort({ createdAt: -1 }).limit(5).populate("department");
          return res.status(200).json({ message: 'Recent employee', recent: recentEmployee });
@@ -134,7 +146,7 @@ router.get('/recentEmployee', async (req, res) => {
     }
 });
 
-router.get('/recentDepartment', async (req, res) => {
+router.get('/recentDepartment', IsAuthorized, async (req, res) => {
     try {
          const recentDepartment = await Department.find().sort({ createdAt: -1 }).limit(5);
          return res.status(200).json({ message: 'Recent department', recent: recentDepartment });
@@ -143,7 +155,7 @@ router.get('/recentDepartment', async (req, res) => {
     }
 });
 
-router.get('/recentSalary', async (req, res) => {
+router.get('/recentSalary', IsAuthorized, async (req, res) => {
     try {
          const recentSalary = await Salary.find().sort({ createdAt: -1 }).limit(5).populate("employee");
          return res.status(200).json({ message: 'Recent salary', recent: recentSalary });

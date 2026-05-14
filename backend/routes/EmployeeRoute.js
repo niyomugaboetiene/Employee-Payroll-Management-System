@@ -14,6 +14,7 @@ function IsAuthorized (req, res, next) {
         console.error(err);
        }
 }
+
 router.post('/addEmployee', IsAuthorized, async (req, res) => {
     try {
         const { employeeNumber, FirstName, LastName, Position, Address, Telephone, Gender, hiredDate, department } = req.body;  
@@ -33,7 +34,7 @@ router.post('/addEmployee', IsAuthorized, async (req, res) => {
     }
 });
 
-router.get('/employeeList', async (req, res) => {
+router.get('/employeeList', IsAuthorized, async (req, res) => {
     try {
         const List = await Employee.find().populate("department");
 
@@ -51,7 +52,7 @@ router.get('/employeeList', async (req, res) => {
     }
 });
 
-router.get('/get/:_id', async (req, res) => {
+router.get('/get/:_id', IsAuthorized, async (req, res) => {
     try {
         const _id = req.params._id;
 
@@ -71,7 +72,7 @@ router.get('/get/:_id', async (req, res) => {
 });
 
 
-router.put('/update/:_id', async (req, res) => {
+router.put('/update/:_id', IsAuthorized, async (req, res) => {
     try{
         const _id = req.params._id;
     
@@ -98,7 +99,7 @@ router.put('/update/:_id', async (req, res) => {
     }
 });
 
-router.delete('/delete/:_id', async(req, res) => {
+router.delete('/delete/:_id', IsAuthorized, async(req, res) => {
     try {
         const _id = req.params._id;
         // const { _id } = req.params;
