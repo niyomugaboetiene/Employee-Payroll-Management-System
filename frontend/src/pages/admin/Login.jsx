@@ -64,17 +64,17 @@ const Login = () => {
                     type="text" onChange={(e) => {
                         setUsername(e.target.value)
                     }} 
-                    placeholder="Enter Department code"
+                    placeholder="Enter username"
                     />
                 </div>
                 
                 <div className="mt-2">
                     <input 
                     className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
-                    type="text" onChange={(e) => {
+                    type="password" onChange={(e) => {
                         setPassword(e.target.value)
                     }} 
-                    placeholder="Enter Departement Name"
+                    placeholder="Enter password"
                     />
                 </div>
                 
@@ -83,7 +83,7 @@ const Login = () => {
                     <button className="bg-red-500 text-xs px-2 rounded-lg font-light text-white hover:bg-red-400 transition-colors active:bg-red-500">Back</button>
                 </div> */}
               <div className="mt-4">
-                    <button onClick={handleLogin} className="w-full bg-gray-300 py-2 text-xs px-2 rounded-lg font-light hover:bg-gray-400 transition-colors active:bg-gray-500">+ Add new</button>
+                    <button onClick={handleLogin} className="w-full bg-gray-300 py-2 text-xs px-2 rounded-lg font-light hover:bg-gray-400 transition-colors active:bg-gray-500">Login</button>
                     <button className="bg-gray-400 text-xs px-2 w-full py-2 mt-2 rounded-lg font-light text-white hover:bg-gray-500 transition-colors active:bg-gray-400">register</button>
                 </div>
             </div>
