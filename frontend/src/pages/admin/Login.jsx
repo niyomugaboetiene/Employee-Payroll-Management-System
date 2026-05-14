@@ -62,7 +62,7 @@ const Login = () => {
                     <input 
                      className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
                     type="text" onChange={(e) => {
-                        setDepartementCode(e.target.value)
+                        setUsername(e.target.value)
                     }} 
                     placeholder="Enter Department code"
                     />
@@ -72,7 +72,7 @@ const Login = () => {
                     <input 
                     className="bg-gray-300 text-xs py-2  w-full p-1 rounded-lg focus:outline-1 focus:outline-gray-500"
                     type="text" onChange={(e) => {
-                        setDepartementName(e.target.value)
+                        setPassword(e.target.value)
                     }} 
                     placeholder="Enter Departement Name"
                     />
@@ -83,7 +83,7 @@ const Login = () => {
                     <button className="bg-red-500 text-xs px-2 rounded-lg font-light text-white hover:bg-red-400 transition-colors active:bg-red-500">Back</button>
                 </div> */}
               <div className="mt-4">
-                    <button onClick={handleAddNewDepartment} className="w-full bg-gray-300 py-2 text-xs px-2 rounded-lg font-light hover:bg-gray-400 transition-colors active:bg-gray-500">+ Add new</button>
+                    <button onClick={handleLogin} className="w-full bg-gray-300 py-2 text-xs px-2 rounded-lg font-light hover:bg-gray-400 transition-colors active:bg-gray-500">+ Add new</button>
                     <button className="bg-gray-400 text-xs px-2 w-full py-2 mt-2 rounded-lg font-light text-white hover:bg-gray-500 transition-colors active:bg-gray-400">register</button>
                 </div>
             </div>
