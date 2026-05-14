@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 const NavBar = () => {
-    
+const navigate = useNavigate();
 
     return (
         <div className="bg-gray-100">
@@ -16,8 +17,8 @@ const NavBar = () => {
                     <Link className="hover:border-b border-gray-600" to={'/eport'}>Payroll Report</Link>
                 </nav>
                 <div className="flex  sm:space-x-1 me-4">
-                    <button className="bg-gray-200 h-8 mt-5 px-4 rounded-s-full hover:bg-gray-300 transition-colors text-gray-700">Sign in</button>
-                   <button className="border h-8 mt-5 px-3 border-gray-500 rounded-e-full font-light text-gray-700 hover:bg-gray-300 transition-colors hover:text-white">Sign up</button>
+                    <button className="bg-gray-200 h-8 mt-5 px-4 rounded-s-full hover:bg-gray-300 transition-colors text-gray-700" onClick={() => navigate('/admin/login')}>Sign in</button>
+                   <button className="border h-8 mt-5 px-3 border-gray-500 rounded-e-full font-light text-gray-700 hover:bg-gray-300 transition-colors hover:text-white" onClick={() => navigate('/admin/register')}>Sign up</button>
                 </div>
             </div>
 
