@@ -45,6 +45,10 @@ const HomePage = () => {
             
         } catch (err) {
             console.error(err);
+            if (err.response?.status === 401) {
+                setIsLoggedIn(false);
+                setError("Please login to view this");
+            }
         }
     }
     useEffect(() => {
@@ -54,6 +58,18 @@ const HomePage = () => {
     useEffect(() => {
         handleGetRecents();
     }, []);
+
+    if (!isLoggedIn) {
+        return (
+            <div className="min-h-screen bg-gray-100 justify-center items-center">
+                <div className="relative bg-red-800 w-full">
+                <h1 className="absolute top-24 left-4 text-red-500 text-2xl font-bold">
+                    Please login to view this page
+                </h1>
+                </div>
+            </div>
+        )
+    }
 
     return (
         <div>
