@@ -3,17 +3,16 @@ import axios from "axios";
 
 const Login = () => {
     // username, password
-    const [DepartementCode, setDepartementCode] = useState("");
-    const [DepartementName, setDepartementName] = useState("");
-    const [GrossSalary, setGrossSalary] = useState("");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
 
     const [success, setSuccess] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
-    const handleAddNewDepartment = async () => {
+    const handleLogin = async () => {
         try {
-            if (!DepartementCode || !DepartementName || !GrossSalary) {
+            if (!username || !password) {
                 setError("Fill out missing fields");
                 setTimeout(() => {
                     setError("");
