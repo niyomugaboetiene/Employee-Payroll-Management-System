@@ -40,7 +40,7 @@ router.post('/login', async (req, res) => {
 
         const isUsernameExist = await Admin.findOne({ username });
 
-        if (isUsernameExist) {
+        if (!isUsernameExist) {
             return res.status(404).json({ message: 'Enter valid username' });
         }
 
@@ -48,12 +48,16 @@ router.post('/login', async (req, res) => {
 
         const isPasswordExist = await bcrypt.compare(password, hashedPassword);
 
-        if (isPasswordExist) {
-            res.status(200).json({ message: 'Loggen in succesfully' });
-            req.session.admin = {
-                  username: isUsernameExist.username
-            }
+        if (!isPasswordExist) {
+            return res.status(401).json({ message: 'Incorrect password' });
         }
+        
+        req.session.admin = {
+           id: isUsernameExist._id,
+           username: isUsernameExist.username
+        }
+    
+         return  res.status(200).json({ message: 'Loggen in succesfully', session: req.session.admin });
     } catch (err) {
         console.error(err);
     }
