@@ -12,9 +12,9 @@ router.post('/register', async (req, res) => {
             return res.status(403).json({ message: 'Fill out missing fields' });
         }
 
-        const isUsernameExist = await Admin.findOne({ username: username });
+        const isUsernameExist = await Admin.findOne({ username });
 
-        if (isUsernameExist.length >= 0) {
+        if (isUsernameExist) {
              res.status(403).json({ message: 'Username is already exist. try to choose another' });
              return;
         }
@@ -38,9 +38,9 @@ router.post('/login', async (req, res) => {
             return res.status(403).json({ message: 'FIll out missing fields'});
         }
 
-        const isUsernameExist = await Admin.findOne({ username: username });
+        const isUsernameExist = await Admin.findOne({ username });
 
-        if (isUsernameExist.length === 0) {
+        if (isUsernameExist) {
             return res.status(404).json({ message: 'Enter valid username' });
         }
 
