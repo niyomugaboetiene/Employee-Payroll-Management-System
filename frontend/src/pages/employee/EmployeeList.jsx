@@ -12,7 +12,7 @@ const EmployeeList = () => {
     const handleGetEmployee = async () => {
         try {
             setIsLoading(true);
-            const res = await axios.get('http://localhost:4000/employee/employeeList');
+            const res = await axios.get('http://localhost:4000/employee/employeeList',  { withCredentials: true} );
             setEmployee(res.data.employee);
             setIsLoading(false);
         } catch (err) {
@@ -33,7 +33,7 @@ const EmployeeList = () => {
                 return;
             }
             setIsLoading(true);
-            await axios.delete(`http://localhost:4000/employee/delete/${_id}`);
+            await axios.delete(`http://localhost:4000/employee/delete/${_id}`,  { withCredentials: true} );
             await handleGetEmployee();
             setIsLoading(false);
         } catch (err) {

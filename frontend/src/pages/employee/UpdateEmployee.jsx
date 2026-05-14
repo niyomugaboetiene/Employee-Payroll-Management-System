@@ -28,7 +28,7 @@ const UpdateEmployee = () => {
             setLoading(true);
             const res = await axios.put(`http://localhost:4000/employee/update/${_id}`, {
                 employeeNumber, FirstName, LastName, Position, Address, Telephone, Gender, hiredDate, department
-            });
+            },  { withCredentials: true} );
            setLoading(false);
            setError("");
            setSuccess(res.data.message);
@@ -66,7 +66,7 @@ const UpdateEmployee = () => {
     const GetCurrentEmployee = async () => {
         try {
             setLoading(true);
-            const res = await axios.get(`http://localhost:4000/employee/get/${_id}`);
+            const res = await axios.get(`http://localhost:4000/employee/get/${_id}`,  { withCredentials: true} );
             const employees = res.data?.employee;
             setEmployeeNumber(employees.employeeNumber);
             setFirstName(employees.FirstName);

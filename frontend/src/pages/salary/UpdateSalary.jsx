@@ -23,7 +23,7 @@ const UpdateSalary = () => {
     const GetCurrentSalary = async () => {
         try {
             setLoading(true);
-            const res = await axios.get(`http://localhost:4000/salary/get/${_id}`);
+            const res = await axios.get(`http://localhost:4000/salary/get/${_id}`,  { withCredentials: true} );
             const salary = res.data?.salary;
             console.log("Result", salary);
             setGlossSalary(salary.GlossSalary);
@@ -42,7 +42,7 @@ const UpdateSalary = () => {
     const handleGetEmployee = async () => {
         try {
             setLoading(true);
-            const res = await axios.get('http://localhost:4000/employee/employeeList');
+            const res = await axios.get('http://localhost:4000/employee/employeeList',  { withCredentials: true} );
             setSelectedEmployee(res.data.employee);
             setLoading(false);
         } catch (err) {
@@ -60,7 +60,7 @@ const UpdateSalary = () => {
             setLoading(true);
             const res = await axios.put(`http://localhost:4000/salary/update/${_id}`, {
                 GlossSalary, TotalDeduction, month, employee
-            });
+            },  { withCredentials: true} );
            setLoading(false);
            setError("");
            setSuccess(res.data.message);

@@ -35,7 +35,7 @@ const AddEmployee = () => {
             setLoading(true);
             const res = await axios.post('http://localhost:4000/employee/addEmployee', {
                 employeeNumber, FirstName, LastName, Position, Address, Telephone, Gender, hiredDate, department
-            });
+            },  { withCredentials: true} );
            setLoading(false);
            setError("");
            setSuccess(res.data.message);

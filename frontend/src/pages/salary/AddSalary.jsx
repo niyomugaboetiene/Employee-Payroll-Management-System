@@ -20,7 +20,7 @@ const AddSalary = () => {
     const handleGetEmployee = async () => {
         try {
             setLoading(true);
-            const res = await axios.get('http://localhost:4000/employee/employeeList');
+            const res = await axios.get('http://localhost:4000/employee/employeeList',  { withCredentials: true} );
             setSelectedEmployee(res.data.employee);
             setLoading(false);
         } catch (err) {
@@ -36,7 +36,7 @@ const AddSalary = () => {
     const handleGetDepartment = async () => {
         try {
             setLoading(true);
-            const res = await axios.get('http://localhost:4000/department/departmentList');
+            const res = await axios.get('http://localhost:4000/department/departmentList',  { withCredentials: true} );
             setSelectedDepartment(res.data.department);
             setLoading(false);
         } catch (err) {
@@ -62,7 +62,7 @@ const AddSalary = () => {
             setLoading(true);
             const res = await axios.post('http://localhost:4000/salary/addSalary', {
                 GlossSalary, TotalDeduction, month, employee, department
-            });
+            },  { withCredentials: true} );
            setLoading(false);
            setError("");
            setSuccess(res.data.message);

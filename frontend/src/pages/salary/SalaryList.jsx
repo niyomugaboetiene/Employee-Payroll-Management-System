@@ -10,7 +10,7 @@ const SalaryList = () => {
     const handleGetSalary = async () => {
         try {
             setIsLoading(true);
-            const res = await axios.get('http://localhost:4000/salary/salaryList');
+            const res = await axios.get('http://localhost:4000/salary/salaryList',  { withCredentials: true} );
             setSalary(res.data.salary);
             setIsLoading(false);
         } catch (err) {
@@ -31,7 +31,7 @@ const SalaryList = () => {
                 return;
             }
             setIsLoading(true);
-            await axios.delete(`http://localhost:4000/salary/delete/${_id}`);
+            await axios.delete(`http://localhost:4000/salary/delete/${_id}`,  { withCredentials: true} );
             await handleGetSalary();
             setIsLoading(false);
         } catch (err) {

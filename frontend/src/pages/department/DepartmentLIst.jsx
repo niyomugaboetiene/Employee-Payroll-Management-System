@@ -11,7 +11,7 @@ const DepartmentList = () => {
     const handleGetDepartment = async () => {
         try {
             setIsLoading(true);
-            const res = await axios.get('http://localhost:4000/department/departmentList');
+            const res = await axios.get('http://localhost:4000/department/departmentList',  { withCredentials: true} );
             setDepartement(res.data.department);
             setIsLoading(false);
         } catch (err) {
@@ -32,7 +32,7 @@ const DepartmentList = () => {
                 return;
             }
             setIsLoading(true);
-            await axios.delete(`http://localhost:4000/department/delete/${_id}`);
+            await axios.delete(`http://localhost:4000/department/delete/${_id}`,  { withCredentials: true} );
             await handleGetDepartment();
             setIsLoading(false);
         } catch (err) {

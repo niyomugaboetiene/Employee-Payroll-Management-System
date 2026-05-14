@@ -20,7 +20,7 @@ const UpdateDepartment = () => {
     const GetCurrentDepartment = async () => {
         try {
             setLoading(true);
-            const res = await axios.get(`http://localhost:4000/department/get/${_id}`);
+            const res = await axios.get(`http://localhost:4000/department/get/${_id}`,  { withCredentials: true} );
             const departments = res.data?.department;
             setDepartementCode(departments.DepartementCode);
             setDepartementName(departments.DepartementName);
@@ -40,7 +40,7 @@ const UpdateDepartment = () => {
             setLoading(true);
             const res = await axios.put(`http://localhost:4000/department/update/${_id}`, {
                 DepartementCode, DepartementName, GrossSalary
-            });
+            },  { withCredentials: true} );
            setLoading(false);
            setError("");
            setSuccess(res.data.message);

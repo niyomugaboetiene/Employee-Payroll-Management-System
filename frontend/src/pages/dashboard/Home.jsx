@@ -14,7 +14,7 @@ const HomePage = () => {
 
     const handleGetTotal = async () => {
           try {
-            const res = await axios.get('http://localhost:4000/department/total');
+            const res = await axios.get('http://localhost:4000/department/total', { withCredentials: true} );
             console.log("Total", res.data.payroll, res.data.department, res.data.employee);
             setTotalPayroll(res.data.payroll);
             setTotalDepartment(res.data.department);
@@ -26,9 +26,9 @@ const HomePage = () => {
 
     const handleGetRecents = async () => {
         try {
-            const salary = await axios.get('http://localhost:4000/salary/recentSalary');
-            const employee = await axios.get('http://localhost:4000/salary/recentEmployee');
-            const department = await axios.get('http://localhost:4000/salary/recentDepartment');
+            const salary = await axios.get('http://localhost:4000/salary/recentSalary',  { withCredentials: true} );
+            const employee = await axios.get('http://localhost:4000/salary/recentEmployee',  { withCredentials: true} );
+            const department = await axios.get('http://localhost:4000/salary/recentDepartment',  { withCredentials: true} );
 
             // console.log(department.data.recent, employee.data.recent, salary.data.recent);
             setRecentDepartment(department.data.recent);
