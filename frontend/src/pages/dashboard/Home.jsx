@@ -12,6 +12,10 @@ const HomePage = () => {
     const [recentDepartment, setRecentDepartment] = useState(null);
     const [recentSalary, setRecentSalary] = useState(null);
 
+    const [error, setError] = useState("");
+
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
+
     const handleGetTotal = async () => {
           try {
             const res = await axios.get('http://localhost:4000/department/total', { withCredentials: true} );
@@ -21,8 +25,12 @@ const HomePage = () => {
             setTotalEmployee(res.data.employee);
           } catch (err) {
             console.error(err);
+            if (err.response?.status === 401) {
+                setIsLoggedIn(false);
+                setError("Please login to view this");
+            }
           }
-    }
+    } 
 
     const handleGetRecents = async () => {
         try {
