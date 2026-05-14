@@ -12,6 +12,13 @@ router.post('/register', async (req, res) => {
             return res.status(403).json({ message: 'Fill out missing fields' });
         }
 
-        
+        const salt = bcrypt.genSalt(10);
+        const hashedPassword = bcrypt.hash(password, salt);
+
+        await Admin.create({ username, password: hashedPassword });
+
+        return res.status(200).json({ message: 'You registerred succesfully' });
+    } catch (err) {
+        console.error(err);
     }
 })
