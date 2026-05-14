@@ -16,10 +16,11 @@ router.post('/register', async (req, res) => {
 
         if (isUsernameExist.length >= 0) {
              res.status(403).json({ message: 'Username is already exist. try to choose another' });
+             return;
         }
 
-        const salt = bcrypt.genSalt(10);
-        const hashedPassword = bcrypt.hash(password, salt);
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
 
         await Admin.create({ username, password: hashedPassword });
 
@@ -35,6 +36,20 @@ router.post('/login', async (req, res) => {
 
         if (!username || !password) {
             return res.status(403).json({ message: 'FIll out missing fields'});
+        }
+
+        const isUsernameExist = await Admin.findOne({ username: username });
+
+        if (isUsernameExist.length === 0) {
+            return res.status(404).json({ message: 'Enter valid username' });
+        }
+
+        const hashedPassword = isUsernameExist.password;
+
+        const isPasswordExist = await bcrypt.compare(password, hashedPassword);
+
+        if (isPasswordExist) {
+            return res.status(200).json({ message: 'Loggen in succesfully' });
         }
     }
 })
