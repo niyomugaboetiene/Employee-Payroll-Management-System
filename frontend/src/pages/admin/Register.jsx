@@ -45,7 +45,6 @@ const Register = () => {
         }
     }
 
-
     return (
         <div className="bg-gray-200 min-h-screen flex justify-center items-center">
             <div className="bg-white p-3 rounded-lg shadow-2xl w-90">
