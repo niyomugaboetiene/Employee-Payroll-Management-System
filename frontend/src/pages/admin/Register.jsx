@@ -34,12 +34,8 @@ const Register = () => {
         } catch (err) {
             console.error(err);
             const errorMessage = err.response?.data?.message || "Error occurred";
-            if (errorMessage === "Enter valid username") {
-                setError("Enter valid username");
-            }
-
-            if (errorMessage === "Incorrect password") {
-                setError("Incorrect password");
+            if (errorMessage === "Username is already exist. try to choose another") {
+                setError("Username is already exist. try to choose another");
             }
 
           setTimeout(() => {
