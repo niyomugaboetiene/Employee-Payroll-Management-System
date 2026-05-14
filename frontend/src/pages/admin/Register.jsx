@@ -30,6 +30,7 @@ const Register = () => {
            setSuccess(res.data.message);
           setTimeout(() => {
                 setSuccess("");
+                navigate('/admin/login');
          }, 4000);
         } catch (err) {
             console.error(err);
@@ -48,7 +49,7 @@ const Register = () => {
     return (
         <div className="bg-gray-200 min-h-screen flex justify-center items-center">
             <div className="bg-white p-3 rounded-lg shadow-2xl w-90">
-                <h2 className="text-gray-700 font-bold text-center text-sm">Login Portal</h2>
+                <h2 className="text-gray-700 font-bold text-center text-sm">Register Portal</h2>
 
                 {success && (
                     <div className="bg-green-500 mt-2 mb-3 p-1 rounded-lg text-green-100">
