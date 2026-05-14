@@ -49,7 +49,12 @@ router.post('/login', async (req, res) => {
         const isPasswordExist = await bcrypt.compare(password, hashedPassword);
 
         if (isPasswordExist) {
-            return res.status(200).json({ message: 'Loggen in succesfully' });
+            res.status(200).json({ message: 'Loggen in succesfully' });
+            req.session.admin = {
+                  username: isUsernameExist.username
+            }
         }
+    } catch (err) {
+        console.error(err);
     }
 })
