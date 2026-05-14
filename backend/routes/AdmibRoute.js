@@ -21,4 +21,14 @@ router.post('/register', async (req, res) => {
     } catch (err) {
         console.error(err);
     }
+});
+
+router.post('/login', async (req, res) => {
+    try {
+        const { username, password } = req.body;
+
+        if (!username || !password) {
+            return res.status(403).json({ message: 'FIll out missing fields'});
+        }
+    }
 })
