@@ -21,9 +21,9 @@ const Login = () => {
                 return;
             }
             setLoading(true);
-            const res = await axios.post('http://localhost:4000/admin/login', {
+            const res = await axios.post("http://localhost:4000/admin/login", {
                 username, password
-            });
+            }, { withCredentials: true });
            setLoading(false);
            setError("");
            setSuccess(res.data.message);
