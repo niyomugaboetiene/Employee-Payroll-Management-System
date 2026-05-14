@@ -38,7 +38,7 @@ router.post('/addDepartment', IsAuthorized, async (req, res) => {
     }
 });
 
-router.get('/departmentList', async (req, res) => {
+router.get('/departmentList', IsAuthorized, async (req, res) => {
     try {
         const List = await Department.find();
 
