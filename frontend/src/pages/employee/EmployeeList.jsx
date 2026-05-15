@@ -8,6 +8,8 @@ const EmployeeList = () => {
     const [employee, setEmployee] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
 
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
+
     const navigate = useNavigate();
     const handleGetEmployee = async () => {
         try {
@@ -19,6 +21,10 @@ const EmployeeList = () => {
             console.error(err);
             // const errorMessage = err.data?.response?.message || "Error occured";
             setIsLoading(false);
+          if (err.response?.status === 401) {
+                setIsLoggedIn(false);
+                setError("Please login to view this");
+            }
         }
     }
 
@@ -38,6 +44,10 @@ const EmployeeList = () => {
             setIsLoading(false);
         } catch (err) {
             console.error(err);
+           if (err.response?.status === 401) {
+                setIsLoggedIn(false);
+                setError("Please login to view this");
+            }
         }
     }
 

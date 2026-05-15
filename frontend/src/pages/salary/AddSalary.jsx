@@ -17,6 +17,8 @@ const AddSalary = () => {
     const [selectedEmployee, setSelectedEmployee] = useState(null);
     const [selectedDepartment, setSelectedDepartment] = useState(null);
 
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
+
     const handleGetEmployee = async () => {
         try {
             setLoading(true);
@@ -26,6 +28,10 @@ const AddSalary = () => {
         } catch (err) {
             console.error(err);
             setLoading(false);
+            if (err.response?.status === 401) {
+                setIsLoggedIn(false);
+                setError("Please login to view this");
+            }
         }
     } 
 
@@ -42,6 +48,10 @@ const AddSalary = () => {
         } catch (err) {
             console.error(err);
             setLoading(false);
+           if (err.response?.status === 401) {
+                setIsLoggedIn(false);
+                setError("Please login to view this");
+            }
         }
     } 
 
@@ -78,6 +88,11 @@ const AddSalary = () => {
                setError("");
          }, 4000);
             setSuccess("");
+        
+            if (err.response?.status === 401) {
+                setIsLoggedIn(false);
+                setError("Please login to view this");
+            }
         }
     }
 

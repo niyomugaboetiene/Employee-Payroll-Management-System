@@ -23,6 +23,8 @@ const UpdateEmployee = () => {
 
     const [selectedDepartment, setSelectedDepartment] = useState(null);
 
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
+
     const handleUpdateEmployee = async () => {
         try {
             setLoading(true);
@@ -45,6 +47,10 @@ const UpdateEmployee = () => {
                     setError("");
          }, 4000);
             setSuccess("");
+           if (err.response?.status === 401) {
+                setIsLoggedIn(false);
+                setError("Please login to view this");
+            }
         }
     }
 
@@ -56,6 +62,10 @@ const UpdateEmployee = () => {
             setLoading(false);
         } catch (err) {
             console.error(err);
+           if (err.response?.status === 401) {
+                setIsLoggedIn(false);
+                setError("Please login to view this");
+            }
         }
     }
 
@@ -80,6 +90,10 @@ const UpdateEmployee = () => {
             setLoading(false);
         } catch (err) {
             console.error(err);
+          if (err.response?.status === 401) {
+                setIsLoggedIn(false);
+                setError("Please login to view this");
+            }
         }
     }
 

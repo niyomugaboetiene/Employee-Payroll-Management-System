@@ -20,6 +20,8 @@ const AddEmployee = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
+
     const [selectedDepartment, setSelectedDepartment] = useState(null);
 
     const handleAddNewEmployee = async () => {
@@ -52,6 +54,10 @@ const AddEmployee = () => {
                     setError("");
          }, 4000);
             setSuccess("");
+           if (err.response?.status === 401) {
+                setIsLoggedIn(false);
+                setError("Please login to view this");
+            }
         }
     }
 
@@ -63,6 +69,10 @@ const AddEmployee = () => {
             setLoading(false);
         } catch (err) {
             console.error(err);
+            if (err.response?.status === 401) {
+                setIsLoggedIn(false);
+                setError("Please login to view this");
+            }
         }
     }
 

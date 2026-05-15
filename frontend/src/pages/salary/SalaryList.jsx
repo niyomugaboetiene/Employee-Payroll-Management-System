@@ -6,6 +6,8 @@ const SalaryList = () => {
     const [salary, setSalary] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
 
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
     const navigate = useNavigate();
     const handleGetSalary = async () => {
         try {
@@ -17,6 +19,10 @@ const SalaryList = () => {
             console.error(err);
             // const errorMessage = err.data?.response?.message || "Error occured";
             setIsLoading(true);
+              if (err.response?.status === 401) {
+                setIsLoggedIn(false);
+                setError("Please login to view this");
+            }
         }
     }
 
@@ -36,6 +42,10 @@ const SalaryList = () => {
             setIsLoading(false);
         } catch (err) {
             console.error(err);
+           if (err.response?.status === 401) {
+                setIsLoggedIn(false);
+                setError("Please login to view this");
+            }
         }
     }
 

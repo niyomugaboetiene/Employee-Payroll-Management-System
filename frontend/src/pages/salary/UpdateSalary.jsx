@@ -18,6 +18,8 @@ const UpdateSalary = () => {
 
     const [selectedEmployee, setSelectedEmployee] = useState(null);
 
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
+
     const { _id } = useParams();
 
     const GetCurrentSalary = async () => {
@@ -32,6 +34,10 @@ const UpdateSalary = () => {
             setLoading(false);
         } catch (err) {
             console.error(err);
+            if (err.response?.status === 401) {
+                setIsLoggedIn(false);
+                setError("Please login to view this");
+            }
         }
     }
 
@@ -48,6 +54,10 @@ const UpdateSalary = () => {
         } catch (err) {
             console.error(err);
             setLoading(false);
+           if (err.response?.status === 401) {
+                setIsLoggedIn(false);
+                setError("Please login to view this");
+            }
         }
     } 
 
@@ -76,10 +86,14 @@ const UpdateSalary = () => {
           setInterval(() => {
                setError("");
          }, 4000);
+         if (err.response?.status === 401) {
+                setIsLoggedIn(false);
+                setError("Please login to view this");
+        }
             setSuccess("");
         }
     }
-    
+
     if (!isLoggedIn) {
         return (
             <div className="min-h-screen bg-gray-100 flex justify-center items-center">
