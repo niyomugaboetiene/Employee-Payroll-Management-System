@@ -19,6 +19,7 @@ const MonthlyPayroll = () => {
             const res = await axios.get(`http://localhost:4000/salary/montly/?month=${query}`,  { withCredentials: true} );
             console.log("Result", query);
             setSalary(res.data.result);
+            setError("");
             setIsLoading(false);
         } catch (err) {
             console.error(err);
@@ -53,11 +54,11 @@ const MonthlyPayroll = () => {
                         <button className="bg-gray-400 px-6 rounded-e-full text-white hover:bg-gray-500 transition-colors" onClick={() => handleGetSalary()}>Search</button>
                    </div>
                 </div>
-                  <div className="bg-red-300 mb-2 rounded-lg py-2">
                     {error && (
-                        <p className="text-red-500 ms-2 font-bold">{error}</p>
+                        <div className="bg-red-300 mb-2 rounded-lg py-2">
+                              <p className="text-red-500 ms-2 font-bold">{error}</p>
+                         </div>
                     )}
-                   </div>
                 <table border={2}>
                     <thead className="bg-gray-400 text-white ">
                         <tr>
