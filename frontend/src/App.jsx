@@ -10,6 +10,11 @@ import SalaryList from "./pages/salary/SalaryList"
 import UpdateSalary from "./pages/salary/UpdateSalary"
 import NavBar from "./pages/dashboard/Nav"
 import HomePage from "./pages/dashboard/Home"
+import MonthlyPayroll from "./pages/salary/MonthlyPayroll"
+
+// auth
+import Login from "./pages/admin/Login"
+import Register from "./pages/admin/Register"
 
 // import { BrowserRouter, Routes, Route } from "react-router-dom"
 // import ListComponent from "./pages/employee/List"
@@ -31,8 +36,12 @@ function App() {
               <Route path="/department/departmentList" element={<DepartmentList />}/>
               <Route path="/department/update/:_id" element={<UpdateDepartment />}/>
               <Route path="/salary/SalaryList" element={<SalaryList />}/>
+              <Route path="/salary/month" element={<MonthlyPayroll />}/>
               <Route path="/salary/update/:_id" element={<UpdateSalary />}/>
 
+              {/* auth */}
+              <Route path="/admin/login" element={<Login />}/>
+              <Route path="/admin/register" element={<Register />}/>
           </Routes>
       </BrowserRouter>
 
