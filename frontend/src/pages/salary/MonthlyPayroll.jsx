@@ -60,9 +60,12 @@ const MonthlyPayroll = () => {
     return (
         <div className="bg-gray-50 min-h-screen flex justify-center">
             <div className="mt-30">
-                <div className="flex justify-between mb-3">
-                   <h1 className="mb-2 text-2xl font-bold text-gray-700">Monthly payroll</h1>
-                   <input type="text" />
+                <div className="flex justify-between mb-1">
+                   <h1 className="mb-1 text-2xl font-bold text-gray-700">Monthly payroll</h1>
+                   <div className="flex space-x-4">
+                        <input type="text" className="bg-gray-300 py-1 px-2 w-80 rounded-full"/>
+                        <button>Search</button>
+                   </div>
                 </div>
                 <table border={2}>
                     <thead className="bg-gray-400 text-white ">
@@ -74,7 +77,6 @@ const MonthlyPayroll = () => {
                             <th className="py-3 px-5">Employee</th>
                             <th className="py-3 px-5">Created At</th>
                             <th className="py-3 px-5">Last update</th>
-                            <th className="py-3 px-5">Modification</th>
                         </tr>
                     </thead>
 
@@ -88,11 +90,6 @@ const MonthlyPayroll = () => {
                                 <td className="py-3 px-5">{salary.employee?.FirstName || "No Employee"}</td>
                                 <td className="py-3 px-5">{new Date(salary.createdAt).toLocaleDateString()}</td>
                                 <td className="py-3 px-5">{new Date(salary.updatedAt).toLocaleDateString()}</td>
-
-                                <td className="flex gap-4">
-                                    <Link className="py-2 px-3 bg-green-400 mt-2 rounded-lg text-white font-bold hover:bg-green-500 transition-colors" to={`/salary/update/${salary._id}`}>Update</Link>
-                                    <button className="py-2 px-3 bg-red-400 mt-2 rounded-lg text-white font-bold me-3 hover:bg-red-500 transition-colors" onClick={() => handleDeleteSalary(salary._id)}>Delete</button>
-                                </td>
                             </tr>
                         ))}
                     </tbody>
