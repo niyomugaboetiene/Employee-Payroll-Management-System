@@ -6,7 +6,7 @@ const MonthlyPayroll = () => {
     const [salary, setSalary] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
 
-    const [query, setQuery] = useState("");
+    const [query, setQuery] = useState("5");
 
     const [isLoggedIn, setIsLoggedIn] = useState(true);
 
@@ -27,10 +27,6 @@ const MonthlyPayroll = () => {
         }
     }
 
-    useEffect(() => {
-        handleGetSalary();
-    }, []);
-
     if (!isLoggedIn) {
         return (
             <div className="min-h-screen bg-gray-100 flex justify-center items-center">
@@ -49,7 +45,7 @@ const MonthlyPayroll = () => {
                    <h1 className="mb-1 text-2xl font-bold text-gray-700">Monthly payroll</h1>
                    <div className="flex">
                         <input type="text" className="bg-gray-300 py-1 px-2 w-80 rounded-s-full focus:outline-1 focus:outline-gray-400" placeholder="search by month" onClick={(e) => setQuery(e.target.value)} />
-                        <button className="bg-gray-400 px-6 rounded-e-full text-white hover:bg-gray-500 transition-colors">Search</button>
+                        <button className="bg-gray-400 px-6 rounded-e-full text-white hover:bg-gray-500 transition-colors" onClick={handleGetSalary}>Search</button>
                    </div>
                 </div>
                 <table border={2}>
