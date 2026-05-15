@@ -53,9 +53,9 @@ const MonthlyPayroll = () => {
                         <button className="bg-gray-400 px-6 rounded-e-full text-white hover:bg-gray-500 transition-colors" onClick={() => handleGetSalary()}>Search</button>
                    </div>
                 </div>
-                  <div className="bg-red-300 mb-2">
+                  <div className="bg-red-300 mb-2 rounded-lg py-2">
                     {error && (
-                        <p>{error}</p>
+                        <p className="text-white ms-2 font-bold">{error}</p>
                     )}
                    </div>
                 <table border={2}>
