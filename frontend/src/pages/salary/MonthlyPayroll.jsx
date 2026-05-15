@@ -17,11 +17,12 @@ const MonthlyPayroll = () => {
         try {
             setIsLoading(true);
             const res = await axios.get(`http://localhost:4000/salary/montly/?month=${query}`,  { withCredentials: true} );
+            console.log("Result", query);
             setSalary(res.data.result);
             setIsLoading(false);
         } catch (err) {
             console.error(err);
-            const errorMessage = err.data?.response?.message || "Error occured";
+            const errorMessage = err?.response?.data?.message || "Error occured";
             if (errorMessage === "No paylor found on this month") {
                 setError("No paylor found on this month");
             }
@@ -48,16 +49,15 @@ const MonthlyPayroll = () => {
                 <div className="flex justify-between mb-2">
                    <h1 className="mb-1 text-2xl font-bold text-gray-700">Monthly payroll</h1>
                    <div className="flex">
-                        <input type="text" className="bg-gray-300 py-1 px-2 w-80 rounded-s-full focus:outline-1 focus:outline-gray-400" placeholder="search by month" onClick={(e) => setQuery(e.target.value)} />
+                        <input type="text" className="bg-gray-300 py-1 px-2 w-80 rounded-s-full focus:outline-1 focus:outline-gray-400" placeholder="search by month" onChange={(e) => setQuery(e.target.value)} />
                         <button className="bg-gray-400 px-6 rounded-e-full text-white hover:bg-gray-500 transition-colors" onClick={() => handleGetSalary()}>Search</button>
                    </div>
-
-                   <div>
+                </div>
+                  <div className="bg-red-300 mb-2">
                     {error && (
                         <p>{error}</p>
                     )}
                    </div>
-                </div>
                 <table border={2}>
                     <thead className="bg-gray-400 text-white ">
                         <tr>
