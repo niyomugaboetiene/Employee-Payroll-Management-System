@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 const MonthlyPayroll = () => {
     const [salary, setSalary] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState("");
 
     const [query, setQuery] = useState("5");
 
@@ -20,7 +21,10 @@ const MonthlyPayroll = () => {
             setIsLoading(false);
         } catch (err) {
             console.error(err);
-            // const errorMessage = err.data?.response?.message || "Error occured";
+            const errorMessage = err.data?.response?.message || "Error occured";
+            if (errorMessage === "No paylor found on this month") {
+                setError("No paylor found on this month");
+            }
               if (err.response?.status === 401) {
                 setIsLoggedIn(false);
             }
@@ -46,6 +50,12 @@ const MonthlyPayroll = () => {
                    <div className="flex">
                         <input type="text" className="bg-gray-300 py-1 px-2 w-80 rounded-s-full focus:outline-1 focus:outline-gray-400" placeholder="search by month" onClick={(e) => setQuery(e.target.value)} />
                         <button className="bg-gray-400 px-6 rounded-e-full text-white hover:bg-gray-500 transition-colors" onClick={() => handleGetSalary()}>Search</button>
+                   </div>
+
+                   <div>
+                    {error && (
+                        <p>{error}</p>
+                    )}
                    </div>
                 </div>
                 <table border={2}>
