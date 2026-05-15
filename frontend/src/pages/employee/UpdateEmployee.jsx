@@ -49,7 +49,6 @@ const UpdateEmployee = () => {
             setSuccess("");
            if (err.response?.status === 401) {
                 setIsLoggedIn(false);
-                setError("Please login to view this");
             }
         }
     }
@@ -64,7 +63,6 @@ const UpdateEmployee = () => {
             console.error(err);
            if (err.response?.status === 401) {
                 setIsLoggedIn(false);
-                setError("Please login to view this");
             }
         }
     }
@@ -92,7 +90,6 @@ const UpdateEmployee = () => {
             console.error(err);
           if (err.response?.status === 401) {
                 setIsLoggedIn(false);
-                setError("Please login to view this");
             }
         }
     }
