@@ -26,12 +26,12 @@ const Login = () => {
             const res = await axios.post("http://localhost:4000/admin/login", {
                 username, password
             }, { withCredentials: true });
-           setLoading(false);
+            console.log("Session data", res.data.session);
            setSuccess(res.data.message);
           setTimeout(() => {
                 setSuccess("");
                 navigate('/');
-         }, 4000);
+         }, 2000);
         } catch (err) {
             console.error(err);
             const errorMessage = err.response?.data?.message || "Error occurred";

@@ -45,7 +45,6 @@ const AddDepartment = () => {
         
         if (err.response?.status === 401) {
             setIsLoggedIn(false);
-            setError("Unauthorized");
         }
         }
 

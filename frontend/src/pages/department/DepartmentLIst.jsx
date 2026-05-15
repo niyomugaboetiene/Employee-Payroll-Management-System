@@ -22,7 +22,6 @@ const DepartmentList = () => {
             setIsLoading(true);
             if (err.response?.status === 401) {
                 setIsLoggedIn(false);
-                setError("Please login to view this");
             }
         }
     }
@@ -45,7 +44,6 @@ const DepartmentList = () => {
             console.error(err);
              if (err.response?.status === 401) {
                 setIsLoggedIn(false);
-                setError("Please login to view this");
             }
         }
     }
