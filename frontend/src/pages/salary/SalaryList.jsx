@@ -21,7 +21,6 @@ const SalaryList = () => {
             setIsLoading(true);
               if (err.response?.status === 401) {
                 setIsLoggedIn(false);
-                setError("Please login to view this");
             }
         }
     }
@@ -44,7 +43,6 @@ const SalaryList = () => {
             console.error(err);
            if (err.response?.status === 401) {
                 setIsLoggedIn(false);
-                setError("Please login to view this");
             }
         }
     }

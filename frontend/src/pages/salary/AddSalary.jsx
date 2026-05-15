@@ -30,7 +30,6 @@ const AddSalary = () => {
             setLoading(false);
             if (err.response?.status === 401) {
                 setIsLoggedIn(false);
-                setError("Please login to view this");
             }
         }
     } 
@@ -50,7 +49,6 @@ const AddSalary = () => {
             setLoading(false);
            if (err.response?.status === 401) {
                 setIsLoggedIn(false);
-                setError("Please login to view this");
             }
         }
     } 

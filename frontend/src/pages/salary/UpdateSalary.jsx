@@ -36,7 +36,6 @@ const UpdateSalary = () => {
             console.error(err);
             if (err.response?.status === 401) {
                 setIsLoggedIn(false);
-                setError("Please login to view this");
             }
         }
     }
@@ -56,7 +55,6 @@ const UpdateSalary = () => {
             setLoading(false);
            if (err.response?.status === 401) {
                 setIsLoggedIn(false);
-                setError("Please login to view this");
             }
         }
     } 
@@ -88,7 +86,6 @@ const UpdateSalary = () => {
          }, 4000);
          if (err.response?.status === 401) {
                 setIsLoggedIn(false);
-                setError("Please login to view this");
         }
             setSuccess("");
         }
