@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const HomePage = () => {
     const [totalPayroll, setTotalPayroll] = useState(null);
@@ -15,6 +15,8 @@ const HomePage = () => {
     const [error, setError] = useState("");
 
     const [isLoggedIn, setIsLoggedIn] = useState(true);
+
+    const navigate = useNavigate();
 
     const handleGetTotal = async () => {
           try {
@@ -63,8 +65,8 @@ const HomePage = () => {
         return (
             <div className="min-h-screen bg-gray-100 flex justify-center items-center">
                 <div className="bg-white p-2 px-12 py-4 w-70 h-30 rounded-lg shadow-lg">
-                    <h1 className="text-center">Access denied</h1>
-                    <button>Login</button>
+                    <h1 className="text-center text-xl font-bold text-gray-700 mb-3">Access denied</h1>
+                    <button className="bg-gray-500 mt-2 py-2 px-5 ms-12 text-white hover:bg-gray-600 transition-colors" onClick={() => navigate('/admin/login')}>Login</button>
                 </div>
             </div>
         )
