@@ -6,12 +6,13 @@ const router = express.Router();
 function IsAuthorized (req, res, next) {
        try {
         if (req.session.admin) {
-            next();
+          return  next();
         } 
 
         return res.status(401).json({ message: 'You are not authorized' });
        } catch (err) {
         console.error(err);
+        return res.status(500).json({ message : 'Internal server error' });
        }
 }
 

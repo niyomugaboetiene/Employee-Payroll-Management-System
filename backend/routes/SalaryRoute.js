@@ -5,17 +5,20 @@ import Department from "../schema/DepartmentSchema.js";
 
 const router = express.Router();
 
+
 function IsAuthorized (req, res, next) {
        try {
         if (req.session.admin) {
-            return next();
+          return  next();
         } 
 
-        res.status(401).json({ message: 'You are not authorized' });
+        return res.status(401).json({ message: 'You are not authorized' });
        } catch (err) {
         console.error(err);
+        return res.status(500).json({ message : 'Internal server error' });
        }
 }
+
 
 router.post('/addSalary', IsAuthorized, async (req, res) => {
     try {
