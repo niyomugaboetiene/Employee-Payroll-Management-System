@@ -55,7 +55,7 @@ const MonthlyPayroll = () => {
                 </div>
                   <div className="bg-red-300 mb-2 rounded-lg py-2">
                     {error && (
-                        <p className="text-white ms-2 font-bold">{error}</p>
+                        <p className="text-red-500 ms-2 font-bold">{error}</p>
                     )}
                    </div>
                 <table border={2}>
