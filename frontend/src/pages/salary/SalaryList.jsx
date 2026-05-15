@@ -6,7 +6,7 @@ const SalaryList = () => {
     const [salary, setSalary] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
 
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
 
     const navigate = useNavigate();
     const handleGetSalary = async () => {
