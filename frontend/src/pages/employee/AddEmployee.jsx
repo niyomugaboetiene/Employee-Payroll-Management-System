@@ -70,6 +70,17 @@ const AddEmployee = () => {
         GetDepartment();
     }, []);
 
+        if (!isLoggedIn) {
+        return (
+            <div className="min-h-screen bg-gray-100 flex justify-center items-center">
+                <div className="bg-white p-2 px-12 py-4 w-70 h-30 rounded-lg shadow-lg">
+                    <h1 className="text-center text-xl font-bold text-gray-700 mb-3">Access denied</h1>
+                    <button className="bg-gray-500 mt-2 py-2 px-5 ms-12 text-white hover:bg-gray-600 transition-colors" onClick={() => navigate('/admin/login')}>Login</button>
+                </div>
+            </div>
+        )
+    }
+
     return (
         <div className="bg-gray-200 min-h-screen flex justify-center items-center">
             <div className="bg-white p-3 rounded-lg shadow-2xl w-90">
