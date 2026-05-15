@@ -18,7 +18,6 @@ const SalaryList = () => {
         } catch (err) {
             console.error(err);
             // const errorMessage = err.data?.response?.message || "Error occured";
-            setIsLoading(true);
               if (err.response?.status === 401) {
                 setIsLoggedIn(false);
             }
