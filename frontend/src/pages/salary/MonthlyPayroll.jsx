@@ -15,8 +15,8 @@ const MonthlyPayroll = () => {
     const handleGetSalary = async () => {
         try {
             setIsLoading(true);
-            const res = await axios.get(`http://localhost:4000/salary/montly`,  { withCredentials: true} );
-            setSalary(res.data.salary);
+            const res = await axios.get(`http://localhost:4000/salary/montly/${query}`,  { withCredentials: true} );
+            setSalary(res.data.result);
             setIsLoading(false);
         } catch (err) {
             console.error(err);
@@ -48,7 +48,7 @@ const MonthlyPayroll = () => {
                 <div className="flex justify-between mb-2">
                    <h1 className="mb-1 text-2xl font-bold text-gray-700">Monthly payroll</h1>
                    <div className="flex">
-                        <input type="text" className="bg-gray-300 py-1 px-2 w-80 rounded-s-full focus:outline-1 focus:outline-gray-400" placeholder="search by month"/>
+                        <input type="text" className="bg-gray-300 py-1 px-2 w-80 rounded-s-full focus:outline-1 focus:outline-gray-400" placeholder="search by month" onClick={(e) => setQuery(e.target.value)} />
                         <button className="bg-gray-400 px-6 rounded-e-full text-white hover:bg-gray-500 transition-colors">Search</button>
                    </div>
                 </div>
