@@ -15,7 +15,7 @@ const MonthlyPayroll = () => {
     const handleGetSalary = async () => {
         try {
             setIsLoading(true);
-            const res = await axios.get(`http://localhost:4000/salary/montly/${query}`,  { withCredentials: true} );
+            const res = await axios.get(`http://localhost:4000/salary/montly/?month=${query}`,  { withCredentials: true} );
             setSalary(res.data.result);
             setIsLoading(false);
         } catch (err) {
