@@ -14,7 +14,7 @@ const navigate = useNavigate();
                     <Link className="hover:border-b border-gray-600" to={'/employeeList'}>Employees</Link>
                     <Link className="hover:border-b border-gray-600" to={'/department/departmentList'}>Department</Link>
                     <Link className="hover:border-b border-gray-600" to={'/salary/SalaryList'}>Salary</Link>
-                    <Link className="hover:border-b border-gray-600" to={'/eport'}>Payroll Report</Link>
+                    <Link className="hover:border-b border-gray-600" to={'/salary/month'}>Payroll Report</Link>
                 </nav>
                 <div className="flex  sm:space-x-1 me-4">
                     <button className="bg-gray-200 h-8 mt-5 px-4 rounded-s-full hover:bg-gray-300 transition-colors text-gray-700" onClick={() => navigate('/admin/login')}>Sign in</button>
