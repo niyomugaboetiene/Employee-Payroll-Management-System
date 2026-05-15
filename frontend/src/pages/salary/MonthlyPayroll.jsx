@@ -62,9 +62,9 @@ const MonthlyPayroll = () => {
             <div className="mt-30">
                 <div className="flex justify-between mb-1">
                    <h1 className="mb-1 text-2xl font-bold text-gray-700">Monthly payroll</h1>
-                   <div className="flex space-x-4">
-                        <input type="text" className="bg-gray-300 py-1 px-2 w-80 rounded-full"/>
-                        <button>Search</button>
+                   <div className="flex">
+                        <input type="text" className="bg-gray-300 py-1 px-2 w-80 rounded-s-full focus:outline-1 focus:outline-gray-400"/>
+                        <button className="bg-gray-400 px-6 rounded-full">Search</button>
                    </div>
                 </div>
                 <table border={2}>
