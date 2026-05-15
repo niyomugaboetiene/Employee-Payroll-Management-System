@@ -18,7 +18,10 @@ app.use(session({
     secret: 'my-secret-key',
     resave: false,
     saveUninitialized: true,
-    cookie: { httpOnly: true, maxAge: 60 * 60 * 1000 }
+    // cookie: { httpOnly: true, maxAge: 60 * 60 * 1000 }
+    cookie: {
+        secure: false
+    }
 }))
 
 app.use('/employee', EmployeeRoute);
