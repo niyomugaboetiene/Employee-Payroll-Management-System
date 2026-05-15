@@ -61,11 +61,10 @@ const HomePage = () => {
 
     if (!isLoggedIn) {
         return (
-            <div className="min-h-screen bg-gray-100 justify-center items-center">
-                <div className="relative bg-red-200 w-full">
-                <h1 className="absolute top-24 left-4 text-red-500 text-2xl font-bold">
-                    Please login to view this page
-                </h1>
+            <div className="min-h-screen bg-gray-100 flex justify-center items-center">
+                <div className="bg-white p-2 px-12 py-4 w-70 h-30 rounded-lg shadow-lg">
+                    <h1 className="text-center">Access denied</h1>
+                    <button>Login</button>
                 </div>
             </div>
         )
