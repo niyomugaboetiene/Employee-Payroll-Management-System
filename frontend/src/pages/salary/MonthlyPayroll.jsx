@@ -28,24 +28,6 @@ const MonthlyPayroll = () => {
         handleGetSalary();
     }, []);
 
-    const handleDeleteSalary = async (_id) => {
-        try {
-            const confrim = window.confirm("Are you sure ?");
-            if (!confrim) {
-                return;
-            }
-            setIsLoading(true);
-            await axios.delete(`http://localhost:4000/salary/delete/${_id}`,  { withCredentials: true} );
-            await handleGetSalary();
-            setIsLoading(false);
-        } catch (err) {
-            console.error(err);
-           if (err.response?.status === 401) {
-                setIsLoggedIn(false);
-            }
-        }
-    }
-
     if (!isLoggedIn) {
         return (
             <div className="min-h-screen bg-gray-100 flex justify-center items-center">
@@ -60,10 +42,10 @@ const MonthlyPayroll = () => {
     return (
         <div className="bg-gray-50 min-h-screen flex justify-center">
             <div className="mt-30">
-                <div className="flex justify-between mb-1">
+                <div className="flex justify-between mb-2">
                    <h1 className="mb-1 text-2xl font-bold text-gray-700">Monthly payroll</h1>
                    <div className="flex">
-                        <input type="text" className="bg-gray-300 py-1 px-2 w-80 rounded-s-full focus:outline-1 focus:outline-gray-400"/>
+                        <input type="text" className="bg-gray-300 py-1 px-2 w-80 rounded-s-full focus:outline-1 focus:outline-gray-400" placeholder="search by month"/>
                         <button className="bg-gray-400 px-6 rounded-e-full text-white hover:bg-gray-500 transition-colors">Search</button>
                    </div>
                 </div>
