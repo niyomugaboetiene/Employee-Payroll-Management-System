@@ -13,6 +13,9 @@ const Footer = () => {
                 <Link>Salary</Link>
                 <Link>Payroll Report</Link>
             </div>
+            <div>
+                <h1>Contact us</h1>
+            </div>
          </div>
         </div>
     )
