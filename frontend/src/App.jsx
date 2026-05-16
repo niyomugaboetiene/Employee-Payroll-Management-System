@@ -10,6 +10,7 @@ import SalaryList from "./pages/salary/SalaryList"
 import UpdateSalary from "./pages/salary/UpdateSalary"
 import NavBar from "./pages/dashboard/Nav"
 import HomePage from "./pages/dashboard/Home"
+import Footer from "./pages/dashboard/Footer"
 import MonthlyPayroll from "./pages/salary/MonthlyPayroll"
 
 // auth
@@ -43,6 +44,7 @@ function App() {
               <Route path="/admin/login" element={<Login />}/>
               <Route path="/admin/register" element={<Register />}/>
           </Routes>
+          <Footer />
       </BrowserRouter>
 
     // <BrowserRouter>
