@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 const Footer = () => {
     return (
-        <div>
-         <div>
+        <div className="m-2 flex">
+         <div className="fixed top-200 left-10">
             <div>
                 <h1>EMPS</h1>
             </div>
