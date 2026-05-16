@@ -8,16 +8,17 @@ const Footer = () => {
                 <h1 className="text-4xl bg-linear-to-b from-green-500 to-gray-700 via-purple-600 font-bold bg-clip-text text-transparent">EMPS</h1>
             </div>
             <div className="grid space-y-2 mt-4">
+                <h1>Navigation</h1>
                 <Link className="text-stone-900 hover:underline transition duration-200">Home</Link>
-                <Link>Employees</Link>
-                <Link>Department</Link>
-                <Link>Salary</Link>
-                <Link>Payroll Report</Link>
+                <Link className="text-stone-900 hover:underline transition duration-200">Employees</Link>
+                <Link className="text-stone-900 hover:underline transition duration-200">Department</Link>
+                <Link className="text-stone-900 hover:underline transition duration-200">Salary</Link>
+                <Link className="text-stone-900 hover:underline transition duration-200">Payroll Report</Link>
             </div>
-            <div>
-                <h1>Contact us</h1>
-                <p>niyomugaboetiene53@gmail.com</p>
-                <p>+250 796 878 992</p>
+            <div className="space-y-2 mt-4">
+                <h1 className="text-2xl font-bold text-stone-700">Contact us</h1>
+                <p className="text-stone-900 hover:underline transition duration-200">niyomugaboetiene53@gmail.com</p>
+                <p className="text-stone-900">+250 796 878 992</p>
             </div>                
             </div>
          </div>
