@@ -15,6 +15,8 @@ const Footer = () => {
             </div>
             <div>
                 <h1>Contact us</h1>
+                <p>niyomugaboetiene53@gmail.com</p>
+                <p>+250 796 878 992</p>
             </div>
          </div>
         </div>
