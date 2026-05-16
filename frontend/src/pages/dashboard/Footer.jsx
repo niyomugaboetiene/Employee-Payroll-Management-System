@@ -7,7 +7,7 @@ const Footer = () => {
             <div>
                 <h1>EMPS</h1>
             </div>
-            <div>
+            <div className="grid">
                 <Link>Home</Link>
                 <Link>Employees</Link>
                 <Link>Department</Link>
