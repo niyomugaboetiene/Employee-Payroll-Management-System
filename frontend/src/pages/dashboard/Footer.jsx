@@ -3,7 +3,7 @@ const Footer = () => {
     return (
         <div className="m-2 flex">
          <div className="fixed top-190 h-full bg-gray-200 w-full py-4 p-3">
-            <div className="flex">
+            <div className="flex justify-between">
             <div>
                 <h1>EMPS</h1>
             </div>
