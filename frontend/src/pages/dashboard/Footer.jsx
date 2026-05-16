@@ -4,8 +4,8 @@ const Footer = () => {
         <div className="m-2 flex">
          <div className="fixed top-190 h-full bg-gray-200 w-full py-4 p-12">
             <div className="flex justify-between">
-            <div>
-                <h1>EMPS</h1>
+            <div className="relative top-19 left-30">
+                <h1 className="text-4xl bg-linear-to-b ">EMPS</h1>
             </div>
             <div className="grid">
                 <Link>Home</Link>
