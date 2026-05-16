@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 const Footer = () => {
     return (
         <div className="m-2 flex">
-         <div className="fixed top-190 bg-gray-200 w-full py-4 p-3">
+         <div className="fixed top-190 h-full bg-gray-200 w-full py-4 p-3">
+            <div className="flex">
             <div>
                 <h1>EMPS</h1>
             </div>
@@ -17,6 +18,7 @@ const Footer = () => {
                 <h1>Contact us</h1>
                 <p>niyomugaboetiene53@gmail.com</p>
                 <p>+250 796 878 992</p>
+            </div>                
             </div>
          </div>
         </div>
