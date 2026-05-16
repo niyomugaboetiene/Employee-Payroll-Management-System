@@ -13,7 +13,7 @@ const Footer = () => {
                 <Link className="text-stone-900 hover:underline transition duration-200" to={'/employeeList'}>Employees</Link>
                 <Link className="text-stone-900 hover:underline transition duration-200" to={'/department/departmentList'}>Department</Link>
                 <Link className="text-stone-900 hover:underline transition duration-200" to={'/salary/SalaryList'}>Salary</Link>
-                <Link className="text-stone-900 hover:underline transition duration-200">Payroll Report</Link>
+                <Link className="text-stone-900 hover:underline transition duration-200" to={'/salary/month'}>Payroll Report</Link>
             </div>
             <div className="space-y-2 mt-4">
                 <h1 className="text-2xl font-bold text-stone-700">Contact us</h1>
