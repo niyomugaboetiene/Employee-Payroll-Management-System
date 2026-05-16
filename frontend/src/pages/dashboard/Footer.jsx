@@ -5,7 +5,7 @@ const Footer = () => {
          <div className="fixed top-190 h-full bg-gray-200 w-full py-4 p-12">
             <div className="flex justify-between">
             <div className="relative top-19 left-30">
-                <h1 className="text-4xl bg-linear-to-b from-gray-500 to-white bg-clip-text text-transparent">EMPS</h1>
+                <h1 className="text-4xl bg-linear-to-b from-green-500 to-gray-700 via-purple-600 font-bold bg-clip-text text-transparent">EMPS</h1>
             </div>
             <div className="grid">
                 <Link>Home</Link>
