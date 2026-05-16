@@ -8,7 +8,7 @@ const Footer = () => {
                 <h1 className="text-4xl bg-linear-to-b from-green-500 to-gray-700 via-purple-600 font-bold bg-clip-text text-transparent">EMPS</h1>
             </div>
             <div className="grid space-y-2 mt-4">
-                <Link>Home</Link>
+                <Link className="text-stone-900 hover:underline transition duration-200">Home</Link>
                 <Link>Employees</Link>
                 <Link>Department</Link>
                 <Link>Salary</Link>
